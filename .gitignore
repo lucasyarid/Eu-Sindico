@@ -12,21 +12,6 @@ Thumbs.db
 *.sql
 *.sqlite
 
-# Sublime
+# Editors
 *.sublime-*
-
-# PhpStorm
 .idea
-
-# Node JS
-node_modules
-bower_components
-package-lock.json
-assets/maps
-assets/bibliotecas/normalize.css
-
-#Compilados
-*.map
-/assets/maps
-style.css
-scripts.js

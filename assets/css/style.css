@@ -1,0 +1,111 @@
+body { font-family: 'Montserrat', sans-serif; }
+html,
+body { position: relative; height: 100%; }
+a { color: #000; }
+a:hover { color: #4FE782; text-decoration: none; }
+*:focus { outline: none; }
+
+.btn-success { background-color: #4FE782; border-color: #4FE782; }
+.btn-success:focus,
+.btn-success:hover { background-color: #44C770 !important; border-color: #44C770 !important; }
+.btn-lg { padding: 1rem 1.5rem; font-size: 1rem; }
+.btn-rounded { border-radius: 2rem; }
+
+#app-container { width: 100%; height: 100%; }
+
+#nav.swiper-slide-active { -webkit-box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 100px 0px rgba(0,0,0,0.75); }
+#nav { background: #fff; width: 80%; max-width: 320px; z-index: 2; transition: box-shadow 0.3s ease-in-out; }
+#nav header { height: 172px; position: relative; background-size: 100% auto; padding-top: 40px; }
+#nav .avatar { width: 64px; height: 64px; border-radius: 100%; background-position: center center; background-size: 100% auto; margin: 0 0 32px 0; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); }
+#nav .house-number { color: #fff; text-shadow: 2px 2px 5px rgba(150, 150, 150, 0.95); }
+#nav ul,
+#nav li { padding: 0; margin: 0; list-style: none; }
+#nav ul { padding-top: 10px; }
+#nav li { margin-bottom: 6px; }
+#nav li a { display: block; padding: 7px 0; }
+#nav i { margin-right: 30px; font-size: 1.2em; line-height: 1em; width: 20px; text-align: center; }
+#nav .new-order { text-align: center; margin-top: 15px; }
+
+#menu-control { width: 24px; height: 16px; position: relative; }
+#menu-control span { position: absolute; top: 50%; left: 0; display: block; width: 100%; height: 0.2em; margin-top: -0.1em; background-color: #000; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-transition: background-color 0.3s; transition: background-color 0.3s; }
+#menu-control span:after,
+#menu-control span:before { position: absolute; left: 0; width: 100%; height: 100%; background: #000; content: ''; -webkit-transition: -webkit-transform 0.3s; transition: transform 0.3s; }
+#menu-control span:before { -webkit-transform: translateY(0.5em); transform: translateY(0.5em); }
+#menu-control span:after { -webkit-transform: translateY(-0.5em); transform: translateY(-0.5em); }
+#menu-control.open-menu-control span:before { -webkit-transform: translateY(-0.28em) translateX(-0.6em) rotate(-45deg) scaleX(0.6); transform: translateY(-0.28em) translateX(-0.5em) rotate(-45deg) scaleX(0.6); }
+#menu-control.open-menu-control span:after { -webkit-transform: translateY(0.28em) translateX(-0.6em) rotate(45deg) scaleX(0.6); transform: translateY(0.28em) translateX(-0.5em) rotate(45deg) scaleX(0.6); }
+#content-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 9999; padding-top: 15px; }
+#content-header h2 { font-weight: 600; font-size: 1.4em; line-height: 1em; position: relative; }
+#content-header .notification { position: relative; z-index: 5000; }
+#content-header .notification i { font-size: 1.5em; line-height: 1em; z-index: 1001; position: relative; }
+#content-header .notification .badge { position: absolute; top: -6px; right: -6px; z-index; 2; z-index: 1001; }
+#content-header .notification .notification-circle { background-color: #fff; width: 10px; height: 10px; position: absolute; border-radius: 50%; transform: scale(1); z-index: 1000; transition: all 0.2s ease-in-out; margin: -15px 0 0 5px; }
+
+#content-header .notification .notification-close { width: 120px; height: 120px; position: absolute; top: -120px; right: -120px; border-radius: 100%; transform: scale(1); z-index: 1001; transition: all 0.2s ease-in-out;
+background: rgb(255,70,70); background: -moz-linear-gradient(top, rgba(255,70,70,1) 0%, rgba(191,156,245,1) 100%); background: -webkit-linear-gradient(top, rgba(255,70,70,1) 0%,rgba(191,156,245,1) 100%); background: linear-gradient(to bottom, rgba(255,70,70,1) 0%,rgba(191,156,245,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4646', endColorstr='#bf9cf5',GradientType=0 ); color: #fff; }
+#content-header .notification .notification-close .fa { position: absolute; bottom: 25px; left: 25px; }
+#content-header .notification.open .notification-close { top: -70px; right: -70px; }
+#content-header .notification.open .notification-circle { transform: scale(120); }
+
+#notifications { visibility: hidden; color: #333; height: 100%; width: 100%; position: absolute; top: 60px; left: 0; transition: opacity 0.2s ease-in-out; z-index: 6000; opacity: 0; color: #000; padding: 0 30px; }
+#notifications.open { opacity: 1; visibility: visible; }
+#notifications h3 { font-weight: 700; }
+#notifications ul,
+#notifications li { padding: 0; margin: 0; list-style: none; }
+#notifications li { border-bottom: 1px solid #D4D4D4; line-height: 1em; padding-left: 4px; }
+#notifications li a { display: block; padding: 8px 0; }
+#notifications .fa { font-size: 1.5em; margin-right: 20px; width: 26px; }
+#notifications time { margin-left: 20px; font-size: 0.8em; text-align: right; }
+#notifications span { font-size: 0.9em; line-height: 1.2em; }
+#notifications span i { font-style: normal; font-size: 0.9em; display: block;}
+#notifications .active .fa { color: #4FE782; }
+#notifications .disable .fa { color: #FF4646; }
+#notifications .expired { color: #C4C4C4; }
+#notifications .expired .fa { color: #C4C4C4; }
+
+#home { width: 100%; }
+#home header { height: 300px; position: relative; background-size: 100% auto; padding-top: 15px; }
+#home header:before { position: absolute; top: 0; left: 0; width: 100%; height: 50%; content: " "; background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); }
+#home main h3 { text-transform: uppercase; text-align: center; font-size: 1em; line-height: 1.3em; font-weight: 600; margin: 30px 0; }
+#home main h3 span { font-size: 0.8em; line-height: 1em; font-weight: normal; display: block; }
+#home nav .option { text-align: center; font-size: 0.8em; margin-bottom: 42px; }
+#home nav .bubble { position: relative; width: 50px; height: 50px; display: block; margin: 0 auto; color: #fff; padding: 0; border-radius: 100%; margin-bottom: 4px; }
+#home nav .bubble .fa { font-size: 1.9em; margin-top: 13px; line-height: 1em; }
+#home nav .bubble .badge { position: absolute; bottom: -3px; right: -6px; z-index; 2; border: 1px solid #000; background: #fff; font-style: normal; padding: 3px 6px; }
+#home nav .bubble.orders { background: #4FE782; }
+#home nav .bubble.orders .badge { border-color: #4FE782; color: #4FE782; }
+#home nav .bubble.budgeting { background: #002078; }
+#home nav .bubble.budgeting .badge { border-color: #002078; color: #002078; }
+#home nav .bubble.in-progress { background: #FF4646; }
+#home nav .bubble.in-progress .badge { border-color: #FF4646; color: #FF4646; }
+#home nav .bubble.finished { background: #8143FF; }
+#home nav .bubble.finished .badge { border-color: #8143FF; color: #8143FF; }
+#home nav .bubble.configuration { background: #50D6F1; }
+#home nav .bubble.configuration .badge { border-color: #50D6F1; color: #50D6F1; }
+#home nav .bubble.new-order { color: #95989A; }
+#home nav .bubble.new-order .fa { border: 2px solid #95989A; border-radius: 100%; padding: 5px 7px 3px 7px; margin-top: 10px; }
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+	
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+	
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	
+}
