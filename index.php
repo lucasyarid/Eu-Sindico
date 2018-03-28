@@ -2,38 +2,46 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="assets/libraries/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/libraries/normalize/8.0.0/normalize.min.css">
 	<link rel="stylesheet" href="assets/libraries/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/libraries/swiper/4.2.0/css/swiper.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="assets/libraries/blueimp-file-upload/9.21.0/css/jquery.fileupload.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<title>Eu Síndico</title>
 	<meta name="description" content="" />
 </head>
 <body>
-	<div id="gallery">
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide">
-					<img data-src="//picsum.photos/640/560" class="swiper-lazy">
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide">
-					<img data-src="//picsum.photos/320/560" class="swiper-lazy">
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
-				<div class="swiper-slide">
-					<img data-src="//picsum.photos/600/560" class="swiper-lazy">
-					<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-				</div>
+	<div id="gallery" style="display: none;">
+		<header>
+			<div class="container-fluid d-flex align-items-center">
+				<h3>Guarda-sóis</h3>
+				<i class="ml-auto fa fa-close gallery-close"></i>
 			</div>
-			<div class="swiper-pagination"></div>
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
-		</div>
+		</header>
+		<main class="h-100">
+			<div class="swiper-container h-100">
+				<div class="swiper-wrapper h-100">
+					<div class="swiper-slide">
+						<img data-src="//picsum.photos/640/560" class="swiper-lazy">
+						<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+					</div>
+					<div class="swiper-slide">
+						<img data-src="//picsum.photos/320/560" class="swiper-lazy">
+						<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+					</div>
+					<div class="swiper-slide">
+						<img data-src="//picsum.photos/600/560" class="swiper-lazy">
+						<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</main>
 	</div>
 	
 	<div id="loading" style="display: none;">
@@ -97,7 +105,9 @@
 	<script src="assets/libraries/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/libraries/popper.js/1.14.0/popper.min.js"></script>
 	<script src="assets/libraries/swiper/4.2.0/js/swiper.min.js"></script>
-	
+	<script src="assets/libraries/blueimp-file-upload/9.21.0/js/vendor/jquery.ui.widget.min.js"></script>
+	<script src="assets/libraries/blueimp-file-upload/9.21.0/js/jquery.fileupload.min.js"></script>
+	<script src="assets/libraries/blueimp-file-upload/9.21.0/js/jquery.iframe-transport.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
 	<script>
 	jQuery(document).ready(function($){
@@ -125,23 +135,7 @@
 				$('#menu-control').removeClass('open-menu-control');
 			}
 		});
-		
-		//
-		var gallery = new Swiper('#gallery .swiper-container', {
-			slidesPerView: 'auto',
-			centeredSlides: true,
-			spaceBetween: 30,
-			lazy: true,
-			pagination: {
-				el: '.swiper-pagination',
-				type: 'progressbar',
-			},
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		});
-		
+			
 		// Notification Trigger
 		$("#notification-trigger").on('click',function(e) {
 			e.preventDefault();
@@ -153,6 +147,52 @@
 		var cards = new Swiper('#app-cards', {
 			slidesPerView: 'auto',
 			spaceBetween: 15
+		});
+		
+		// Gallery Trigger
+		$('a.gallery').on('click',function(){
+			$('#gallery').fadeIn('fast');
+			var gallery = new Swiper('#gallery .swiper-container', {
+				slidesPerView: 'auto',
+				centeredSlides: true,
+				spaceBetween: 0,
+				lazy: true,
+				pagination: {
+					el: '.swiper-pagination',
+					type: 'progressbar',
+				},
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
+		});
+		$('#gallery .gallery-close').on('click',function(){
+			$('#gallery').fadeOut('fast');
+		});
+		
+		// File Upload Trigger
+		$('#fileupload').fileupload({
+			autoUpload: true,
+			url: '//jquery-file-upload.appspot.com/server/php/',
+			dataType: 'json',
+			done: function (e, data) {
+				$.each(data.result.files, function (index, file) {
+					console.log(data.result.files);
+					$('<p/>').html('<img src="'+file.thumbnailUrl+'" /> '+file.name).appendTo('.fileupload');
+					$('#progress-bar .progress-bar').removeClass('progress-bar-animated');
+					
+					
+				});
+			},
+			progressall: function (e, data) {
+				$('#progress-bar .progress-bar').addClass('progress-bar-animated');
+				var progress = parseInt(data.loaded / data.total * 100, 10);
+				$('#progress-bar .progress-bar').css(
+					'width',
+					progress + '%'
+				);
+			}
 		});
 	});
 	</script>
