@@ -149,6 +149,12 @@
 			spaceBetween: 15
 		});
 		
+		// Confirmation Trigger
+		var confirmation = new Swiper('#app-confirmation', {
+			slidesPerView: 'auto',
+			spaceBetween: 12
+		});
+		
 		// Gallery Trigger
 		$('a.gallery').on('click',function(){
 			$('#gallery').fadeIn('fast');
