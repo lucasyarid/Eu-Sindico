@@ -7,14 +7,14 @@
 		<div id="notification-trigger" class="notification"></div>
 	</div>
 </header>
-<section id="cards">
+<section id="cards-swipe">
 	<nav class="d-flex justify-content-center">
 		<a href="#" class="select">Novos<span class="badge badge-pill badge-danger">1</span></a>
 		<a href="#">Aceitos</a>
 		<a href="#">Negados</a>
 	</nav>
 	<main>
-		<div class="swiper-container" id="app-cards">
+		<div class="swiper-container" id="app-cards-swipe">
 			<div class="swiper-wrapper">
 				<div class="swiper-slide box" style="background-image: url(//picsum.photos/300/400)">
 					<div class="info">

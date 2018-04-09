@@ -144,7 +144,7 @@
 		});	
 		
 		// Cards Trigger
-		var cards = new Swiper('#app-cards', {
+		var cards_swipe = new Swiper('#app-cards-swipe', {
 			slidesPerView: 'auto',
 			spaceBetween: 15
 		});
