@@ -60,7 +60,7 @@ a:hover { color: #4FE782; text-decoration: none; }
 #content-header h3 { font-weight: 600; font-size: 1.2em; line-height: 1em; position: relative; margin: 0; padding: 0 22px 0 0; }
 #content-header .notification { position: relative; z-index: 5000; }
 #content-header .notification i { font-size: 1.5em; line-height: 1em; z-index: 1001; position: relative; }
-#content-header .notification .badge { position: absolute; top: -6px; right: -6px; z-index; 2; z-index: 1001; }
+#content-header .notification .badge { position: absolute; top: -6px; right: -6px; z-index: 2; z-index: 1001; }
 #content-header .notification .notification-circle { background-color: #fff; width: 10px; height: 10px; position: absolute; border-radius: 50%; transform: scale(1); z-index: 1000; transition: all 0.2s ease-in-out; margin: -15px 0 0 5px; }
 #content-header .notification .notification-close { width: 120px; height: 120px; position: absolute; top: -120px; right: -120px; border-radius: 100%; transform: scale(1); z-index: 1001; transition: all 0.2s ease-in-out; background: rgb(255,70,70); background: -moz-linear-gradient(top, rgba(255,70,70,1) 0%, rgba(191,156,245,1) 100%); background: -webkit-linear-gradient(top, rgba(255,70,70,1) 0%,rgba(191,156,245,1) 100%); background: linear-gradient(to bottom, rgba(255,70,70,1) 0%,rgba(191,156,245,1) 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff4646', endColorstr='#bf9cf5',GradientType=0 ); color: #fff; }
 #content-header .notification .notification-close .fa { position: absolute; bottom: 25px; left: 25px; }

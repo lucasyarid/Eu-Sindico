@@ -1,0 +1,63 @@
+#flip main {
+  .excerpt {
+    font-size: 0.8em;
+  }
+  .box {
+    width: 95%;
+    border-radius: 30px;
+    overflow: hidden;
+    background: #D5D5D5;
+    border: 2px solid #D5D5D5;
+  }
+  .selected {
+    background: #4FE782;
+    border-color: #4FE782;
+    border-width: 6px;
+  }
+  .info {
+    padding: 26px 26px 1px 26px;
+    width: 100%;
+    background: #fff;
+    border-radius: 30px;
+  }
+  h3 {
+    font-size: 1.4em;
+    line-height: 1em;
+    margin-bottom: 22px;
+  }
+  h4 {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    line-height: 1em;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  ul {
+    margin-bottom: 22px;
+    li {
+      margin-bottom: 8px;
+      line-height: 1em;
+      a {
+        color: #50D6F1;
+      }
+      i {
+        font-size: 1.3em;
+        line-height: 1em;
+        width: 24px;
+        text-align: center;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+    }
+  }
+  .selected .btn {
+    background: #fff;
+    border-color: #fff;
+    color: #4FE782;
+  }
+}

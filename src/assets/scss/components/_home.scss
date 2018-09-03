@@ -1,0 +1,112 @@
+#home {
+  width: 100%;
+  header {
+    height: 300px;
+    position: relative;
+    background-size: 100% auto;
+    padding-top: 15px;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      content: " ";
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+    }
+  }
+  main h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1em;
+    line-height: 1.3em;
+    font-weight: 600;
+    margin: 30px 0;
+    span {
+      font-size: 0.8em;
+      line-height: 1em;
+      font-weight: normal;
+      display: block;
+    }
+  }
+  nav {
+    .option {
+      text-align: center;
+      font-size: 0.8em;
+      margin-bottom: 42px;
+    }
+    .bubble {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0 auto;
+      color: #fff;
+      padding: 0;
+      border-radius: 100%;
+      margin-bottom: 4px;
+      .fa {
+        font-size: 1.9em;
+        margin-top: 13px;
+        line-height: 1em;
+      }
+      .badge {
+        position: absolute;
+        bottom: -3px;
+        right: -6px;
+        z-index: 2;
+        border: 1px solid #000;
+        background: #fff;
+        font-style: normal;
+        padding: 3px 6px;
+      }
+      &.orders {
+        background: #4FE782;
+        .badge {
+          border-color: #4FE782;
+          color: #4FE782;
+        }
+      }
+      &.budgeting {
+        background: #002078;
+        .badge {
+          border-color: #002078;
+          color: #002078;
+        }
+      }
+      &.in-progress {
+        background: #FF4646;
+        .badge {
+          border-color: #FF4646;
+          color: #FF4646;
+        }
+      }
+      &.finished {
+        background: #8143FF;
+        .badge {
+          border-color: #8143FF;
+          color: #8143FF;
+        }
+      }
+      &.configuration {
+        background: #50D6F1;
+        .badge {
+          border-color: #50D6F1;
+          color: #50D6F1;
+        }
+      }
+      &.new-order {
+        color: #95989A;
+        .fa {
+          border: 2px solid #95989A;
+          border-radius: 100%;
+          padding: 5px 7px 3px 7px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

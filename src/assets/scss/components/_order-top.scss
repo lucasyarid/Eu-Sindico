@@ -1,0 +1,58 @@
+#order-top {
+  position: relative;
+  background-size: 100% auto;
+  color: #fff;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    content: " ";
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(255, 255, 255, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00ffffff',GradientType=1 );
+  }
+  h4 {
+    font-size: 1.8em;
+    line-height: 1em;
+    font-weight: 600;
+    margin: 0;
+    span {
+      font-size: 0.6em;
+      display: block;
+      font-weight: normal;
+    }
+  }
+  .order-reference {
+    display: block;
+    line-height: 1em;
+    font-size: 0.9em;
+    margin: 6px 0 0 0;
+    .fa {
+      font-size: 1.3em;
+      line-height: 1em;
+      padding-right: 4px;
+    }
+  }
+  .gallery {
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 10px;
+    font-size: 0.8em;
+    line-height: 1em;
+    font-weight: 700;
+    i {
+      margin-right: 8px;
+    }
+  }
+  .info {
+    z-index: 2;
+    position: relative;
+    padding: 20px 0 20px 20px;
+  }
+}

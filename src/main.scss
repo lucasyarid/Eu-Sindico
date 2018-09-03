@@ -2,6 +2,7 @@
 @import '/assets/scss/general/variables';
 @import '/assets/scss/general/normalize';
 @import '/assets/scss/general/typography';
+@import '/assets/scss/general/general';
 
 // Forms
 @import '/assets/scss/forms/button';
@@ -9,6 +10,20 @@
 @import '/assets/scss/forms/table';
 
 // Components
+@import '/assets/scss/components/cards-swipe';
+@import '/assets/scss/components/cards-wide';
+@import '/assets/scss/components/checkout';
+@import '/assets/scss/components/confirmation';
+@import '/assets/scss/components/flip';
+@import '/assets/scss/components/gallery';
+@import '/assets/scss/components/header';
+@import '/assets/scss/components/home';
+@import '/assets/scss/components/loading';
+@import '/assets/scss/components/nav';
+@import '/assets/scss/components/notifications';
+@import '/assets/scss/components/order-top';
+@import '/assets/scss/components/order';
+@import '/assets/scss/components/timeline';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -27,3 +42,5 @@
     }
   }
 }
+
+#notifications { display: none !important; }
