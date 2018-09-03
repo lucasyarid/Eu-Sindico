@@ -1,0 +1,29 @@
+// General
+@import '/assets/scss/general/variables';
+@import '/assets/scss/general/normalize';
+@import '/assets/scss/general/typography';
+
+// Forms
+@import '/assets/scss/forms/button';
+@import '/assets/scss/forms/input';
+@import '/assets/scss/forms/table';
+
+// Components
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+#nav {
+  padding: 30px;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
