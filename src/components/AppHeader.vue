@@ -17,11 +17,6 @@
 <script>
 export default {
   name: 'AppHeader',
-  props: ['notificationOpen'],
-  methods: {
-    checkNotification () {
-      console.log(this.notificationOpen)
-    }
-  }
+  props: ['notificationOpen']
 }
 </script>
