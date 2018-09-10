@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <nav id="notifications">
+  <div class="swiper-slide content" id="content">
+    <nav id="notifications" :class="{ open: notificationActive }">
       <h3>Notificações</h3>
       <ul>
         <li class="active">
@@ -61,7 +61,7 @@
           <span></span>
         </div>
         <h2>Eu Síndico</h2>
-        <div id="notification-trigger" class="notification">
+        <div id="notification-trigger" class="notification" @click="notificationActive = !notificationActive" :class="{ open: notificationActive }">
           <i class="fa fa-bell"></i><span class="badge badge-pill badge-danger">1</span>
           <div class="notification-circle"></div>
           <div class="notification-close"><i class="fa fa-close"></i></div>
@@ -97,6 +97,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data: function () {
+    return {
+      notificationActive: false
+    }
   }
 }
 </script>
