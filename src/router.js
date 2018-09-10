@@ -12,6 +12,11 @@ export default new Router({
       component: Home
     },
     {
+      path: '/timeline',
+      name: 'timeline',
+      component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

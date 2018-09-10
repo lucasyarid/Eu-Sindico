@@ -9,7 +9,7 @@
     <nav>
       <div class="container">
         <ul>
-          <li><a href="#"><i class="fa fa-home"></i> Inicio</a></li>
+          <li><router-link to="/"><i class="fa fa-home"></i> Inicio</router-link></li>
           <li><a href="#"><i class="fa fa-folder"></i> Pedidos</a></li>
           <li><a href="#"><i class="fa fa-wpforms"></i> Orçamentos</a></li>
           <li><a href="#"><i class="fa fa-play"></i> Em Progresso</a></li>
@@ -17,6 +17,8 @@
           <li><a href="#"><i class="fa fa-cog"></i> Ajustes</a></li>
           <li><router-link to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
           <li><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
+          <br>
+          <li><router-link to="/timeline"><i class="fa fa-info-circle"></i> Timeline</router-link></li>
         </ul>
         <div class="new-order"><a href="#" class="btn btn-success btn-lg btn-rounded"><strong>Criar novo pedido</strong></a></div>
       </div>

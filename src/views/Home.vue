@@ -1,9 +1,6 @@
 <template>
   <div class="home">
 
-    <Gallery/>
-    <Loading/>
-
     <div class="swiper-container" id="app-container">
       <div class="swiper-wrapper" :class="{ open: menuOpen }">
         <Menu/>
@@ -24,8 +21,6 @@
 
 <script>
 // @ is an alias to /src
-import Loading from '@/components/Loading.vue'
-import Gallery from '@/components/Gallery.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 import Notification from '@/components/Notification.vue'
 import AppHeader from '@/components/AppHeader.vue'
@@ -34,8 +29,6 @@ import Menu from '@/components/Menu.vue'
 export default {
   name: 'home',
   components: {
-    Loading,
-    Gallery,
     HelloWorld,
     AppHeader,
     Notification,
