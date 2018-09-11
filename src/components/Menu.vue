@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-slide menu" id="nav">
+  <div id="nav" class="swiper-slide menu" :class="{ open: menuOpen }">
     <header style="background-image: url(//picsum.photos/640/480)">
       <div class="container">
         <div class="avatar" style="background-image: url(//api.adorable.io/avatars/64)"></div>

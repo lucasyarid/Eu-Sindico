@@ -1,20 +1,26 @@
 <template>
-  <div id="app">
-    <div class="home">
-      <div class="swiper-container" id="app-container">
-        <div class="swiper-wrapper" :class="{ open: menuOpen }">
-          <Menu
-            @menuToggle="menuOpen = !menuOpen"/>
-          <div class="swiper-slide content" id="content">
-            <Notification
-              :notificationOpen="notificationOpen"/>
-            <AppHeader
-              :notificationOpen="notificationOpen"
-              :title="title"
-              @notificationToggle="notificationOpen = !notificationOpen"
-              @menuToggle="menuOpen = !menuOpen" />
-            <router-view @getTitle="title = $event"/>
-          </div>
+  <div id="app" :class="childClasses">
+    <div class="swiper-container" id="app-container">
+      <div class="swiper-wrapper" :class="{ open: menuOpen }">
+        <Menu
+          :menuOpen="menuOpen"
+          @menuToggle="menuOpen = !menuOpen"/>
+        <div class="swiper-slide content" id="content">
+          <Notification
+            :notificationOpen="notificationOpen"/>
+          <AppHeader
+            :menuOpen="menuOpen"
+            :menuBack="menuBack"
+            :notificationOpen="notificationOpen"
+            :title="title"
+            @goBack="goBack"
+            @notificationToggle="notificationOpen = !notificationOpen"
+            @menuToggle="menuOpen = !menuOpen" />
+          <router-view
+            @getMenu="menuBack = $event"
+            @getTitle="title = $event"
+            @getClasses="childClasses = $event"
+            :childClasses="childClasses"/>
         </div>
       </div>
     </div>
@@ -38,7 +44,14 @@ export default {
     return {
       menuOpen: false,
       notificationOpen: false,
-      title: String
+      title: String,
+      childClasses: Array,
+      menuBack: false
+    }
+  },
+  methods: {
+    goBack () {
+      window.history.back()
     }
   }
 }

@@ -16,6 +16,9 @@
     background: linear-gradient(135deg, rgba(191, 156, 245, 1) 0%, rgba(255, 70, 70, 1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf9cf5', endColorstr='#ff4646',GradientType=1 );
   }
+  .product, .service {
+    height: 50vh;
+  }
   nav {
     text-align: center;
     height: auto;
@@ -23,7 +26,6 @@
     flex-direction: column;
     min-height: 100%;
     .box {
-      flex: 1;
       display: flex;
       justify-content: center;
       flex-direction: column;

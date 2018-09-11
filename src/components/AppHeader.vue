@@ -1,9 +1,18 @@
 <template>
   <header id="content-header">
     <div class="container d-flex justify-content-between align-items-center">
-      <div id="menu-control" @click="$emit('menuToggle')">
-        <span></span>
-      </div>
+
+      <template v-if="menuBack">
+        <div id="menu-control" @click="$emit('goBack')" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
+          <span></span>
+        </div>
+      </template>
+      <template v-else>
+        <div id="menu-control" @click="$emit('menuToggle')" :class="{ 'open-menu-control': menuOpen }">
+          <span></span>
+        </div>
+      </template>
+
       <h2>{{ title }}</h2>
       <div id="notification-trigger" class="notification" @click="$emit('notificationToggle')" :class="{ open: notificationOpen }">
         <i class="fa fa-bell"></i><span class="badge badge-pill badge-danger">1</span>
@@ -17,6 +26,6 @@
 <script>
 export default {
   name: 'AppHeader',
-  props: ['notificationOpen', 'title']
+  props: ['notificationOpen', 'title', 'menuOpen', 'menuBack']
 }
 </script>

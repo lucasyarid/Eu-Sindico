@@ -111,16 +111,32 @@ export default {
   name: 'order-service',
   data: function () {
     return {
-      title: 'Criar Novo Pedido'
+      title: 'Criar Novo Pedido',
+      classes: ['color-layout'],
+      menuBack: true
     }
   },
   methods: {
     setName () {
       this.$emit('getTitle', this.title)
+    },
+    setClasses () {
+      this.$emit('getClasses', this.classes)
+    },
+    setMenu () {
+      this.$emit('getMenu', this.menuBack)
     }
   },
   mounted () {
     this.setName()
+    this.setClasses()
+    this.setMenu()
+  },
+  destroyed () {
+    this.classes = ['']
+    this.menuBack = false
+    this.setClasses()
+    this.setMenu()
   }
 }
 </script>
