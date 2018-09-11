@@ -21,6 +21,19 @@
 
 <script>
 export default {
-  name: 'about'
+  name: 'about',
+  data: function () {
+    return {
+      title: 'Sobre Nós'
+    }
+  },
+  methods: {
+    setName () {
+      this.$emit('getTitle', this.title)
+    }
+  },
+  mounted () {
+    this.setName()
+  }
 }
 </script>

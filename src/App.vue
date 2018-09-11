@@ -10,9 +10,10 @@
               :notificationOpen="notificationOpen"/>
             <AppHeader
               :notificationOpen="notificationOpen"
+              :title="title"
               @notificationToggle="notificationOpen = !notificationOpen"
               @menuToggle="menuOpen = !menuOpen" />
-            <router-view/>
+            <router-view @getTitle="title = $event"/>
           </div>
         </div>
       </div>
@@ -36,7 +37,8 @@ export default {
   data: function () {
     return {
       menuOpen: false,
-      notificationOpen: false
+      notificationOpen: false,
+      title: String
     }
   }
 }

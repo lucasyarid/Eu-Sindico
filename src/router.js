@@ -9,12 +9,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      meta: {
+        title: 'Eu Síndico',
+        metaTags: [
+          {
+            name: 'App do Eu Síndico',
+            content: 'The home page of our example app.'
+          }
+        ]
+      }
     },
     {
       path: '/timeline',
       name: 'timeline',
       component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
+    },
+    {
+      path: '/order',
+      name: 'order',
+      component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
     {
       path: '/about',

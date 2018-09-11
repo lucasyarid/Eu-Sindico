@@ -24,6 +24,19 @@
 
 <script>
 export default {
-  name: 'home'
+  name: 'home',
+  data: function () {
+    return {
+      title: 'Eu Síndico'
+    }
+  },
+  methods: {
+    setName () {
+      this.$emit('getTitle', this.title)
+    }
+  },
+  mounted () {
+    this.setName()
+  }
 }
 </script>

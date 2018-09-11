@@ -4,7 +4,7 @@
       <div id="menu-control" @click="$emit('menuToggle')">
         <span></span>
       </div>
-      <h2>Eu Síndico</h2>
+      <h2>{{ title }}</h2>
       <div id="notification-trigger" class="notification" @click="$emit('notificationToggle')" :class="{ open: notificationOpen }">
         <i class="fa fa-bell"></i><span class="badge badge-pill badge-danger">1</span>
         <div class="notification-circle"></div>
@@ -17,6 +17,6 @@
 <script>
 export default {
   name: 'AppHeader',
-  props: ['notificationOpen']
+  props: ['notificationOpen', 'title']
 }
 </script>

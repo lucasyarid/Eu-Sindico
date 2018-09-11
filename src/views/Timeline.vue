@@ -116,6 +116,19 @@
 
 <script>
 export default {
-  name: 'timeline'
+  name: 'timeline',
+  data: function () {
+    return {
+      title: 'Aprovar Pedido'
+    }
+  },
+  methods: {
+    setName () {
+      this.$emit('getTitle', this.title)
+    }
+  },
+  mounted () {
+    this.setName()
+  }
 }
 </script>

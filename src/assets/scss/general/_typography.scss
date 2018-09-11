@@ -1,7 +1,7 @@
 body { 
 	a {
 		color: #000;
-		&:hover {
+		&:hover, &.active {
 			color: #4FE782;
 			text-decoration: none;
 		}
