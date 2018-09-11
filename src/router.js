@@ -31,6 +31,36 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
     {
+      path: '/order/service',
+      name: 'order-service',
+      component: () => import(/* webpackChunkName: "order-service" */ './views/Order-Service.vue')
+    },
+    {
+      path: '/order/approve',
+      name: 'order-approve',
+      component: () => import(/* webpackChunkName: "order-approve" */ './views/Order-Approve.vue')
+    },
+    {
+      path: '/order/review',
+      name: 'order-review',
+      component: () => import(/* webpackChunkName: "order-review" */ './views/Order-Review.vue')
+    },
+    {
+      path: '/order/complete',
+      name: 'order-complete',
+      component: () => import(/* webpackChunkName: "order-complete" */ './views/Order-Complete.vue')
+    },
+    {
+      path: '/quote',
+      name: 'quote',
+      component: () => import(/* webpackChunkName: "quote" */ './views/Quote.vue')
+    },
+    {
+      path: '/quote/review',
+      name: 'quote-review',
+      component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote-Review.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

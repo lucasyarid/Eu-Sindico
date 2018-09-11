@@ -17,10 +17,10 @@ html, body {
 
 .swiper-container .swiper-wrapper {
   position: relative;
-  right: 80%;
-  transition: right .3s;
+  left: -80%;
+  transition: left .3s;
   &.open {
-    right: 0%;
+    left: 0%;
   }
 }
 
