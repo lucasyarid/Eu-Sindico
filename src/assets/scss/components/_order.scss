@@ -56,18 +56,11 @@
       line-height: 1em;
     }
     .form-control {
-      border: 0;
       border-bottom: 1px solid #FFF;
       background: none;
       border-radius: 0;
-      color: #000;
       padding-left: 0;
       padding-right: 0;
-      font-weight: 600;
-      &::placeholder {
-        color: #fff;
-        font-style: italic;
-      }
     }
     .fileupload {
       h4 {

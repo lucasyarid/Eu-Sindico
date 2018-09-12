@@ -31,11 +31,15 @@ export default new Router({
       name: 'order',
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
-    // Order Service
     {
       path: '/order/service/',
       name: 'order-service',
       component: () => import(/* webpackChunkName: "order-service" */ './views/Order-Service.vue')
+    },
+    {
+      path: '/order/product/',
+      name: 'order-product',
+      component: () => import(/* webpackChunkName: "order-product" */ './views/Order-Product.vue')
     },
     {
       path: '/order/approve',

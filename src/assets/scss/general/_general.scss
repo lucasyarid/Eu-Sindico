@@ -12,7 +12,8 @@ html, body {
 }
 
 *:focus { 
-	outline: none; 
+  outline: none;
+  box-shadow: none !important;
 }
 
 .swiper-container .swiper-wrapper {

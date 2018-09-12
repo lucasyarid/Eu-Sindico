@@ -8,7 +8,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            @click="incrementStep">Prosseguir ›</button>
+            @click.prevent="incrementStep">Prosseguir ›</button>
         </div>
       </div>
     </footer>
@@ -20,7 +20,6 @@ import { mapMutations } from 'vuex'
 
 export default {
   name: 'order-service-info',
-  props: ['step'],
   data: function () {
     return {
       otherType: false

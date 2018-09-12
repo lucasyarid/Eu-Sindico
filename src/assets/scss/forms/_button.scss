@@ -1,16 +1,16 @@
 .btn-success {
   background-color: #4FE782;
   border-color: #4FE782;
-  &:focus, &:hover {
-    background-color: #44C770 !important;
-    border-color: #44C770 !important;
+  &:focus, &:hover, &:disabled {
+    background-color: #44C770;
+    border-color: #44C770;
   }
 }
 
 .btn-outline-success {
   border-color: #4FE782;
   &:focus, &:hover {
-    border-color: #4FE782 !important;
+    border-color: #4FE782;
   }
 }
 
@@ -19,15 +19,15 @@
   border-color: #FF4646;
   color: #FF4646;
   &:focus, &:hover {
-    background-color: #FF4646 !important;
-    border-color: #FF4646 !important;
+    background-color: #FF4646;
+    border-color: #FF4646;
   }
 }
 
 .btn-outline-danger {
   border-color: #FF4646;
   &:focus, &:hover {
-    border-color: #FF4646 !important;
+    border-color: #FF4646;
   }
 }
 
@@ -35,7 +35,7 @@
   border-color: #54CCF2;
   color: #54CCF2;
   &:focus, &:hover {
-    border-color: #54CCF2 !important;
+    border-color: #54CCF2;
   }
 }
 
@@ -44,7 +44,7 @@
   color: #FFF;
   background: none;
   &:focus, &:hover {
-    border-color: #FFF !important;
+    border-color: #FFF;
   }
 }
 

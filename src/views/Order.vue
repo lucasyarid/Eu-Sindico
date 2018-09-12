@@ -5,7 +5,7 @@
         <i class="fa fa-shopping-cart mb-2"></i>
         <h2>Compra de produto</h2>
         <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
-        <button type="button" class="btn btn-rounded btn-lg btn-outline-simple">Começar ›</button>
+        <router-link type="button" class="btn btn-rounded btn-lg btn-outline-simple" tag="button" to="/order/product/">Começar ›</router-link>
       </div>
       <div class="box service">
         <i class="fa fa-handshake-o mb-2"></i>

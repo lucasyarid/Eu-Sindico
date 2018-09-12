@@ -8,9 +8,10 @@ export default new Vuex.Store({
     menuOpen: false,
     notificationOpen: false,
 
-    step: 0,
+    step: 0
+  },
+  getters: {
 
-    orderServiceType: String
   },
   mutations: {
     menuToggle: state => {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     notificationToggle: state => {
       state.notificationOpen = !state.notificationOpen
+    },
+    resetStep (state) {
+      state.step = 0
     },
     incrementStep (state) {
       state.step++

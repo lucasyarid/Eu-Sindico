@@ -1,12 +1,13 @@
 <template>
-  <section id="order" class="service">
+  <section id="order" class="product">
     <form>
       <main>
 
-        <OrderServiceType
-          :orderService="orderService"
+        <OrderProductType
+          :orderProduct="orderProduct"
           v-show="step == 0" />
-        <OrderServiceInfo
+        <OrderProductInfo
+          :orderProduct="orderProduct"
           v-show="step == 1" />
 
       </main>
@@ -17,23 +18,28 @@
 <script>
 // @ is an alias to /src
 import { mapMutations } from 'vuex'
-import OrderServiceType from '@/components/Order-Service/Order-Service-Type.vue'
-import OrderServiceInfo from '@/components/Order-Service/Order-Service-Info.vue'
+import OrderProductType from '@/components/Order-Product/Order-Product-Type.vue'
+import OrderProductInfo from '@/components/Order-Product/Order-Product-Info.vue'
 
 export default {
-  name: 'order-service',
+  name: 'order-product',
   components: {
-    OrderServiceType,
-    OrderServiceInfo
+    OrderProductType,
+    OrderProductInfo
   },
   data: function () {
     return {
-      title: 'Criar Novo Serviço',
+      title: 'Criar Novo Produto',
       classes: ['color-layout', 'hide-notification'],
       menuBack: true,
-      orderService: {
+      orderProduct: {
         type: '',
-        typeOther: ''
+        reason: '',
+        quantity: '',
+        deadline: '',
+        files: '',
+        price: '',
+        scope: ''
       }
     }
   },

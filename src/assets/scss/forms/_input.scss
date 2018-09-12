@@ -8,4 +8,21 @@ fieldset {
     }
   }
 }
-  
+
+input, textarea, .form-control {
+  font-size: 14px;
+  .color-layout & {
+    color: #FFF;
+    border: 0;
+    &::placeholder {
+      color: #fff;
+    }
+  }
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
+textarea {
+  height: 100%;
+}
