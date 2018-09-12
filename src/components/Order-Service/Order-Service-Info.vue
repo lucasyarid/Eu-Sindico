@@ -8,7 +8,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            @click="stepIncrease">Prosseguir ›</button>
+            @click="incrementStep">Prosseguir ›</button>
         </div>
       </div>
     </footer>
@@ -16,8 +16,6 @@
 </template>
 
 <script>
-import { eventBus } from '@/main.js'
-
 export default {
   name: 'order-service-info',
   props: ['step'],
@@ -27,8 +25,8 @@ export default {
     }
   },
   methods: {
-    stepIncrease () {
-      eventBus.$emit('stepIncrease')
+    incrementStep () {
+      this.$store.commit('incrementStep')
     }
   }
 }

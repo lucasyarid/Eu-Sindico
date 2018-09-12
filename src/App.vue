@@ -2,24 +2,14 @@
   <div id="app" :class="childClasses">
     <div class="swiper-container" id="app-container">
       <div class="swiper-wrapper" :class="{ open: menuOpen }">
-        <Menu
-          :menuOpen="menuOpen"
-          @menuToggle="menuOpen = !menuOpen"/>
+        <Menu/>
         <div class="swiper-slide content" id="content">
-          <Notification
-            :notificationOpen="notificationOpen"/>
+          <Notification/>
           <AppHeader
-            :menuOpen="menuOpen"
             :menuBack="menuBack"
-            :notificationOpen="notificationOpen"
             :title="title"
-            :step="step"
-            @goBack="goBack"
-            @goBackStep="goBackStep"
-            @notificationToggle="notificationOpen = !notificationOpen"
-            @menuToggle="menuOpen = !menuOpen" />
+            @goBack="goBack"/>
           <router-view
-            :step="step"
             :childClasses="childClasses"
             @getMenu="menuBack = $event"
             @getTitle="title = $event"
@@ -36,8 +26,6 @@ import Notification from '@/components/Notification.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import Menu from '@/components/Menu.vue'
 
-import { eventBus } from '@/main.js'
-
 export default {
   name: 'app',
   components: {
@@ -47,12 +35,9 @@ export default {
   },
   data: function () {
     return {
-      menuOpen: false,
-      notificationOpen: false,
       title: String,
       childClasses: Array,
-      menuBack: false,
-      step: 0
+      menuBack: false
     }
   },
   methods: {
@@ -66,10 +51,13 @@ export default {
       this.step--
     }
   },
-  created () {
-    eventBus.$on('stepIncrease', (counter) => {
-      this.goForwardStep()
-    })
+  computed: {
+    menuOpen () {
+      return this.$store.state.menuOpen
+    },
+    notificationOpen () {
+      return this.$store.state.notificationOpen
+    }
   }
 }
 </script>

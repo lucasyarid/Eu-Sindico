@@ -59,6 +59,10 @@
 <script>
 export default {
   name: 'Notification',
-  props: ['notificationOpen']
+  computed: {
+    notificationOpen () {
+      return this.$store.state.notificationOpen
+    }
+  }
 }
 </script>

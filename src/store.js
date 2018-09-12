@@ -5,10 +5,26 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    menuOpen: false
+    menuOpen: false,
+    notificationOpen: false,
+
+    step: 0,
+
+    orderServiceType: String
   },
   mutations: {
-
+    menuToggle: state => {
+      state.menuOpen = !state.menuOpen
+    },
+    notificationToggle: state => {
+      state.notificationOpen = !state.notificationOpen
+    },
+    incrementStep (state) {
+      state.step++
+    },
+    decrementStep (state) {
+      state.step--
+    }
   },
   actions: {
 

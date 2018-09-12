@@ -3,13 +3,8 @@
     <form>
       <main>
 
-        <OrderServiceType
-        :step="step"
-        v-show="step == 0" />
-
-        <OrderServiceInfo
-        :step="step"
-        v-show="step == 1" />
+        <OrderServiceType v-show="step == 0" />
+        <OrderServiceInfo v-show="step == 1" />
 
       </main>
     </form>
@@ -23,7 +18,6 @@ import OrderServiceInfo from '@/components/Order-Service/Order-Service-Info.vue'
 
 export default {
   name: 'order-service',
-  props: ['step'],
   components: {
     OrderServiceType,
     OrderServiceInfo
@@ -44,6 +38,11 @@ export default {
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
+    }
+  },
+  computed: {
+    step () {
+      return this.$store.state.step
     }
   },
   mounted () {
