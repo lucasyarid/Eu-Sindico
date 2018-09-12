@@ -29,19 +29,15 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'AppHeader',
   props: ['title', 'menuBack'],
   methods: {
-    menuToggle () {
-      this.$store.commit('menuToggle')
-    },
-    notificationToggle () {
-      this.$store.commit('notificationToggle')
-    },
-    decrementStep () {
-      this.$store.commit('decrementStep')
-    }
+    ...mapMutations([
+      'menuToggle', 'notificationToggle', 'decrementStep'
+    ])
   },
   computed: {
     menuOpen () {

@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'order-service-info',
   props: ['step'],
@@ -25,9 +27,9 @@ export default {
     }
   },
   methods: {
-    incrementStep () {
-      this.$store.commit('incrementStep')
-    }
+    ...mapMutations([
+      'incrementStep'
+    ])
   }
 }
 </script>

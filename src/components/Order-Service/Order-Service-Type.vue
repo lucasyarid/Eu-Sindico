@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'order-service-type',
   computed: {
@@ -60,9 +62,9 @@ export default {
     }
   },
   methods: {
-    incrementStep () {
-      this.$store.commit('incrementStep')
-    }
+    ...mapMutations([
+      'incrementStep'
+    ])
   }
 }
 </script>

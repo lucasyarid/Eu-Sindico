@@ -32,12 +32,14 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'Menu',
   methods: {
-    menuToggle () {
-      this.$store.commit('menuToggle')
-    }
+    ...mapMutations([
+      'menuToggle'
+    ])
   },
   computed: {
     menuOpen () {
