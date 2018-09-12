@@ -60,9 +60,10 @@
       border-bottom: 1px solid #FFF;
       background: none;
       border-radius: 0;
-      color: #fff;
+      color: #000;
       padding-left: 0;
       padding-right: 0;
+      font-weight: 600;
       &::placeholder {
         color: #fff;
         font-style: italic;
@@ -136,12 +137,11 @@
     }
   }
   footer {
-    position: fixed;
+    // position: fixed;
     bottom: 5%;
     width: 100%;
     z-index: 7000;
     .btn {
-      flex: 1 0 auto;
       margin-top: 10px;
     }
   }

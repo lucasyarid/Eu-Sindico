@@ -13,14 +13,17 @@
             :menuBack="menuBack"
             :notificationOpen="notificationOpen"
             :title="title"
+            :step="step"
             @goBack="goBack"
+            @goBackStep="goBackStep"
             @notificationToggle="notificationOpen = !notificationOpen"
             @menuToggle="menuOpen = !menuOpen" />
           <router-view
+            :step="step"
+            :childClasses="childClasses"
             @getMenu="menuBack = $event"
             @getTitle="title = $event"
-            @getClasses="childClasses = $event"
-            :childClasses="childClasses"/>
+            @getClasses="childClasses = $event"/>
         </div>
       </div>
     </div>
@@ -32,6 +35,8 @@
 import Notification from '@/components/Notification.vue'
 import AppHeader from '@/components/AppHeader.vue'
 import Menu from '@/components/Menu.vue'
+
+import { eventBus } from '@/main.js'
 
 export default {
   name: 'app',
@@ -46,13 +51,25 @@ export default {
       notificationOpen: false,
       title: String,
       childClasses: Array,
-      menuBack: false
+      menuBack: false,
+      step: 0
     }
   },
   methods: {
     goBack () {
       window.history.back()
+    },
+    goForwardStep () {
+      this.step++
+    },
+    goBackStep () {
+      this.step--
     }
+  },
+  created () {
+    eventBus.$on('stepIncrease', (counter) => {
+      this.goForwardStep()
+    })
   }
 }
 </script>

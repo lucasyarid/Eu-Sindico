@@ -25,13 +25,15 @@ export default new Router({
       name: 'timeline',
       component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
     },
+    // Order
     {
       path: '/order',
       name: 'order',
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
+    // Order Service
     {
-      path: '/order/service',
+      path: '/order/service/',
       name: 'order-service',
       component: () => import(/* webpackChunkName: "order-service" */ './views/Order-Service.vue')
     },

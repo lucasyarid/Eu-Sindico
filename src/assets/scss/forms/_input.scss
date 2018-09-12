@@ -1,0 +1,11 @@
+fieldset {
+  input[type="radio"] {
+    display: none;
+    &:checked+label {
+      background-color: #FFF;
+      color: #000;
+      outline: none;
+    }
+  }
+}
+  

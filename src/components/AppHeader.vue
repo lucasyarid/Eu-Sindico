@@ -2,7 +2,12 @@
   <header id="content-header">
     <div class="container d-flex justify-content-between align-items-center">
 
-      <template v-if="menuBack">
+      <template v-if="step != 0">
+        <div id="menu-control" @click="$emit('goBackStep')" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
+          <span></span>
+        </div>
+      </template>
+      <template v-else-if="menuBack">
         <div id="menu-control" @click="$emit('goBack')" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
           <span></span>
         </div>
@@ -26,6 +31,6 @@
 <script>
 export default {
   name: 'AppHeader',
-  props: ['notificationOpen', 'title', 'menuOpen', 'menuBack']
+  props: ['notificationOpen', 'title', 'menuOpen', 'menuBack', 'step']
 }
 </script>

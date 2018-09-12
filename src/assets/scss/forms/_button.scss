@@ -66,6 +66,14 @@
   border-radius: 2rem;
 }
 
+.btn {
+  &:active, &:focus, &.active, &:checked+label {
+    background-color: #FFF;
+    color: #000;
+    outline: none;
+  }
+}
+
 .swiper-wrapper {
   height: auto;
 }

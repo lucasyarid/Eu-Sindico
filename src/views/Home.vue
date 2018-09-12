@@ -14,7 +14,7 @@
             <div class="option col col-4"><a href="#"><span class="bubble budgeting"><i class="fa fa-wpforms"></i><i class="badge badge-pill">3</i></span>Orçamentos</a></div>
             <div class="option col col-4"><a href="#"><span class="bubble configuration"><i class="fa fa-cog"></i></span>Ajustes</a></div>
             <div class="option col col-4"><a href="#"><span class="bubble in-progress"><i class="fa fa-play"></i><i class="badge badge-pill">3</i></span>Em Progresso</a></div>
-            <div class="option col col-4"><a href="#"><span class="bubble new-order"><i class="fa fa-plus"></i></span>Novo Pedido</a></div>
+            <div class="option col col-4"><router-link to="/order"><span class="bubble new-order"><i class="fa fa-plus"></i></span>Novo Pedido</router-link></div>
           </div>
         </nav>
       </div>
