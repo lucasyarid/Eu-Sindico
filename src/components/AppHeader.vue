@@ -3,7 +3,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <template v-if="step != 0">
-        <div id="menu-control" @click="decrementStep" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
+        <div id="menu-control" @click="changeStep(-1)" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
           <span></span>
         </div>
       </template>
@@ -36,7 +36,7 @@ export default {
   props: ['title', 'menuBack'],
   methods: {
     ...mapMutations([
-      'menuToggle', 'notificationToggle', 'decrementStep'
+      'menuToggle', 'notificationToggle', 'changeStep'
     ])
   },
   computed: {

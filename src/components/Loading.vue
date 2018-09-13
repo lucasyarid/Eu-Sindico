@@ -1,5 +1,5 @@
 <template>
-  <div id="loading" style="display: none;">
+  <div id="loading">
     <div class="sending">
       <div class="box">
         <div class="spinner">
@@ -21,6 +21,9 @@
 
 <script>
 export default {
-  name: 'Loading'
+  name: 'loading',
+  created () {
+    setTimeout(() => this.$router.push({ path: '/' }), 2000)
+  }
 }
 </script>

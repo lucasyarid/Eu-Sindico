@@ -20,14 +20,11 @@ export default new Vuex.Store({
     notificationToggle: state => {
       state.notificationOpen = !state.notificationOpen
     },
-    resetStep (state) {
-      state.step = 0
+    setStep (state, n) {
+      state.step = n
     },
-    incrementStep (state) {
-      state.step++
-    },
-    decrementStep (state) {
-      state.step--
+    changeStep (state, n) {
+      state.step = state.step + n
     }
   },
   actions: {

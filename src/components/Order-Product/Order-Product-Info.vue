@@ -4,23 +4,23 @@
       <div class="form-row">
         <div class="col-md-6 mb-4 mt-1">
           <label for="company-name" class="mb-0">O que deve ser comprado?</label>
-          <input type="text" class="form-control" id="company-name" v-model="orderProduct.type" placeholder="Exemplo: guarda-sóis" required>
+          <input type="text" class="form-control" id="company-name" v-model="order.name" placeholder="Exemplo: guarda-sóis" required>
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-6 mb-4 mt-1">
           <label for="company-phone" class="mb-0">Explique os motivos</label>
-          <textarea type="text" class="form-control" id="company-phone" v-model="orderProduct.reason" placeholder="Exemplo: Nossos guarda-sóis estão todos furados e não podem ser utilizados. Uma pena para todos!"></textarea>
+          <textarea type="text" class="form-control" id="company-phone" v-model="order.details" placeholder="Exemplo: Nossos guarda-sóis estão todos furados e não podem ser utilizados. Uma pena para todos!"></textarea>
         </div>
       </div>
       <div class="form-row">
-        <div class="col-md-4 mb-4 mt-1">
+        <div class="col mb-4 mt-1">
           <label for="order-time" class="mb-0">Quantidade</label>
-          <input type="number" class="form-control" id="order-time" v-model.number="orderProduct.quantity" required>
+          <input type="number" class="form-control" id="order-time" v-model.number="order.quantity" required>
         </div>
-        <div class="col-md-4 mb-4 mt-1">
+        <div class="col mb-4 mt-1">
           <label for="order-cost" class="mb-0">Prazo</label>
-          <input type="number" class="form-control" id="order-cost" v-model.number="orderProduct.deadline" required>
+          <input type="number" class="form-control" id="order-cost" v-model.number="order.deadline" required>
         </div>
       </div>
       <div class="form-row">
@@ -53,7 +53,7 @@
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
             :disabled="buttonDisabled"
-            @click.prevent="incrementStep">Prosseguir ›</button>
+            @click.prevent="changeStep(+1)">Prosseguir ›</button>
         </div>
       </div>
     </footer>
@@ -65,23 +65,20 @@ import { mapMutations } from 'vuex'
 
 export default {
   name: 'order-product-info',
-  props: ['orderProduct'],
+  props: ['order'],
   computed: {
-    step () {
-      return this.$store.state.step
-    },
     buttonDisabled () {
       return [
-        this.orderProduct.type,
-        this.orderProduct.reason,
-        this.orderProduct.quantity,
-        this.orderProduct.deadline
+        this.order.name,
+        this.order.details,
+        this.order.quantity,
+        this.order.deadline
       ].some(elem => elem === '')
     }
   },
   methods: {
     ...mapMutations([
-      'incrementStep'
+      'changeStep'
     ])
   }
 }

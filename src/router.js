@@ -32,16 +32,6 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
     {
-      path: '/order/service/',
-      name: 'order-service',
-      component: () => import(/* webpackChunkName: "order-service" */ './views/Order-Service.vue')
-    },
-    {
-      path: '/order/product/',
-      name: 'order-product',
-      component: () => import(/* webpackChunkName: "order-product" */ './views/Order-Product.vue')
-    },
-    {
       path: '/order/approve',
       name: 'order-approve',
       component: () => import(/* webpackChunkName: "order-approve" */ './views/Order-Approve.vue')
