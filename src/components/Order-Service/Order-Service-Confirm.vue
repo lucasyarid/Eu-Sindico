@@ -5,7 +5,7 @@
         <div class="container" style="display: none !important;">
           <div class="step1">
             <div class="form-row">
-              <div class="col-md-4 mb-1 mt-5 ml-3 mr-3">
+              <div class="mb-1 mt-5 ml-3 mr-3">
                 <label for="want-buy" class="mb-0"><h2>O que deve ser comprado?</h2></label>
                 <input type="text" class="form-control" id="want-buy" placeholder="Exemplo: guarda-sóis" />
               </div>
@@ -15,29 +15,29 @@
         <div class="container" style="display: none !important;">
           <div class="step2">
             <div class="form-row">
-              <div class="col-md-6 mb-4 mt-1">
+              <div class="mb-4 mt-1">
                 <label for="company-name" class="mb-0">O que deve ser comprado?</label>
                 <input type="text" class="form-control" id="company-name" placeholder="Exemplo: guarda-sóis" required>
               </div>
             </div>
             <div class="form-row">
-              <div class="col-md-6 mb-4 mt-1">
+              <div class="mb-4 mt-1">
                 <label for="company-phone" class="mb-0">Explique os motivos</label>
                 <textarea type="text" class="form-control" id="company-phone" placeholder="Exemplo: Nossos guarda-sóis estão todos furados e não podem ser utilizados. Uma pena para todos!"></textarea>
               </div>
             </div>
             <div class="form-row">
-              <div class="col-md-4 mb-4 mt-1">
+              <div class="mb-4 mt-1">
                 <label for="order-time" class="mb-0">Quantidade</label>
                 <input type="text" class="form-control" id="order-time" value="" required>
               </div>
-              <div class="col-md-4 mb-4 mt-1">
+              <div class="mb-4 mt-1">
                 <label for="order-cost" class="mb-0">Prazo</label>
                 <input type="text" class="form-control" id="order-cost" value="" required>
               </div>
             </div>
             <div class="form-row">
-              <div class="col-md-2 mb-1 mt-3 fileupload">
+              <div class="mb-1 mt-3 fileupload">
                 <div class="row no-gutters">
                   <div class="col-auto p-0 m-0">
                     <h4 class="pr-3">Adicione Anexos</h4>

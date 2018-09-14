@@ -23,14 +23,14 @@
         </div>
 
         <div class="form-row">
-          <div class="col-md-4">
+          <div class="col">
             <h4>Detalhes sobre a situação</h4>
             <p>{{ order.details }}</p>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="col-md-4">
+          <div class="col">
             <h4>FOTOS</h4>
             <div class="swiper-container mb-3" id="app-confirmation">
               <div class="swiper-wrapper">
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-row">
-          <div class="col-md-4 attachment">
+          <div class="col attachment">
             <h4>ANEXOS</h4>
             <p><i class="fa fa-camera"></i> Orçamento empresa XYZ.pdf</p>
             <p><i class="fa fa-paperclip"></i> Orçamento empresa XYZ.pdf</p>

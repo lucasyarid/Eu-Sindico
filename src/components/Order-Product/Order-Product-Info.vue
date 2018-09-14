@@ -2,13 +2,13 @@
   <div class="container">
     <div class="step2">
       <div class="form-row">
-        <div class="col-md-6 mb-4 mt-1">
+        <div class="col mb-4 mt-1">
           <label for="company-name" class="mb-0">O que deve ser comprado?</label>
           <input type="text" class="form-control" id="company-name" v-model="order.name" placeholder="Exemplo: guarda-sóis" required>
         </div>
       </div>
       <div class="form-row">
-        <div class="col-md-6 mb-4 mt-1">
+        <div class="col mb-4 mt-1">
           <label for="company-phone" class="mb-0">Explique os motivos</label>
           <textarea type="text" class="form-control" id="company-phone" v-model="order.details" placeholder="Exemplo: Nossos guarda-sóis estão todos furados e não podem ser utilizados. Uma pena para todos!"></textarea>
         </div>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="col-md-2 mb-1 mt-3 fileupload">
+        <div class="col mb-1 mt-3 fileupload">
           <div class="row no-gutters">
             <div class="col-auto p-0 m-0">
               <h4 class="pr-3">Adicione Anexos</h4>

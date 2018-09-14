@@ -2,7 +2,7 @@
   <div class="container">
     <div class="step1">
       <div class="form-row">
-        <div class="col-md-4 mb-1 mt-5 ml-3 mr-3">
+        <div class="mb-1 mt-5 ml-3 mr-3">
           <fieldset>
             <label for="want-buy" class="mb-0"><h2>Qual é o tipo de serviço?</h2></label>
 

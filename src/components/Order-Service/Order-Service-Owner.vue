@@ -2,13 +2,13 @@
   <div class="container">
     <div class="step1">
       <div class="form-row">
-        <div class="col-md-4 mb-1 mt-5 ml-3 mr-3">
+        <div class="mb-1 mt-5 ml-3 mr-3">
           <fieldset>
             <label for="want-buy" class="mb-0"><h2>Qual é o tipo de serviço?</h2></label>
 
             <p class="mt-3">
               <input type="radio" id="equipeConselheira" value="Equipe conselheira" v-model="order.owner" />
-              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="equipeConselheira">Urgência alta</label>
+              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="equipeConselheira">Equipe conselheira</label>
             </p>
 
             <p class="mt-3">

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="step3">
       <div class="form-row">
-        <div class="col-md-4 mb-1 mt-3 ml-1 mr-1">
+        <div class="col mb-1 mt-3 ml-1 mr-1">
           <label for="want-buy" class="mb-0"><h2>Qual o custo máximo sugerido?</h2></label>
 
           <p class="mt-3">
