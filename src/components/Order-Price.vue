@@ -19,7 +19,7 @@
           </p>
 
           <p class="mt-3">
-            <span>R$</span><input type="text" class="form-control" id="want-buy" v-model.number="order.price" placeholder="000" /><span>,00</span>
+            <span>R$</span><input type="number" class="form-control" id="want-buy" v-model.number="order.price" placeholder="000" /><span>,00</span>
           </p>
 
           <p class="mt-3">
