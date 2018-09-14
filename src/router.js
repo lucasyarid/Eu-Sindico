@@ -57,6 +57,11 @@ export default new Router({
       component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote-Review.vue')
     },
     {
+      path: '/settings',
+      name: 'settings',
+      component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

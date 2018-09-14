@@ -14,7 +14,7 @@
           <li @click="menuToggle"><a href="#"><i class="fa fa-wpforms"></i> Orçamentos</a></li>
           <li @click="menuToggle"><a href="#"><i class="fa fa-play"></i> Em Progresso</a></li>
           <li @click="menuToggle"><a href="#"><i class="fa fa-check"></i> Concluidos</a></li>
-          <li @click="menuToggle"><a href="#"><i class="fa fa-cog"></i> Ajustes</a></li>
+          <li @click="menuToggle"><router-link active-class="active" to="/settings"><i class="fa fa-cog"></i> Ajustes</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
           <li @click="menuToggle"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
           <br>
