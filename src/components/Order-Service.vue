@@ -3,25 +3,33 @@
     <form>
       <main>
 
-        <OrderServiceName
+        <transition :name="slideDirection" mode="out-in">
+          <OrderServiceName
+              :order="order"
+              key="step"
+              v-if="step == 1" />
+          <OrderServiceInfo
             :order="order"
-            v-show="step == 1" />
-        <OrderServiceInfo
-          :order="order"
-          v-show="step == 2" />
-        <OrderPrice
-          :order="order"
-          @changeOrderPrice="order.price = $event"
-          v-show="step == 3" />
-        <OrderServicePriority
-          :order="order"
-          v-show="step == 4" />
-        <OrderServiceOwner
-          :order="order"
-          v-show="step == 5" />
-        <OrderConfirm
-          :order="order"
-          v-show="step == 6"/>
+            key="step"
+            v-if="step == 2" />
+          <OrderPrice
+            :order="order"
+            key="step"
+            @changeOrderPrice="order.price = $event"
+            v-if="step == 3" />
+          <OrderServicePriority
+            :order="order"
+            key="step"
+            v-if="step == 4" />
+          <OrderServiceOwner
+            :order="order"
+            key="step"
+            v-if="step == 5" />
+          <OrderConfirm
+            :order="order"
+            key="step"
+            v-if="step == 6"/>
+        </transition>
         <Loading
           v-if="step == 7"/>
 
@@ -77,6 +85,9 @@ export default {
   computed: {
     step () {
       return this.$store.state.step
+    },
+    slideDirection () {
+      return this.$store.state.slideDirection
     }
   },
   mounted () {

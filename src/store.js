@@ -8,6 +8,8 @@ export default new Vuex.Store({
     menuOpen: false,
     notificationOpen: false,
 
+    slideDirection: '',
+    previousStep: 0,
     step: 0
   },
   getters: {
@@ -24,7 +26,13 @@ export default new Vuex.Store({
       state.step = n
     },
     changeStep (state, n) {
+      state.previousStep = state.step
       state.step = state.step + n
+      if (state.previousStep < state.step) {
+        state.slideDirection = 'slide-left'
+      } else {
+        state.slideDirection = 'slide-right'
+      }
     }
   },
   actions: {
