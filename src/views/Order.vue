@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setStep', 'changeStep'
+      'setStep'
     ]),
     setName () {
       this.$emit('getTitle', this.title)

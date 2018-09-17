@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'home',
   data: function () {
@@ -31,12 +32,16 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setStep', 'changeStep'
+    ]),
     setName () {
       this.$emit('getTitle', this.title)
     }
   },
   mounted () {
     this.setName()
+    this.setStep(0)
   }
 }
 </script>
