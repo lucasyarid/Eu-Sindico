@@ -24,6 +24,7 @@ export default new Vuex.Store({
     },
     setStep (state, n) {
       state.step = n
+      state.slideDirection = ''
     },
     changeStep (state, n) {
       state.previousStep = state.step

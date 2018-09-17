@@ -1,6 +1,6 @@
 <template>
   <section id="order">
-    <div v-show="step == 0">
+    <div v-if="step == 0">
       <nav>
         <div class="box product-option">
           <i class="fa fa-shopping-cart mb-2"></i>
@@ -16,7 +16,7 @@
         </div>
       </nav>
     </div>
-    <div v-show="step != 0">
+    <div v-if="step != 0" key="2">
       <OrderProduct v-if="order.type == 'produto'" :order="order"/>
       <OrderService v-if="order.type == 'serviço'" :order="order"/>
     </div>

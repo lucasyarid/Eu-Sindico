@@ -27,8 +27,10 @@
               key="step"
               v-if="step == 5"/>
           </transition>
-          <Loading
-            v-if="step == 6"/>
+          <transition name="fade" mode="in-out">
+            <Loading v-if="step == 6"/>
+          </transition>
+
         </main>
       </form>
     </section>
