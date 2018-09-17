@@ -23,7 +23,7 @@
 
             <p class="type pt-2 pb-2" v-if="order.name == 'outro'">
               <label for="order-time" class="mb-0">Defina o tipo </label>
-              <input type="text" class="form-control pt-0" v-model="order.otherType" id="want-buy" placeholder='Ex.: "Segurança"' />
+              <input type="text" class="form-control pt-0" v-model="otherType" id="want-buy" placeholder='Ex.: "Segurança"' />
             </p>
             <p class="mt-3" v-else>
               <input type="radio" id="otherType" value="outro" v-model="order.name" />
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     buttonDisabled () {
-      return this.order.name === '' || (this.order.name === 'outro' && this.order.nameOther === '')
+      return this.order.name === '' || (this.order.name === 'outro' && this.otherType === '')
     }
   },
   methods: {
