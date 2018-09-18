@@ -1,94 +1,105 @@
 <template>
-  <section id="confirmation">
-    <header>
-      <div class="container mt-3">
-        <h2>Confirme as informações</h2>
+  <section id="flip">
+    <header id="order-top" style="background-image: url(//picsum.photos/640/560)">
+      <div class="info">
+        <h4>Guarda-sóis</h4>
+        <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
+        <a href="#" class="gallery"><i class="fa fa-picture-o"></i>02 fotos</a>
       </div>
     </header>
-    <main>
-      <div class="container">
-        <div class="form-row">
-          <div class="col-md-4">
-            <h4>EMPRESA</h4>
-            <p>Nascer do Sol Pintura</p>
-          </div>
-        </div>
+    <main class="pt-3 pb-3">
+      <p class="container excerpt">O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.</p>
+      <div class="swiper-container" id="app-cards">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide box selected">
+            <div class="info">
+              <h3>Jardim do Sul Alvenaria</h3>
 
-        <div class="form-row">
-          <div class="col-md-4">
-            <h4>TELEFONE</h4>
-            <p>(11) 3664-1000</p>
-          </div>
-        </div>
+              <ul>
+                <li><a href="#"><i class="fa fa-list-alt"></i> Visitar website</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> (11) 3666-1000</a></li>
+              </ul>
 
-        <div class="form-row">
-          <div class="col-md-4">
-            <h4>SITE DA EMPRESA</h4>
-            <p>www.nascerdosolpintura.com.br</p>
-          </div>
-        </div>
+              <h4>TEMPO ESTIMADO</h4>
+              <p>12 dias</p>
 
-        <div class="form-row">
-          <div class="col-6">
-            <h4>TEMPO ESTIMADO</h4>
-            <p>14 dias</p>
-          </div>
-          <div class="col-6">
-            <h4>CUSTO TOTAL</h4>
-            <p>R$750.00</p>
-          </div>
-        </div>
+              <h4>ANEXOS</h4>
+              <ul>
+                <li><a href="#"><i class="fa fa-paperclip"></i> Laudo para Cond...Tintoreto.pdf</a></li>
+              </ul>
 
-        <div class="form-row">
-          <div class="col-md-4">
-            <h4>FOTOS</h4>
-            <div class="swiper-container mb-3" id="app-confirmation">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
-                <div class="swiper-slide">
-                  <img src="//picsum.photos/68/68" />
-                </div>
+              <h4>CUSTO</h4>
+              <p>R$700,00</p>
+            </div>
+            <div class="p-3">
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-success btn-rounded btn-md btn-block"><i class="fa fa-check"></i> Voto enviado!</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide box">
+            <div class="info">
+              <h3>Jardim do Sul Alvenaria</h3>
+
+              <ul>
+                <li><a href="#"><i class="fa fa-list-alt"></i> Visitar website</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> (11) 3666-1000</a></li>
+              </ul>
+
+              <h4>TEMPO ESTIMADO</h4>
+              <p>12 dias</p>
+
+              <h4>ANEXOS</h4>
+              <ul>
+                <li><a href="#"><i class="fa fa-paperclip"></i> Laudo para Cond...Tintoreto.pdf</a></li>
+              </ul>
+
+              <h4>CUSTO</h4>
+              <p>R$700,00</p>
+            </div>
+            <div class="p-3">
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-danger btn-md btn-rounded mr-1">Declinar</button><button type="button" class="btn btn-success btn-rounded btn-md">Aceitar solicitação</button>
+              </div>
+
+              <div class="d-flex justify-content-center" style="display: none !important;">
+                <button type="button" class="btn btn-success btn-rounded btn-md btn-block">Prosseguir ›</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide box">
+            <div class="info">
+              <h3>Jardim do Sul Alvenaria</h3>
+
+              <ul>
+                <li><a href="#"><i class="fa fa-list-alt"></i> Visitar website</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> (11) 3666-1000</a></li>
+              </ul>
+
+              <h4>TEMPO ESTIMADO</h4>
+              <p>12 dias</p>
+
+              <h4>ANEXOS</h4>
+              <ul>
+                <li><a href="#"><i class="fa fa-paperclip"></i> Laudo para Cond...Tintoreto.pdf</a></li>
+              </ul>
+
+              <h4>CUSTO</h4>
+              <p>R$700,00</p>
+            </div>
+            <div class="p-3">
+              <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-danger btn-md btn-rounded mr-1">Declinar</button><button type="button" class="btn btn-success btn-rounded btn-md">Aceitar solicitação</button>
+              </div>
+
+              <div class="d-flex justify-content-center" style="display: none !important;">
+                <button type="button" class="btn btn-success btn-rounded btn-md btn-block">Prosseguir ›</button>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="form-row">
-          <div class="col-md-4 attachment">
-            <h4>ANEXOS</h4>
-            <p><i class="fa fa-camera"></i> Orçamento empresa XYZ.pdf</p>
-            <p><i class="fa fa-paperclip"></i> Orçamento empresa XYZ.pdf</p>
-          </div>
-        </div>
       </div>
     </main>
-    <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-primary btn-lg btn-rounded mr-3">Alterar</button><button type="button" class="btn btn-success btn-rounded btn-lg">Submeter solicitação</button>
-        </div>
-      </div>
-    </footer>
   </section>
 </template>
 
@@ -97,7 +108,7 @@ export default {
   name: 'quote-review',
   data: function () {
     return {
-      title: 'Enviar Orçamento'
+      title: 'Aprovar Orçamentos'
     }
   },
   methods: {

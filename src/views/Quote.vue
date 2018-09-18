@@ -1,6 +1,6 @@
 <template>
   <section id="checkout">
-    <header v-if="step == 0 || quote.status != ''" id="order-top" style="background-image: url(//picsum.photos/640/560)">
+    <header v-if="step == 0" id="order-top" style="background-image: url(//picsum.photos/640/560)">
       <div class="info">
         <h4>Guarda-sóis</h4>
         <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
@@ -9,9 +9,8 @@
     </header>
 
     <main>
-      <QuoteInfo :quote="quote" v-if="step == 0 && quote.status == ''"/>
-      <QuoteConfirm :quote="quote" v-if="step == 1 && quote.status == ''"/>
-      <QuoteOpened :quote="quote" v-if="quote.status != ''"/>
+      <QuoteInfo :quote="quote" v-if="step == 0"/>
+      <QuoteConfirm :quote="quote" v-if="step == 1"/>
       <transition name="fade" mode="in-out">
         <Loading v-if="step == 2"/>
       </transition>
@@ -48,7 +47,6 @@
 import { mapMutations } from 'vuex'
 import QuoteInfo from '@/components/Quote/Quote-Info.vue'
 import QuoteConfirm from '@/components/Quote/Quote-Confirm.vue'
-import QuoteOpened from '@/components/Quote/Quote-Opened.vue'
 import Loading from '@/components/Loading.vue'
 
 export default {
@@ -56,7 +54,6 @@ export default {
   components: {
     QuoteInfo,
     QuoteConfirm,
-    QuoteOpened,
     Loading
   },
   data: function () {
@@ -64,7 +61,7 @@ export default {
       title: 'Novo Orçamento',
       menuBack: true,
       quote: {
-        status: '',
+        status: 'a',
         order: '',
         companyName: '',
         companyPhone: '',

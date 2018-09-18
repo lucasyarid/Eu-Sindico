@@ -25,21 +25,15 @@ export default new Router({
       name: 'timeline',
       component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
     },
-    // Order
     {
       path: '/order',
       name: 'order',
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
     {
-      path: '/order/approve',
-      name: 'order-approve',
-      component: () => import(/* webpackChunkName: "order-approve" */ './views/Order-Approve.vue')
-    },
-    {
-      path: '/order/review',
-      name: 'order-review',
-      component: () => import(/* webpackChunkName: "order-review" */ './views/Order-Review.vue')
+      path: '/orders',
+      name: 'orders',
+      component: () => import(/* webpackChunkName: "orders" */ './views/Orders.vue')
     },
     {
       path: '/order/complete',
@@ -47,9 +41,19 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order-complete" */ './views/Order-Complete.vue')
     },
     {
+      path: '/order/review',
+      name: 'order-review',
+      component: () => import(/* webpackChunkName: "order-review" */ './views/Order-Review.vue')
+    },
+    {
       path: '/quote',
       name: 'quote',
       component: () => import(/* webpackChunkName: "quote" */ './views/Quote.vue')
+    },
+    {
+      path: '/quotes',
+      name: 'quotes',
+      component: () => import(/* webpackChunkName: "quotes" */ './views/Quotes.vue')
     },
     {
       path: '/quote/review',
