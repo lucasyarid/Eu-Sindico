@@ -1,102 +1,75 @@
 <template>
-  <section id="checkout">
-    <header v-if="step == 0" id="order-top" style="background-image: url(//picsum.photos/640/560)">
-      <div class="info">
-        <h4>Guarda-sóis</h4>
-        <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
-        <a href="#" class="gallery"><i class="fa fa-picture-o"></i>02 fotos</a>
-      </div>
-    </header>
-
+  <section id="cards-swipe">
+    <nav class="d-flex justify-content-center">
+      <a href="#">Em aberto</a>
+      <a href="#">Em votação</a>
+    </nav>
     <main>
-      <QuoteInfo :quote="quote" v-if="step == 0"/>
-      <QuoteConfirm :quote="quote" v-if="step == 1"/>
-      <transition name="fade" mode="in-out">
-        <Loading v-if="step == 2"/>
-      </transition>
-    </main>
+      <div class="swiper-container" id="app-cards-swipe">
+        <div class="swiper-wrapper">
+          <router-link to="/quote/review" class="swiper-slide box" style="background-image: url(//picsum.photos/300/400)">
+            <div class="info">
+              <h4><span>Compra de</span> Guarda-sóis</h4>
 
-    <footer>
-      <div class="container">
-        <h2 style="display: none !important;">Deseja adicionar ressalvas?</h2>
-        <textarea style="display: none !important;">Concordo com o conselheiro e não quero o mesmo tecido d os antigos guarda-sóis. Algo de melhor qualidade!</textarea>
+              <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
 
-        <div class="d-flex justify-content-center" style="display: none !important;">
-          <button type="button" class="btn btn-outline-danger btn-lg btn-rounded mr-3">Declinar</button><button type="button" class="btn btn-success btn-rounded btn-lg">Aceitar solicitação</button>
-        </div>
+              <router-link to="/quote/review">
+                <span class="button">Mais informações</span>
+                <span id="timer" class="p60">
+                  <span class="bird">
+                    <small>EXPIRA EM</small>
+                    <time>1 dias</time>
+                  </span>
+                  <span class="slice">
+                    <span class="bar"></span>
+                    <span class="fill"></span>
+                  </span>
+                </span>
+              </router-link>
+            </div>
+          </router-link>
+          <router-link to="/quote/review" class="swiper-slide box" style="background-image: url(//picsum.photos/300/399)">
+            <div class="info">
+              <h4><span>Compra de</span> Guarda-sóis</h4>
 
-        <div class="d-flex justify-content-center" style="display: none !important;">
-          <button type="button" class="btn btn-success btn-rounded btn-lg btn-block">Enviar Orçamento</button>
-          <span id="timer" class="p60">
-            <span class="bird">
-              <small>EXPIRA EM</small>
-              <time>1 dias</time>
-            </span>
-            <span class="slice">
-              <span class="bar"></span>
-              <span class="fill"></span>
-            </span>
-          </span>
+              <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
+
+              <router-link to="/quote/review">
+                <span class="button">Mais informações</span>
+                <span id="timer" class="p35">
+                  <span class="bird">
+                    <small>EXPIRA EM</small>
+                    <time>2 dias</time>
+                  </span>
+                  <span class="slice">
+                    <span class="bar"></span>
+                    <span class="fill"></span>
+                  </span>
+                </span>
+              </router-link>
+            </div>
+          </router-link>
         </div>
       </div>
-    </footer>
+    </main>
   </section>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-import QuoteInfo from '@/components/Quote/Quote-Info.vue'
-import QuoteConfirm from '@/components/Quote/Quote-Confirm.vue'
-import Loading from '@/components/Loading.vue'
-
 export default {
   name: 'quote',
-  components: {
-    QuoteInfo,
-    QuoteConfirm,
-    Loading
-  },
   data: function () {
     return {
-      title: 'Novo Orçamento',
-      menuBack: true,
-      quote: {
-        status: 'a',
-        order: '',
-        companyName: '',
-        companyPhone: '',
-        companyWebsite: 1,
-        time: '',
-        files: '',
-        price: '',
-        comments: []
-      }
-    }
-  },
-  computed: {
-    step () {
-      return this.$store.state.step
+      title: 'Orçamentos'
     }
   },
   methods: {
-    ...mapMutations([
-      'setStep'
-    ]),
     setName () {
       this.$emit('getTitle', this.title)
-    },
-    setMenu () {
-      this.$emit('getMenu', this.menuBack)
     }
   },
   mounted () {
     this.setName()
-    this.setMenu()
-    this.setStep(0)
-  },
-  destroyed () {
-    this.menuBack = false
-    this.setMenu()
   }
 }
 </script>

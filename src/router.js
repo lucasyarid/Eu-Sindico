@@ -31,9 +31,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
     },
     {
-      path: '/orders',
-      name: 'orders',
-      component: () => import(/* webpackChunkName: "orders" */ './views/Orders.vue')
+      path: '/order/create',
+      name: 'order-create',
+      component: () => import(/* webpackChunkName: "order-create" */ './views/Order-Create.vue')
     },
     {
       path: '/order/complete',
@@ -51,9 +51,9 @@ export default new Router({
       component: () => import(/* webpackChunkName: "quote" */ './views/Quote.vue')
     },
     {
-      path: '/quotes',
-      name: 'quotes',
-      component: () => import(/* webpackChunkName: "quotes" */ './views/Quotes.vue')
+      path: '/quote/create',
+      name: 'quote-create',
+      component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote-Create.vue')
     },
     {
       path: '/quote/review',
