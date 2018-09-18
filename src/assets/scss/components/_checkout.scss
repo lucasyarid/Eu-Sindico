@@ -96,7 +96,6 @@
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   }
   footer {
-    position: fixed;
     bottom: 0;
     width: 100%;
     z-index: 7000;
@@ -108,7 +107,6 @@
       background: rgba(255, 255, 255, 0.95);
     }
     .btn {
-      flex: 1 0 auto;
       margin-top: 10px;
     }
     h2 {

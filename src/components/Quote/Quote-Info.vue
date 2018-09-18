@@ -53,14 +53,12 @@
       </div>
     </div>
     <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="buttonDisabled"
-            @click.prevent="changeStep(+1)">Prosseguir ›</button>
-        </div>
+      <div class="d-flex justify-content-center">
+        <button
+          type="button"
+          class="btn btn-success btn-rounded btn-lg btn-block"
+          :disabled="buttonDisabled"
+          @click.prevent="changeStep(+1)">Prosseguir ›</button>
       </div>
     </footer>
   </div>

@@ -11,14 +11,13 @@
         <ul>
           <li @click="menuToggle"><router-link active-class="active" exact to="/"><i class="fa fa-home"></i> Inicio</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" exact to="/order/approve"><i class="fa fa-folder"></i> Pedidos</router-link></li>
-          <li @click="menuToggle"><a href="#"><i class="fa fa-wpforms"></i> Orçamentos</a></li>
-          <li @click="menuToggle"><a href="#"><i class="fa fa-play"></i> Em Progresso</a></li>
+          <li @click="menuToggle"><router-link active-class="active" to="/quote"><i class="fa fa-wpforms"></i> Orçamentos</router-link></li>
+          <li @click="menuToggle"><router-link active-class="active" to="/timeline"><i class="fa fa-play"></i> Em Progresso</router-link></li>
           <li @click="menuToggle"><a href="#"><i class="fa fa-check"></i> Concluidos</a></li>
           <li @click="menuToggle"><router-link active-class="active" to="/settings"><i class="fa fa-cog"></i> Ajustes</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
           <li @click="menuToggle"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
           <br>
-          <li @click="menuToggle"><router-link active-class="active" to="/timeline"><i class="fa fa-info-circle"></i> Timeline</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" exact to="/order/approve"><i class="fa fa-folder"></i> Aprovar Pedidos</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" exact to="/order/review"><i class="fa fa-folder"></i> Analisar Pedidos</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" exact to="/order/complete"><i class="fa fa-folder"></i> Pedidos Concluídos</router-link></li>

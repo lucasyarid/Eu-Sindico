@@ -1,31 +1,95 @@
 <template>
-  <div class="container">
-    <p>Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
+  <section id="confirmation">
+    <header>
+      <div class="container mt-3">
+        <h2>Confirme as informações</h2>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="form-row">
+          <div class="col-md-4">
+            <h4>EMPRESA</h4>
+            <p>Nascer do Sol Pintura</p>
+          </div>
+        </div>
 
-    <h4>Submetido por</h4>
-    <p>Eduardo Fontenele</p>
+        <div class="form-row">
+          <div class="col-md-4">
+            <h4>TELEFONE</h4>
+            <p>(11) 3664-1000</p>
+          </div>
+        </div>
 
-    <ul>
-      <li><i class="fa fa-check"></i> Houve vistoria prévia</li>
-      <li><a href="#"><i class="fa fa-paperclip"></i> Laudo Empresa XYZ.pdf</a></li>
-    </ul>
+        <div class="form-row">
+          <div class="col-md-4">
+            <h4>SITE DA EMPRESA</h4>
+            <p>www.nascerdosolpintura.com.br</p>
+          </div>
+        </div>
 
+        <div class="form-row">
+          <div class="col-6">
+            <h4>TEMPO ESTIMADO</h4>
+            <p>14 dias</p>
+          </div>
+          <div class="col-6">
+            <h4>CUSTO TOTAL</h4>
+            <p>R$750.00</p>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-4">
+            <h4>FOTOS</h4>
+            <div class="swiper-container mb-3" id="app-confirmation">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="//picsum.photos/68/68" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-4 attachment">
+            <h4>ANEXOS</h4>
+            <p><i class="fa fa-camera"></i> Orçamento empresa XYZ.pdf</p>
+            <p><i class="fa fa-paperclip"></i> Orçamento empresa XYZ.pdf</p>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer>
       <div class="container">
-        <div v-if="quote.status == ''" class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            @click.prevent="changeStep(+1)">Enviar Orçamento ›</button>
-        </div>
-        <div v-else class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-danger btn-lg btn-rounded mr-3">Declinar</button>
-          <button type="button" class="btn btn-success btn-rounded btn-lg">Aceitar solicitação</button>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-outline-primary btn-lg btn-rounded mr-3">Alterar</button><button type="button" class="btn btn-success btn-rounded btn-lg">Submeter solicitação</button>
         </div>
       </div>
     </footer>
-
-  </div>
+  </section>
 </template>
 
 <script>
