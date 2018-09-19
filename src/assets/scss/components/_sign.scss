@@ -1,0 +1,130 @@
+#signup {
+  .signup-form {
+    margin: 30px auto;
+    padding: 20px;
+  }
+  
+  .input {
+    margin: 10px auto;
+    label {
+      display: block;
+      color: #4e4e4e;
+      margin-bottom: 6px;
+    }
+    &.inline label {
+      display: inline;
+    }
+    input {
+      font: inherit;
+      width: 100%;
+      padding: 6px 12px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+    &.inline input {
+      width: auto;
+    }
+    input:focus {
+      outline: none;
+      border: 1px solid #521751;
+      background-color: #eee;
+    }
+    select {
+      border: 1px solid #ccc;
+      font: inherit;
+    }
+  }
+  
+  .hobbies {
+    button {
+      border: 1px solid #521751;
+      background: #521751;
+      color: white;
+      padding: 6px;
+      font: inherit;
+      cursor: pointer;
+      &:hover, &:active {
+        background-color: #8d4288;
+      }
+    }
+    input {
+      width: 90%;
+    }
+  }
+  
+  .submit button {
+    border: 1px solid #521751;
+    color: #521751;
+    padding: 10px 20px;
+    font: inherit;
+    cursor: pointer;
+    &:hover, &:active {
+      background-color: #521751;
+      color: white;
+    }
+    &[disabled] {
+      border: 1px solid #ccc;
+      background-color: transparent;
+      color: #ccc;
+      cursor: not-allowed;
+      &:hover, &:active {
+        border: 1px solid #ccc;
+        background-color: transparent;
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+#signin {
+  .signin-form {
+    margin: 30px auto;
+    padding: 20px;
+  }
+  
+  .input {
+    margin: 10px auto;
+    label {
+      display: block;
+      color: #4e4e4e;
+      margin-bottom: 6px;
+    }
+    input {
+      font: inherit;
+      width: 100%;
+      padding: 6px 12px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      &:focus {
+        outline: none;
+        border: 1px solid #521751;
+        background-color: #eee;
+      }
+    }
+  }
+  
+  .submit button {
+    border: 1px solid #521751;
+    color: #521751;
+    padding: 10px 20px;
+    font: inherit;
+    cursor: pointer;
+    &:hover, &:active {
+      background-color: #521751;
+      color: white;
+    }
+    &[disabled] {
+      border: 1px solid #ccc;
+      background-color: transparent;
+      color: #ccc;
+      cursor: not-allowed;
+      &:hover, &:active {
+        border: 1px solid #ccc;
+        background-color: transparent;
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@
           <li @click="menuToggle"><router-link active-class="active" to="/order/complete"><i class="fa fa-check"></i> Concluidos</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" to="/settings"><i class="fa fa-cog"></i> Ajustes</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
-          <li @click="menuToggle"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
+          <li @click="menuToggle();onLogout();"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
           <br>
           <li @click="menuToggle"><router-link active-class="active" exact to="/quote/create"><i class="fa fa-folder"></i> Novo Orçamento</router-link></li>
         </ul>
@@ -34,7 +34,10 @@ export default {
   methods: {
     ...mapMutations([
       'menuToggle'
-    ])
+    ]),
+    onLogout () {
+      this.$store.dispatch('logout')
+    }
   },
   computed: {
     menuOpen () {

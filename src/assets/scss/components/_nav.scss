@@ -64,6 +64,9 @@
   width: 24px;
   height: 16px;
   position: relative;
+  .hide-menu & {
+    display: none;
+  }
   span {
     position: absolute;
     top: 50%;
