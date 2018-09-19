@@ -85,7 +85,8 @@
     <footer>
       <div class="container">
         <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-outline-primary btn-lg btn-rounded mr-3">Alterar</button><button type="button" class="btn btn-success btn-rounded btn-lg">Submeter solicitação</button>
+          <button type="button" @click="setStep(0)" class="btn btn-outline-primary btn-lg btn-rounded mr-3">Alterar</button>
+          <button type="button" @click="changeStep(1)" class="btn btn-success btn-rounded btn-lg">Submeter solicitação</button>
         </div>
       </div>
     </footer>
@@ -100,7 +101,7 @@ export default {
   props: ['quote'],
   methods: {
     ...mapMutations([
-      'changeStep'
+      'setStep', 'changeStep'
     ])
   }
 }

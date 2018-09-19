@@ -4,7 +4,7 @@
       <div class="form-row">
         <div class="col mb-4 mt-1">
           <label for="company-name" class="mb-0">O que deve ser comprado?</label>
-          <input type="text" class="form-control" id="company-name" v-model="order.name" placeholder="Exemplo: guarda-sóis" required>
+          <input type="text" class="form-control" id="company-name" v-model="order.name" placeholder="Exemplo: guarda-sóis">
         </div>
       </div>
       <div class="form-row">
@@ -52,7 +52,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="buttonDisabled"
+            :disabled="$v.$invalid"
             @click.prevent="changeStep(+1)">Prosseguir ›</button>
         </div>
       </div>
@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import { required, numeric } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -74,6 +75,23 @@ export default {
         this.order.quantity,
         this.order.deadline
       ].some(elem => elem === '')
+    }
+  },
+  validations: {
+    order: {
+      name: {
+        required
+      },
+      details: {
+        required
+      },
+      quantity: {
+        required,
+        numeric
+      },
+      deadline: {
+        required
+      }
     }
   },
   methods: {

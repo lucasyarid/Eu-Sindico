@@ -13,7 +13,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="buttonDisabled"
+            :disabled="$v.$invalid"
             @click.prevent="changeStep(+1)">Prosseguir ›</button>
         </div>
       </div>
@@ -22,14 +22,17 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'order-product-scope',
   props: ['order'],
-  computed: {
-    buttonDisabled () {
-      return this.order.scope === ''
+  validations: {
+    order: {
+      scope: {
+        required
+      }
     }
   },
   methods: {

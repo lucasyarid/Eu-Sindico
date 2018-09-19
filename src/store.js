@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    httpErrorMessage: null,
     idToken: null,
     userId: null,
     user: null,
@@ -49,6 +50,9 @@ export default new Vuex.Store({
     clearAuthData (state) {
       state.idToken = null
       state.userId = null
+    },
+    setHttpErrorMessage (state, errorMessage) {
+      state.httpErrorMessage = errorMessage
     }
   },
   actions: {
@@ -100,7 +104,15 @@ export default new Vuex.Store({
           dispatch('setLogoutTimer', res.data.expiresIn)
           router.push('/')
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+          if (error.response) {
+            console.log(error.response.data)
+            commit('setHttpErrorMessage', error.response.data.error.message)
+          } else {
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
     },
     tryAutoLogin ({ commit }) {
       const token = localStorage.getItem('token')

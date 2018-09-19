@@ -44,7 +44,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="buttonDisabled"
+            :disabled="$v.$invalid"
             @click.prevent="changeStep(+1)">Prosseguir ›</button>
         </div>
       </div>
@@ -53,14 +53,18 @@
 </template>
 
 <script>
+import { required, numeric } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'order-price',
   props: ['order'],
-  computed: {
-    buttonDisabled () {
-      return this.order.price <= 0
+  validations: {
+    order: {
+      price: {
+        required,
+        numeric
+      }
     }
   },
   methods: {

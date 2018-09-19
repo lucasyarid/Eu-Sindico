@@ -35,3 +35,19 @@ input, textarea, .form-control {
 textarea {
   height: 100%;
 }
+
+.validate {
+  &.invalid {
+    input, textarea {
+      border-bottom: 1px solid red;
+    }
+    [data-tooltip] {
+      &:before {
+        background-color: rgba(90%, 0%, 0%, 0.75);
+      }
+      &:after {
+        border-top: 5px solid rgba(90%, 0%, 0%, 0.75);
+      }
+    }
+  }
+}

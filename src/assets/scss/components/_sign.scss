@@ -7,8 +7,6 @@
   .input {
     margin: 10px auto;
     label {
-      display: block;
-      color: #4e4e4e;
       margin-bottom: 6px;
     }
     &.inline label {
@@ -19,15 +17,9 @@
       width: 100%;
       padding: 6px 12px;
       box-sizing: border-box;
-      border: 1px solid #ccc;
     }
     &.inline input {
       width: auto;
-    }
-    input:focus {
-      outline: none;
-      border: 1px solid #521751;
-      background-color: #eee;
     }
     select {
       border: 1px solid #ccc;
@@ -86,8 +78,6 @@
   .input {
     margin: 10px auto;
     label {
-      display: block;
-      color: #4e4e4e;
       margin-bottom: 6px;
     }
     input {
@@ -95,12 +85,6 @@
       width: 100%;
       padding: 6px 12px;
       box-sizing: border-box;
-      border: 1px solid #ccc;
-      &:focus {
-        outline: none;
-        border: 1px solid #521751;
-        background-color: #eee;
-      }
     }
   }
   

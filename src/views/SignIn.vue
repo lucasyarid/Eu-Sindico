@@ -2,26 +2,33 @@
   <section id="signin">
     <div class="signin-form">
       <form @submit.prevent="onSubmit">
-        <div class="input">
-          <label for="email">Mail</label>
+        <div class="input validate" :class="{invalid: $v.email.$error}">
+          <label for="email">E-Mail</label>
+          <div v-if="$v.email.$error" class="active"
+            data-tooltip="Informe um e-mail válido"></div>
           <input
             type="email"
             id="email"
+            @blur="$v.email.$touch()"
             v-model="email">
         </div>
-        <div class="input">
-          <label for="password">Password</label>
+        <div class="input validate" :class="{invalid: $v.password.$error}">
+          <label for="password">Senha</label>
+          <div v-if="$v.password.$error" class="active"
+            data-tooltip="Senha inválida"></div>
           <input
             type="password"
             id="password"
+            @blur="$v.password.$touch()"
             v-model="password">
         </div>
+        {{ this.$store.state.httpErrorMessage }}
         <div class="row">
           <div class="col submit">
-            <button type="submit">Submit</button>
+            <button type="submit" :disabled="$v.$invalid">Entrar</button>
           </div>
-          <div class="col signup">
-            <router-link to="/signup" type="submit" tag="button">SignUp</router-link>
+          <div class="col submit">
+            <router-link to="/signup" tag="button">Cadastre-se</router-link>
           </div>
         </div>
       </form>
@@ -30,6 +37,8 @@
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
+
 export default {
   name: 'signin',
   props: ['childClasses'],
@@ -39,6 +48,15 @@ export default {
       classes: ['hide-menu', 'hide-notification'],
       email: '',
       password: ''
+    }
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required
     }
   },
   methods: {

@@ -57,7 +57,7 @@
         <button
           type="button"
           class="btn btn-success btn-rounded btn-lg btn-block"
-          :disabled="buttonDisabled"
+          :disabled="$v.$invalid"
           @click.prevent="changeStep(+1)">Prosseguir ›</button>
       </div>
     </footer>
@@ -65,19 +65,21 @@
 </template>
 
 <script>
+import { required, numeric } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'quote-info',
   props: ['quote'],
-  computed: {
-    buttonDisabled () {
-      return [
-        this.quote.companyName,
-        this.quote.companyPhone,
-        this.quote.time,
-        this.quote.price
-      ].some(elem => elem === '')
+  validations: {
+    quote: {
+      companyName: { required },
+      companyPhone: { required },
+      time: { required },
+      price: {
+        required,
+        numeric
+      }
     }
   },
   methods: {

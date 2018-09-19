@@ -2,67 +2,47 @@
   <section id="signup">
     <div class="signup-form">
       <form @submit.prevent="onSubmit">
-        <div class="input">
-          <label for="email">Mail</label>
+        <div class="input validate" :class="{invalid: $v.email.$error}">
+          <label for="email">E-Mail</label>
+          <div v-if="$v.email.$error" class="active"
+            data-tooltip="Informe um e-mail válido"></div>
           <input
             type="email"
             id="email"
+            @blur="$v.email.$touch()"
             v-model="email">
         </div>
-        <div class="input">
-          <label for="age">Your Age</label>
-          <input
-            type="number"
-            id="age"
-            v-model.number="age">
-        </div>
-        <div class="input">
-          <label for="password">Password</label>
+        <div class="input validate" :class="{invalid: $v.password.$error}">
+          <label for="password">Senha</label>
+          <div v-if="$v.password.$error" class="active"
+            data-tooltip="Sua senha é muito curta"></div>
           <input
             type="password"
             id="password"
+            @blur="$v.password.$touch()"
             v-model="password">
         </div>
-        <div class="input">
-          <label for="confirm-password">Confirm Password</label>
+        <div class="input validate" :class="{invalid: $v.confirmPassword.$error}">
+          <label for="confirm-password">Confirme a senha</label>
+          <div v-if="$v.confirmPassword.$error" class="active"
+            data-tooltip="As senhas não são iguais"></div>
           <input
             type="password"
             id="confirm-password"
+            @blur="$v.confirmPassword.$touch()"
             v-model="confirmPassword">
-        </div>
-        <div class="input">
-          <label for="country">Country</label>
-          <select id="country" v-model="country">
-            <option value="usa">USA</option>
-            <option value="india">India</option>
-            <option value="uk">UK</option>
-            <option value="germany">Germany</option>
-            <option value="brazil">Brazil</option>
-          </select>
-        </div>
-        <div class="hobbies">
-          <h3>Add some Hobbies</h3>
-          <button @click="onAddHobby" type="button">Add Hobby</button>
-          <div class="hobby-list">
-            <div
-              class="input"
-              v-for="(hobbyInput, index) in hobbyInputs"
-              :key="hobbyInput.id">
-              <label :for="hobbyInput.id">Hobby #{{ index }}</label>
-              <input
-                type="text"
-                :id="hobbyInput.id"
-                v-model="hobbyInput.value">
-              <button @click="onDeleteHobby(hobbyInput.id)" type="button">X</button>
-            </div>
-          </div>
         </div>
         <div class="input inline">
           <input type="checkbox" id="terms" v-model="terms">
-          <label for="terms">Accept Terms of Use</label>
+          <label for="terms"> Aceito os termos de uso</label>
         </div>
-        <div class="submit">
-          <button type="submit">Submit</button>
+        <div class="row">
+          <div class="col submit">
+            <button type="submit" :disabled="$v.$invalid">Enviar</button>
+          </div>
+          <div class="col submit">
+            <router-link to="/signin" tag="button">Login</router-link>
+          </div>
         </div>
       </form>
     </div>
@@ -70,6 +50,8 @@
 </template>
 
 <script>
+import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
+
 export default {
   name: 'signup',
   props: ['childClasses'],
@@ -78,12 +60,22 @@ export default {
       title: 'Cadastre-se',
       classes: ['hide-menu', 'hide-notification'],
       email: '',
-      age: null,
       password: '',
       confirmPassword: '',
-      country: 'usa',
-      hobbyInputs: [],
       terms: false
+    }
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    password: {
+      required,
+      minLength: minLength(6)
+    },
+    confirmPassword: {
+      sameAs: sameAs('password')
     }
   },
   methods: {
@@ -106,12 +98,7 @@ export default {
     onSubmit () {
       const formData = {
         email: this.email,
-        age: this.age,
-        password: this.password,
-        confirmPassword: this.confirmPassword,
-        country: this.country,
-        hobbies: this.hobbyInputs.map(hobby => hobby.value),
-        terms: this.terms
+        password: this.password
       }
       console.log(formData)
       this.$store.dispatch('signup', formData)

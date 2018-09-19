@@ -36,7 +36,7 @@
           <button
             type="button"
             class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="buttonDisabled"
+            :disabled="$v.$invalid"
             @click.prevent="changeStep(+1)">Prosseguir ›</button>
         </div>
       </div>
@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { required } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 
 export default {
@@ -55,9 +56,9 @@ export default {
       otherType: ''
     }
   },
-  computed: {
-    buttonDisabled () {
-      return this.order.priority === ''
+  validations: {
+    order: {
+      priority: { required }
     }
   },
   methods: {

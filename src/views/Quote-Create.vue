@@ -65,7 +65,7 @@ export default {
         order: '',
         companyName: '',
         companyPhone: '',
-        companyWebsite: 1,
+        companyWebsite: '',
         time: '',
         files: '',
         price: '',
