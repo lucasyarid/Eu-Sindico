@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     httpErrorMessage: null,
-    idToken: null,
+    apiToken: null,
     userId: null,
     user: null,
 
@@ -41,14 +41,14 @@ export default new Vuex.Store({
       }
     },
     authUser (state, userData) {
-      state.idToken = userData.token
+      state.apiToken = userData.apiToken
       state.userId = userData.userId
     },
     storeUser (state, user) {
       state.user = user
     },
     clearAuthData (state) {
-      state.idToken = null
+      state.apiToken = null
       state.userId = null
     },
     setHttpErrorMessage (state, errorMessage) {
@@ -59,49 +59,49 @@ export default new Vuex.Store({
     setLogoutTimer ({ commit }, expirationTime) {
       setTimeout(() => {
         commit('clearAuthData')
-      }, expirationTime * 10000)
+      }, expirationTime)
     },
     signup ({ commit, dispatch }, authData) {
-      axios.post('/signupNewUser?key=AIzaSyCK0yx04LhLU-RNkJyvGRw-oHIO5UsssmU', {
+      axios.post('', {
         email: authData.email,
-        password: authData.password,
-        returnSecureToken: true
+        password: authData.password
       })
         .then(res => {
           console.log(res)
           commit('authUser', {
-            token: res.data.idToken,
+            apiToken: res.data.token,
             userId: res.data.localId
           })
           const now = new Date()
-          const expirationDate = new Date(now.getTime() + res.data.expiresIn * 10000)
-          localStorage.setItem('token', res.data.idToken)
+          const day = 86400000
+          const expirationDate = new Date(now.getTime() + day)
+          localStorage.setItem('apiToken', res.data.token)
           localStorage.setItem('userId', res.data.localId)
           localStorage.setItem('expirationDate', expirationDate)
           dispatch('storeUser', authData)
-          dispatch('setLogoutTimer', res.data.expiresIn)
+          dispatch('setLogoutTimer', day)
           router.push('/signin')
         })
         .catch(error => console.log(error))
     },
     signin ({ commit, dispatch }, authData) {
-      axios.post('/verifyPassword?key=AIzaSyCK0yx04LhLU-RNkJyvGRw-oHIO5UsssmU', {
+      axios.post('/users/authenticate', {
         email: authData.email,
-        password: authData.password,
-        returnSecureToken: true
+        password: authData.password
       })
         .then(res => {
           console.log(res)
           const now = new Date()
-          const expirationDate = new Date(now.getTime() + res.data.expiresIn * 10000)
-          localStorage.setItem('token', res.data.idToken)
+          const day = 86400000
+          const expirationDate = new Date(now.getTime() + day)
+          localStorage.setItem('apiToken', res.data.token)
           localStorage.setItem('userId', res.data.localId)
           localStorage.setItem('expirationDate', expirationDate)
           commit('authUser', {
-            token: res.data.idToken,
+            apiToken: res.data.token,
             userId: res.data.localId
           })
-          dispatch('setLogoutTimer', res.data.expiresIn)
+          dispatch('setLogoutTimer', day)
           router.push('/')
         })
         .catch(error => {
@@ -115,8 +115,8 @@ export default new Vuex.Store({
         })
     },
     tryAutoLogin ({ commit }) {
-      const token = localStorage.getItem('token')
-      if (!token) {
+      const apiToken = localStorage.getItem('apiToken')
+      if (!apiToken) {
         return
       }
       const expirationDate = localStorage.getItem('expirationDate')
@@ -126,30 +126,30 @@ export default new Vuex.Store({
       }
       const userId = localStorage.getItem('userId')
       commit('authUser', {
-        token: token,
+        apiToken: apiToken,
         userId: userId
       })
     },
     logout ({ commit }) {
       commit('clearAuthData')
-      localStorage.removeItem('token')
+      localStorage.removeItem('apiToken')
       localStorage.removeItem('userId')
       localStorage.removeItem('expirationDate')
       router.replace('/signin')
     },
     storeUser ({ commit, state }, userData) {
-      if (!state.idToken) {
+      if (!state.apiToken) {
         return
       }
-      globalAxios.post('/users.json' + '?auth=' + state.idToken, userData)
+      globalAxios.post('/users.json' + '?auth=' + state.apiToken, userData)
         .then(res => console.log(res))
         .catch(error => console.log(error))
     },
     fetchUser ({ commit, state }) {
-      if (!state.idToken) {
+      if (!state.apiToken) {
         return
       }
-      globalAxios.get('/users.json' + '?auth=' + state.idToken)
+      globalAxios.get('/users.json' + '?auth=' + state.apiToken)
         .then(res => {
           console.log(res)
           const data = res.data
@@ -170,7 +170,7 @@ export default new Vuex.Store({
       return state.user
     },
     isAuthenticated (state) {
-      return state.idToken !== null
+      return state.apiToken !== null
     }
   }
 })

@@ -8,7 +8,7 @@ Vue.use(Router)
 // Function to guard pages
 export function ifAuthenticated (to, from, next) {
   store.dispatch('tryAutoLogin')
-  if (store.state.idToken) {
+  if (store.state.apiToken) {
     next()
   } else {
     next('/signin')

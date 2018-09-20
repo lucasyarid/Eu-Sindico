@@ -1,9 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: 'https://www.googleapis.com/identitytoolkit/v3/relyingparty'
+  baseURL: 'https://api.eusindico.com.br'
 })
-
-// instance.defaults.headers.common['SOMETHING'] = 'something'
 
 export default instance
