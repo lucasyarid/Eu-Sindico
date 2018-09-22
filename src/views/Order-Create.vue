@@ -1,7 +1,7 @@
 <template>
-  <section id="order">
+  <section class="order-create">
     <div v-if="step == 0">
-      <nav>
+      <nav class="pull-up">
         <div class="box product-option">
           <i class="fa fa-shopping-cart mb-2"></i>
           <h2>Compra de produto</h2>
@@ -25,8 +25,8 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import OrderProduct from '@/components/Order-Product.vue'
-import OrderService from '@/components/Order-Service.vue'
+import OrderProduct from '@/components/Order/Order-Product/Order-Product.vue'
+import OrderService from '@/components/Order/Order-Service/Order-Service.vue'
 
 export default {
   name: 'order-create',

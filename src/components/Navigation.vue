@@ -1,5 +1,5 @@
 <template>
-  <header id="content-header">
+  <nav class="navigation">
     <div class="container d-flex justify-content-between align-items-center">
 
       <template v-if="step != 0">
@@ -18,21 +18,21 @@
         </div>
       </template>
 
-      <h2>{{ title }}</h2>
+      <h4 class="page-title">{{ title }}</h4>
       <div id="notification-trigger" class="notification" @click="notificationToggle" :class="{ open: notificationOpen }">
-        <i class="fa fa-bell"></i><span class="badge badge-pill badge-danger">1</span>
+        <i class="fa fa-bell"></i><span class="badge badge-pill badge-danger badge-top badge-right">1</span>
         <div class="notification-circle"></div>
         <div class="notification-close"><i class="fa fa-close"></i></div>
       </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 
 export default {
-  name: 'AppHeader',
+  name: 'navigation',
   props: ['title', 'menuBack'],
   methods: {
     ...mapMutations([

@@ -1,0 +1,48 @@
+#app {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+html, body { 
+	position: relative; 
+	height: 100%; 
+}
+
+*:focus { 
+  outline: none;
+  box-shadow: none !important;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.content {
+  position: relative;
+  left: -80%;
+  transition: left .3s;
+  height: auto;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  padding-top: $appTopPadding;
+  .open-menu & {
+    left: 0%;
+  }
+  .pull-up {
+    margin-top: - $appTopPadding;
+  }
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+#app-cards {
+  padding: 0 15px;
+}

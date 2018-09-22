@@ -1,6 +1,7 @@
 .btn-success {
-  background-color: #4FE782;
-  border-color: #4FE782;
+  background-color: $activeColor;
+  border-color: $activeColor;
+  font-weight: 700;
   &:focus, &:hover, &:disabled {
     background-color: #44C770;
     border-color: #44C770;
@@ -8,39 +9,41 @@
 }
 
 .btn-outline-success {
-  border-color: #4FE782;
+  border-color: $activeColor;
   &:focus, &:hover {
-    border-color: #4FE782;
+    border-color: $activeColor;
   }
 }
 
 .btn-danger {
-  background-color: #FF4646;
-  border-color: #FF4646;
-  color: #FF4646;
+  background-color: $dangerColor;
+  border-color: $dangerColor;
+  color: $dangerColor;
   &:focus, &:hover {
-    background-color: #FF4646;
-    border-color: #FF4646;
+    background-color: $dangerColor;
+    border-color: $dangerColor;
   }
 }
 
 .btn-outline-danger {
-  border-color: #FF4646;
+  border-color: $dangerColor;
+  border-width: 2px;
+  font-weight: 600;
   &:focus, &:hover {
-    border-color: #FF4646;
+    border-color: $dangerColor;
   }
 }
 
 .btn-outline-primary {
-  border-color: #54CCF2;
-  color: #54CCF2;
+  border-color: #50D6F1;
+  color: #50D6F1;
   &:focus, &:hover {
-    border-color: #54CCF2;
+    border-color: #50D6F1;
   }
 }
 
 .btn-outline-simple {
-  border-color: #FFF;
+  border: 1px solid #FFF;
   color: #FFF;
   background: none;
   &:focus, &:hover {
@@ -51,8 +54,6 @@
 .btn-lg {
   padding: 1rem 1.5rem;
   font-size: 1rem;
-  font-weight: 700;
-  border-width: 2px;
 }
 
 .btn-md {
@@ -74,6 +75,26 @@
   }
 }
 
-.swiper-wrapper {
-  height: auto;
+.footer-button {
+  position: relative;
+  .control-gutter {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .btn {
+    width: 100%;
+    text-align: initial;
+    &.center-text {
+      text-align: center;
+    }
+    &.center-btn {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+  .timer {
+    position: absolute;
+    right: 0;
+    top: -10px;
+  }
 }

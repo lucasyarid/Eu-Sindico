@@ -69,6 +69,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order-complete" */ './views/Order-Complete.vue')
     },
     {
+      path: '/order/complete/vote',
+      name: 'order-complete-vote',
+      beforeEnter: ifAuthenticated,
+      component: () => import(/* webpackChunkName: "order-complete-vote" */ './views/Order-Complete-Vote.vue')
+    },
+    {
       path: '/order/review',
       name: 'order-review',
       beforeEnter: ifAuthenticated,

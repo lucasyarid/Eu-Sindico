@@ -1,5 +1,5 @@
 <template>
-  <section id="order" class="service">
+  <section id="order" class="order-service-confirm service">
     <form>
       <main>
         <div class="container" style="display: none !important;">

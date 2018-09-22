@@ -1,8 +1,10 @@
 <template>
-  <section id="cards-wide">
+  <section class="order-complete">
     <header class="container">
       <div class="row">
-        <h3 class="col-5 mt-2"><strong>2017</strong> / NOVEMBRO</h3>
+        <h5 class="col-5 mt-2">
+          <strong>2017</strong> / NOVEMBRO
+        </h5>
         <div class="calendar col-7 form-group">
           <i class="fa fa-calendar mr-2"></i>
           <select class="custom-select form-control form-control-sm d-inline-block">
@@ -17,55 +19,26 @@
       </div>
     </header>
     <main class="container">
-      <div class="box mb-3" style="background-image: url(//picsum.photos/310/135)">
-        <a href="#">
-          <span class="info">
-            <span class="title">Serviço de reforma</span>
-            <span class="star">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </span>
+      <router-link to="/order/complete/vote">
+        <div class="card card-image card-md mb-3" style="background-image: url(//picsum.photos/310/135)">
+          <span class="order-complete-info">
+            <h4>Serviço de reforma</h4>
+            <Rating :stars="3"/>
           </span>
-        </a>
-      </div>
-      <div class="box mb-3" style="background-image: url(//picsum.photos/310/155)">
-        <a href="#">
-          <span class="info">
-            <span class="title">Serviço de reforma</span>
-            <span class="star">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </span>
-          </span>
-        </a>
-      </div>
-      <div class="box mb-3" style="background-image: url(//picsum.photos/310/160)">
-        <a href="#">
-          <span class="info">
-            <span class="title">Serviço de reforma</span>
-            <span class="star">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </span>
-          </span>
-        </a>
-      </div>
+        </div>
+      </router-link>
     </main>
   </section>
 </template>
 
 <script>
+import Rating from '@/components/Rating'
+
 export default {
   name: 'order-complete',
+  components: {
+    Rating
+  },
   data: function () {
     return {
       title: 'Pedidos Concluídos'

@@ -1,0 +1,19 @@
+.badge {
+  position: absolute;
+  font-size: 12px;
+  line-height: 1em;
+  padding: 4px !important;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+  box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+  &.badge {
+    &-top {top: 0;}
+    &-bottom {bottom: 0;}
+    &-left {left: 0;}
+    &-right {right: 0;}
+    &-success {
+      background-color: $activeColor;
+    }
+  }
+}

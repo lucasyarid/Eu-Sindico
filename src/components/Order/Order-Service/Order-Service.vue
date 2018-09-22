@@ -1,7 +1,7 @@
 <template>
   <section id="order" class="service">
     <form>
-      <main>
+      <main class="pull-up pt-5">
 
         <transition :name="slideDirection" mode="out-in">
           <OrderServiceName
@@ -40,14 +40,13 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { mapMutations } from 'vuex'
-import OrderServiceName from '@/components/Order-Service/Order-Service-Name.vue'
-import OrderServiceInfo from '@/components/Order-Service/Order-Service-Info.vue'
-import OrderPrice from '@/components/Order-Price.vue'
-import OrderServicePriority from '@/components/Order-Service/Order-Service-Priority.vue'
-import OrderServiceOwner from '@/components/Order-Service/Order-Service-Owner.vue'
-import OrderConfirm from '@/components/Order-Confirm.vue'
+import OrderServiceName from './Order-Service-Name.vue'
+import OrderServiceInfo from './Order-Service-Info.vue'
+import OrderPrice from '../Order-Price.vue'
+import OrderServicePriority from './Order-Service-Priority.vue'
+import OrderServiceOwner from './Order-Service-Owner.vue'
+import OrderConfirm from '../Order-Confirm.vue'
 import Loading from '@/components/Loading.vue'
 
 export default {

@@ -1,55 +1,55 @@
 <template>
-  <nav id="notifications" :class="{ open: notificationOpen }">
-    <h3>Notificações</h3>
-    <ul>
-      <li class="active">
+  <nav id="notifications" class="notifications" :class="{ open: notificationOpen }">
+    <h1>Notificações</h1>
+    <ul class="notification-list">
+      <li class="notification-item">
         <a href="#" class="d-flex">
-          <i class="align-self-center fa fa-exclamation-triangle"></i>
-          <span>
-            <strong>Nova proposta para analisar</strong>
-            <i>Prazo de 5 dias</i>
-          </span>
-          <time class="ml-auto">1 min</time>
+          <i class="notification-item-icon active align-self-center fa fa-exclamation-triangle"></i>
+          <h5 class="notification-info">
+            <b class="notification-info-title">Nova proposta para analisar</b>
+            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
+          </h5>
+          <time class="notification-time ml-auto">1 min</time>
         </a>
       </li>
-      <li class="active">
+      <li class="notification-item">
         <a href="#" class="d-flex">
-          <i class="align-self-center fa fa-gavel"></i>
-          <span>
-            <strong>Nova proposta para analisar</strong>
-            <i>Prazo de 5 dias</i>
-          </span>
-          <time class="ml-auto">2d</time>
+          <i class="notification-item-icon active align-self-center fa fa-gavel"></i>
+          <h5 class="notification-info">
+            <b class="notification-info-title">Nova proposta para analisar</b>
+            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
+          </h5>
+          <time class="notification-time ml-auto">2d</time>
         </a>
       </li>
-      <li class="active">
+      <li class="notification-item">
         <a href="#" class="d-flex">
-          <i class="align-self-center fa fa-check"></i>
-          <span>
-            <strong>Nova proposta para analisar</strong>
-            <i>Prazo de 5 dias</i>
-          </span>
-          <time class="ml-auto">2d</time>
+          <i class="notification-item-icon active align-self-center fa fa-check"></i>
+          <h5 class="notification-info">
+            <b class="notification-info-title">Nova proposta para analisar</b>
+            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
+          </h5>
+          <time class="notification-time ml-auto">2d</time>
         </a>
       </li>
-      <li class="disable">
+      <li class="notification-item">
         <a href="#" class="d-flex">
-          <i class="align-self-center fa fa-times-circle-o"></i>
-          <span>
-            <strong>Nova proposta para analisar</strong>
-            <i>Prazo de 5 dias</i>
-          </span>
-          <time class="ml-auto">2d</time>
+          <i class="notification-item-icon danger align-self-center fa fa-times-circle-o"></i>
+          <h5 class="notification-info">
+            <b class="notification-info-title">Nova proposta para analisar</b>
+            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
+          </h5>
+          <time class="notification-time ml-auto">2d</time>
         </a>
       </li>
-      <li class="expired">
+      <li class="notification-item">
         <a href="#" class="d-flex">
-          <i class="align-self-center fa fa-exclamation-triangle"></i>
-          <span>
-            <strong>Nova proposta para analisar</strong>
-            <i>Prazo de 5 dias</i>
-          </span>
-          <time class="ml-auto">1 sem</time>
+          <i class="notification-item-icon expired align-self-center fa fa-exclamation-triangle"></i>
+          <h5 class="notification-info">
+            <b class="notification-info-title">Nova proposta para analisar</b>
+            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
+          </h5>
+          <time class="notification-time ml-auto">1 sem</time>
         </a>
       </li>
     </ul>

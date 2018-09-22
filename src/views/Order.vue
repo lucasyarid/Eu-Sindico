@@ -1,40 +1,36 @@
 <template>
-  <section id="orders">
-    <nav class="d-flex justify-content-center">
-      <a href="#" class="select">Novos<span class="badge badge-pill badge-danger">1</span></a>
-      <a href="#">Aceitos</a>
-      <a href="#">Negados</a>
+  <section class="order">
+    <nav class="selector d-flex justify-content-center">
+      <a href="#" class="selector-option active">Novos<span class="badge badge-pill badge-danger">1</span></a>
+      <a href="#" class="selector-option">Aceitos</a>
+      <a href="#" class="selector-option">Negados</a>
     </nav>
     <main>
-      <div>
-        <router-link to="/order/review" class="box" style="background-image: url(//picsum.photos/300/400)">
-          <div class="info">
-
-            <router-link to="/order/review">
-              <div class="row">
-                <h4 class="col-6"><span>Compra de</span> Guarda-sóis</h4>
-                <span id="timer" class="col-6 p60">
-                  <span class="bird">
-                    <small>EXPIRA EM</small>
-                    <time>1 dias</time>
-                  </span>
-                  <span class="slice">
-                    <span class="bar"></span>
-                    <span class="fill"></span>
-                  </span>
-                </span>
-              </div>
-            </router-link>
+      <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
+        <div class="order-item-info">
+          <div class="row">
+            <div class="col-8 order-item-title">
+              <h5>Compra de</h5>
+              <h4> Guarda-sóis</h4>
+            </div>
+            <div class="col-4">
+              <Timer progress="50"/>
+            </div>
           </div>
-        </router-link>
-      </div>
+        </div>
+      </router-link>
     </main>
   </section>
 </template>
 
 <script>
+import Timer from '@/components/Timer.vue'
+
 export default {
-  name: 'quote',
+  name: 'order',
+  components: {
+    Timer
+  },
   data: function () {
     return {
       title: 'Pedidos'

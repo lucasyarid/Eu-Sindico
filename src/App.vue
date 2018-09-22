@@ -1,21 +1,18 @@
 <template>
-  <div id="app" :class="childClasses">
-    <div class="swiper-container" id="app-container">
-      <div class="swiper-wrapper" :class="{ open: menuOpen }">
-        <Menu/>
-        <div class="swiper-slide content" id="content">
-          <Notification/>
-          <AppHeader
-            :menuBack="menuBack"
-            :title="title"
-            @goBack="goBack"/>
-          <router-view
-            :childClasses="childClasses"
-            @getMenu="menuBack = $event"
-            @getTitle="title = $event"
-            @getClasses="childClasses = $event"/>
-        </div>
-      </div>
+  <div id="app" class="app-container"
+    :class="[childClasses, { 'open-menu': menuOpen }]">
+    <Menu/>
+    <div class="content" id="content">
+      <Notification/>
+      <Navigation
+        :menuBack="menuBack"
+        :title="title"
+        @goBack="goBack"/>
+      <router-view
+        :childClasses="childClasses"
+        @getMenu="menuBack = $event"
+        @getTitle="title = $event"
+        @getClasses="childClasses = $event"/>
     </div>
   </div>
 </template>
@@ -23,13 +20,13 @@
 <script>
 // @ is an alias to /src
 import Notification from '@/components/Notification.vue'
-import AppHeader from '@/components/AppHeader.vue'
+import Navigation from '@/components/Navigation.vue'
 import Menu from '@/components/Menu.vue'
 
 export default {
   name: 'app',
   components: {
-    AppHeader,
+    Navigation,
     Notification,
     Menu
   },

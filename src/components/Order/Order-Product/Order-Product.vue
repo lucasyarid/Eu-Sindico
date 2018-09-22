@@ -2,7 +2,7 @@
   <div>
     <section id="order" class="product">
       <form>
-        <main>
+        <main class="pull-up pt-5">
 
           <transition :name="slideDirection" mode="out-in">
             <OrderProductName
@@ -40,11 +40,11 @@
 <script>
 // @ is an alias to /src
 import { mapMutations } from 'vuex'
-import OrderProductName from '@/components/Order-Product/Order-Product-Name.vue'
-import OrderProductInfo from '@/components/Order-Product/Order-Product-Info.vue'
-import OrderPrice from '@/components/Order-Price.vue'
-import OrderProductScope from '@/components/Order-Product/Order-Product-Scope.vue'
-import OrderConfirm from '@/components/Order-Confirm.vue'
+import OrderProductName from './Order-Product-Name.vue'
+import OrderProductInfo from './Order-Product-Info.vue'
+import OrderPrice from '../Order-Price.vue'
+import OrderProductScope from './Order-Product-Scope.vue'
+import OrderConfirm from '../Order-Confirm.vue'
 import Loading from '@/components/Loading.vue'
 
 export default {

@@ -1,63 +1,41 @@
 <template>
-  <section id="cards-swipe">
-    <nav class="d-flex justify-content-center">
-      <a href="#">Em aberto</a>
-      <a href="#">Em votação</a>
+  <section class="quote">
+    <nav class="selector d-flex justify-content-center">
+      <a href="#" class="selector-option active">Em aberto</a>
+      <a href="#" class="selector-option">Em votação</a>
     </nav>
     <main>
-      <div class="swiper-container" id="app-cards-swipe">
-        <div class="swiper-wrapper">
-          <router-link to="/quote/review" class="swiper-slide box" style="background-image: url(//picsum.photos/300/400)">
-            <div class="info">
-              <h4><span>Compra de</span> Guarda-sóis</h4>
+      <router-link to="/quote/review" class="quote-item card card-image card-lg" style="background-image: url(//picsum.photos/300/400)">
+        <div class="quote-item-info">
+          <div class="quote-item-title">
+            <h5>Compra de</h5>
+            <h2> Guarda-sóis</h2>
+          </div>
 
-              <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
+          <span class="quote-item-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
 
-              <router-link to="/quote/review">
-                <span class="button">Mais informações</span>
-                <span id="timer" class="p60">
-                  <span class="bird">
-                    <small>EXPIRA EM</small>
-                    <time>1 dias</time>
-                  </span>
-                  <span class="slice">
-                    <span class="bar"></span>
-                    <span class="fill"></span>
-                  </span>
-                </span>
-              </router-link>
-            </div>
-          </router-link>
-          <router-link to="/quote/review" class="swiper-slide box" style="background-image: url(//picsum.photos/300/399)">
-            <div class="info">
-              <h4><span>Compra de</span> Guarda-sóis</h4>
-
-              <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
-
-              <router-link to="/quote/review">
-                <span class="button">Mais informações</span>
-                <span id="timer" class="p35">
-                  <span class="bird">
-                    <small>EXPIRA EM</small>
-                    <time>2 dias</time>
-                  </span>
-                  <span class="slice">
-                    <span class="bar"></span>
-                    <span class="fill"></span>
-                  </span>
-                </span>
-              </router-link>
-            </div>
+          <router-link to="/quote/review">
+            <FooterButton
+              title="Mais informações"
+              classes="btn-outline-simple btn-rounded btn-lg center-btn"
+              showTimer="true"
+              timerProgress="25"
+            />
           </router-link>
         </div>
-      </div>
+      </router-link>
     </main>
   </section>
 </template>
 
 <script>
+import FooterButton from '@/components/FooterButton.vue'
+
 export default {
   name: 'quote',
+  components: {
+    FooterButton
+  },
   data: function () {
     return {
       title: 'Orçamentos'

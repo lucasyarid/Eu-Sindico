@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="swiper-slide menu" :class="{ open: menuOpen }">
+  <div class="menu">
     <header style="background-image: url(//picsum.photos/640/480)">
       <div class="container">
         <div class="avatar" style="background-image: url(//api.adorable.io/avatars/64)"></div>
@@ -17,8 +17,6 @@
           <li @click="menuToggle"><router-link active-class="active" to="/settings"><i class="fa fa-cog"></i> Ajustes</router-link></li>
           <li @click="menuToggle"><router-link active-class="active" to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
           <li @click="menuToggle();onLogout();"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
-          <br>
-          <li @click="menuToggle"><router-link active-class="active" exact to="/quote/create"><i class="fa fa-folder"></i> Novo Orçamento</router-link></li>
         </ul>
         <div class="new-order" @click="menuToggle"><router-link class="btn btn-success btn-lg btn-rounded" to="/order/create"><strong>Criar novo pedido</strong></router-link></div>
       </div>

@@ -1,0 +1,12 @@
+.rating {
+  .star {
+    margin-right: 5px;
+    color: $secondaryColor;
+    &.active {
+      color: $activeColor;
+    }
+  }
+  &.vote {
+    font-size: 46px;
+  }
+}

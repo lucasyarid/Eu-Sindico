@@ -1,0 +1,82 @@
+h1, h2, h3, h4, h5, h6, p, body { 
+  font-family: $mainFontFamily;
+  line-height: 1em;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 24px;
+  text-align: left;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 14px;
+  text-align: left;
+}
+
+h6 {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.3em;
+}
+
+a {
+  color: $primaryColor;
+  &:hover, &.active {
+    color: $activeColor;
+    text-decoration: none;
+  }
+}
+
+blockquote {
+  display: block;
+  margin-bottom: 1rem;
+  p {
+    position: relative;
+    width: 100%;
+    padding: 12px;
+    background: #ffffff;
+    border-radius: 5%;
+    -webkit-filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+    font-style: italic;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    &:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 10px 10px 0;
+      border-color: #ffffff transparent;
+      display: block;
+      width: 0;
+      z-index: 1;
+      bottom: -10px;
+      right: 20px;
+    }
+  }
+  cite {
+    text-align: right;
+    display: block;
+    font-size: 0.8em;
+    font-style: normal;
+  }
+}
