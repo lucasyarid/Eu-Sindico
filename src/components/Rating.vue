@@ -1,11 +1,11 @@
 <template>
   <span class="rating" v-if="!vote">
-    <span v-for="n in stars" v-bind:key="n" class="fa fa-star star active"></span>
-    <span v-for="n in inactiveStars" v-bind:key="n" class="fa fa-star star"></span>
+    <span v-for="n in stars" :key="n + '-active'" class="fa fa-star star active"></span>
+    <span v-for="n in inactiveStars" :key="n" class="fa fa-star star"></span>
   </span>
   <span class="rating vote" v-else>
-    <a href="#" v-for="n in stars" v-bind:key="n" class="fa fa-star star active"></a>
-    <a href="#" v-for="n in inactiveStars" v-bind:key="n" class="fa fa-star star"></a>
+    <a href="#" v-for="n in stars" :key="n + '-active'" class="fa fa-star star active"></a>
+    <a href="#" v-for="n in inactiveStars" :key="n" class="fa fa-star star"></a>
   </span>
 </template>
 
