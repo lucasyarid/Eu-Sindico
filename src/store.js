@@ -24,6 +24,9 @@ export default new Vuex.Store({
     menuToggle: state => {
       state.menuOpen = !state.menuOpen
     },
+    menuClose: state => {
+      state.menuOpen = false
+    },
     notificationToggle: state => {
       state.notificationOpen = !state.notificationOpen
     },
