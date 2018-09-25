@@ -1,6 +1,6 @@
 <template>
   <section class="quote">
-    <nav class="d-flex justify-content-center">
+    <nav class="d-flex justify-content-center mb-3">
       <v-tabs
         slot="extension"
         v-model="tabs"
@@ -14,32 +14,43 @@
         </v-tab>
       </v-tabs>
     </nav>
-    <main>
-      <v-tabs-items v-model="tabs" class="white elevation-1">
-        <v-tab-item
-          v-for="i in 3"
-          :id="'tab-' + i"
-          :key="i">
-          <router-link to="/quote/review" class="quote-item card card-image card-lg" style="background-image: url(//picsum.photos/300/400)">
-            <div class="quote-item-info">
-              <div class="quote-item-title">
-                <h5>Compra de</h5>
-                <h2> Guarda-sóis</h2>
-              </div>
+    <main class="horizontal-scroll">
+      <router-link to="/quote/review" class="quote-item card card-image card-lg" style="background-image: url(//picsum.photos/300/400)">
+        <div class="quote-item-info">
+          <div class="quote-item-title">
+            <h5>Compra de</h5>
+            <h2> Guarda-sóis</h2>
+          </div>
 
-              <span class="quote-item-reference align-text-top">
-                <v-icon :size="21" color="white">account_circle</v-icon> À pedido do Síndico</span>
+          <span class="quote-item-reference align-text-top">
+            <v-icon :size="21" color="white">account_circle</v-icon> À pedido do Síndico</span>
 
-              <FooterButton
-                title="Mais informações"
-                classes="btn-outline-simple btn-rounded btn-lg center-btn"
-                showTimer="true"
-                timerProgress="25"
-              />
-            </div>
-          </router-link>
-        </v-tab-item>
-      </v-tabs-items>
+          <FooterButton
+            title="Mais informações"
+            classes="btn-outline-simple btn-rounded btn-lg center-btn"
+            showTimer="true"
+            timerProgress="25"
+          />
+        </div>
+      </router-link>
+      <router-link to="/quote/review" class="quote-item card card-image card-lg" style="background-image: url(//picsum.photos/300/400)">
+        <div class="quote-item-info">
+          <div class="quote-item-title">
+            <h5>Compra de</h5>
+            <h2> Guarda-sóis</h2>
+          </div>
+
+          <span class="quote-item-reference align-text-top">
+            <v-icon :size="21" color="white">account_circle</v-icon> À pedido do Síndico</span>
+
+          <FooterButton
+            title="Mais informações"
+            classes="btn-outline-simple btn-rounded btn-lg center-btn"
+            showTimer="true"
+            timerProgress="25"
+          />
+        </div>
+      </router-link>
     </main>
   </section>
 </template>

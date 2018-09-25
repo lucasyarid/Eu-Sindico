@@ -23,38 +23,31 @@
       </v-tabs>
     </nav>
     <main>
-      <v-tabs-items v-model="tabs" class="white elevation-1">
-        <v-tab-item
-          v-for="i in 3"
-          :id="'tab-' + i"
-          :key="i">
-          <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
-            <div class="order-item-info">
-              <div class="row">
-                <div class="col-8 order-item-title">
-                  <h5>Compra de</h5>
-                  <h4> Guarda-sóis</h4>
-                </div>
-                <div class="col-4">
-                  <v-progress-circular
-                    :rotate="-90"
-                    :size="80"
-                    :width="4"
-                    :value="25"
-                    color="green accent-3">
-                    <div class="timer">
-                      <div class="timer-content">
-                        <small>Expira em</small>
-                        <time>2 dias</time>
-                      </div>
-                    </div>
-                  </v-progress-circular>
-                </div>
-              </div>
+      <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
+        <div class="order-item-info">
+          <div class="row">
+            <div class="col-8 order-item-title">
+              <h5>Compra de</h5>
+              <h4> Guarda-sóis</h4>
             </div>
-          </router-link>
-        </v-tab-item>
-      </v-tabs-items>
+            <div class="col-4">
+              <v-progress-circular
+                :rotate="-90"
+                :size="80"
+                :width="4"
+                :value="25"
+                color="green accent-3">
+                <div class="timer">
+                  <div class="timer-content">
+                    <small>Expira em</small>
+                    <time>2 dias</time>
+                  </div>
+                </div>
+              </v-progress-circular>
+            </div>
+          </div>
+        </div>
+      </router-link>
     </main>
   </section>
 </template>

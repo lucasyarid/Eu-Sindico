@@ -46,3 +46,12 @@ ul, li {
 #app-cards {
   padding: 0 15px;
 }
+
+.horizontal-scroll {
+  overflow: auto;
+  white-space: nowrap;
+  a {
+    display: inline-block;
+    margin: 0 5px;
+  }
+}
