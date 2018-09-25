@@ -15,6 +15,9 @@ export default new Vuex.Store({
 
     menuOpen: false,
     notificationOpen: false,
+    lightboxOpen: false,
+
+    appClasses: Array,
 
     slideDirection: '',
     previousStep: 0,
@@ -30,6 +33,9 @@ export default new Vuex.Store({
     notificationToggle: state => {
       state.notificationOpen = !state.notificationOpen
     },
+    lightboxToggle: state => {
+      state.lightboxOpen = !state.lightboxOpen
+    },
     setStep (state, n) {
       state.step = n
       state.slideDirection = ''
@@ -42,6 +48,9 @@ export default new Vuex.Store({
       } else {
         state.slideDirection = 'slide-right'
       }
+    },
+    setClasses (state, classes) {
+      state.appClasses = classes
     },
     authUser (state, userData) {
       state.apiToken = userData.apiToken

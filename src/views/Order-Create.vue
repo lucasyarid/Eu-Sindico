@@ -30,7 +30,6 @@ import OrderService from '@/components/Order/Order-Service/Order-Service.vue'
 
 export default {
   name: 'order-create',
-  props: ['childClasses'],
   components: {
     OrderProduct,
     OrderService
@@ -61,13 +60,10 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setStep'
+      'setStep', 'setClasses'
     ]),
     setName () {
       this.$emit('getTitle', this.title)
-    },
-    setClasses () {
-      this.$emit('getClasses', this.classes)
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
@@ -75,14 +71,13 @@ export default {
   },
   mounted () {
     this.setName()
-    this.setClasses()
+    this.setClasses(this.classes)
     this.setMenu()
     this.setStep(0)
   },
   destroyed () {
-    this.classes = ['']
     this.menuBack = false
-    this.setClasses()
+    this.setClasses('')
     this.setMenu()
   }
 }

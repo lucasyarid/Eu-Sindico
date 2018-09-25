@@ -7,6 +7,11 @@
           <span></span>
         </div>
       </template>
+      <template v-else-if="lightboxOpen">
+        <div id="menu-control" @click="lightboxToggle" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
+          <span></span>
+        </div>
+      </template>
       <template v-else-if="menuBack">
         <div id="menu-control" @click="$emit('goBack')" :class="{ 'open-menu-control': menuOpen }" class="open-menu-control">
           <span></span>
@@ -46,7 +51,7 @@ export default {
   props: ['title', 'menuBack'],
   methods: {
     ...mapMutations([
-      'menuToggle', 'notificationToggle', 'changeStep'
+      'menuToggle', 'notificationToggle', 'changeStep', 'lightboxToggle'
     ])
   },
   computed: {
@@ -58,6 +63,9 @@ export default {
     },
     step () {
       return this.$store.state.step
+    },
+    lightboxOpen () {
+      return this.$store.state.lightboxOpen
     }
   }
 }

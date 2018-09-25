@@ -1,43 +1,36 @@
-.timer {
-  background-color: #fff;
-  color: #000;
-  border-radius: 100%;
-  width: 80px;
-  height: 80px;
-  position: relative;
-  z-index: 1;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.25);
-  .timer-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    small, time {
-      display: block;
-      white-space: nowrap;
-    }
-    small {
-      text-transform: uppercase;
-      font-size: 10px;
-    }
-    time {
-      color: $activeColor;
-      font-weight: 600;
-      font-size: 19px;
-      margin-top: 1px;
-    }
+.v-progress-circular {
+  svg {
+    z-index: 2;
   }
-  .progress-ring {
+  .timer {
+    background-color: #fff;
+    color: #000;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
     position: relative;
-    z-index: 3;
-    left: -6px;
-    top: -6px;
-    circle {
-      transition: stroke-dashoffset 0.35s;
-      transform: rotate(-90deg);
-      transform-origin: 50% 50%;
-      stroke: $activeColor;
+    z-index: 1;
+    box-shadow: 1px 1px 10px rgba(0,0,0,.25);
+    .timer-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      small, time {
+        display: block;
+        white-space: nowrap;
+      }
+      small {
+        text-transform: uppercase;
+        font-size: 10px;
+      }
+      time {
+        color: $activeColor;
+        font-weight: 600;
+        font-size: 19px;
+        margin-top: 1px;
+      }
     }
   }
 }

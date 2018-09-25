@@ -17,6 +17,8 @@ import {
   VTabs,
   VTooltip,
   VRating,
+  VTextField,
+  VTextarea,
   transitions
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
@@ -40,6 +42,8 @@ Vue.use(Vuetify, {
     VTabs,
     VTooltip,
     VRating,
+    VTextField,
+    VTextarea,
     transitions
   },
   customProperties: true,

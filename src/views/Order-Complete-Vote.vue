@@ -1,6 +1,6 @@
 <template>
   <section class="order-vote">
-    <Gallery classes="pull-up large"/>
+    <Gallery galeryClasses="pull-up large"/>
     <main>
 
       <div class="container justify-content-center text-center">
@@ -73,14 +73,12 @@
 <script>
 import { mapMutations } from 'vuex'
 import Gallery from '@/components/Gallery'
-import Rating from '@/components/Rating'
 import FooterButton from '@/components/FooterButton'
 
 export default {
   name: 'order-complete-vote',
   components: {
     Gallery,
-    Rating,
     FooterButton
   },
   data: function () {
@@ -94,13 +92,10 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'setStep'
+      'setStep', 'setClasses'
     ]),
     setName () {
       this.$emit('getTitle', this.title)
-    },
-    setClasses () {
-      this.$emit('getClasses', this.classes)
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
@@ -108,13 +103,12 @@ export default {
   },
   mounted () {
     this.setName()
-    this.setClasses()
+    this.setClasses(this.classes)
     this.setMenu()
   },
   destroyed () {
-    this.classes = ['']
     this.menuBack = false
-    this.setClasses()
+    this.setClasses('')
     this.setMenu()
   }
 }

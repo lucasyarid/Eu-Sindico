@@ -37,13 +37,8 @@
 </template>
 
 <script>
-import Rating from '@/components/Rating'
-
 export default {
   name: 'order-complete',
-  components: {
-    Rating
-  },
   data: function () {
     return {
       title: 'Pedidos Concluídos',

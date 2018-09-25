@@ -3,10 +3,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   padding-top: 15px;
   .color-layout & {
-    color: #FFF;
+    color: #FFF !important;
+    .notification .v-icon {
+      color: #FFF !important;
+    }
     #menu-control {
       span, span:after, span:before {
         background-color: #FFF;

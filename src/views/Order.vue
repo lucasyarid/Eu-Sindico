@@ -1,7 +1,12 @@
 <template>
   <section class="order">
     <nav class="selector d-flex justify-content-center">
-      <a href="#" class="selector-option active">Novos<span class="badge badge-pill badge-danger">1</span></a>
+      <v-badge class="selector-option active" color="green accent-3">
+        <span slot="badge">2</span>
+        <span>
+          Novos
+        </span>
+      </v-badge>
       <a href="#" class="selector-option">Aceitos</a>
       <a href="#" class="selector-option">Negados</a>
     </nav>
@@ -14,7 +19,19 @@
               <h4> Guarda-sóis</h4>
             </div>
             <div class="col-4">
-              <Timer progress="50"/>
+              <v-progress-circular
+                :rotate="-90"
+                :size="80"
+                :width="4"
+                :value="25"
+                color="green accent-3">
+                <div class="timer">
+                  <div class="timer-content">
+                    <small>Expira em</small>
+                    <time>2 dias</time>
+                  </div>
+                </div>
+              </v-progress-circular>
             </div>
           </div>
         </div>
@@ -24,13 +41,8 @@
 </template>
 
 <script>
-import Timer from '@/components/Timer.vue'
-
 export default {
   name: 'order',
-  components: {
-    Timer
-  },
   data: function () {
     return {
       title: 'Pedidos'

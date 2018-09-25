@@ -37,11 +37,11 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { required, email } from 'vuelidate/lib/validators'
 
 export default {
   name: 'signin',
-  props: ['childClasses'],
   data () {
     return {
       title: 'Login',
@@ -60,11 +60,11 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setClasses'
+    ]),
     setName () {
       this.$emit('getTitle', this.title)
-    },
-    setClasses () {
-      this.$emit('getClasses', this.classes)
     },
     onSubmit () {
       const formData = {
@@ -79,11 +79,10 @@ export default {
   },
   mounted () {
     this.setName()
-    this.setClasses()
+    this.setClasses(this.classes)
   },
   destroyed () {
-    this.classes = ['']
-    this.setClasses()
+    this.setClasses('')
   }
 }
 </script>

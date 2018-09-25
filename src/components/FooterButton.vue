@@ -7,9 +7,19 @@
         :class="classes">
         {{ title }}
       </button>
-      <Timer
-        v-if="showTimer"
-        :progress="timerProgress"/>
+      <v-progress-circular
+        :rotate="-90"
+        :size="80"
+        :width="4"
+        :value="25"
+        color="green accent-3">
+        <div class="timer">
+          <div class="timer-content">
+            <small>Expira em</small>
+            <time>2 dias</time>
+          </div>
+        </div>
+      </v-progress-circular>
     </div>
     <div class="container" v-else>
       <div class="row justify-content-center">
@@ -35,8 +45,6 @@
 </template>
 
 <script>
-import Timer from '@/components/Timer.vue'
-
 export default {
   name: 'footer-button',
   props: [
@@ -49,9 +57,6 @@ export default {
     'secondaryTitle',
     'secondaryClasses',
     'secondaryClick'
-  ],
-  components: {
-    Timer
-  }
+  ]
 }
 </script>

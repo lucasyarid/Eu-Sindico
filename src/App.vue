@@ -1,6 +1,6 @@
 <template>
   <v-app id="app"
-    :class="[childClasses, { 'open-menu': menuOpen }]">
+    :class="[appClasses, { 'open-menu': menuOpen }]">
     <Menu/>
     <div class="content" id="content">
       <Notification/>
@@ -58,6 +58,9 @@ export default {
     },
     notificationOpen () {
       return this.$store.state.notificationOpen
+    },
+    appClasses () {
+      return this.$store.state.appClasses
     }
   }
 }

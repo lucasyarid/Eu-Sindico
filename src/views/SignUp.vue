@@ -50,11 +50,11 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
   name: 'signup',
-  props: ['childClasses'],
   data () {
     return {
       title: 'Cadastre-se',
@@ -79,21 +79,11 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setClasses'
+    ]),
     setName () {
       this.$emit('getTitle', this.title)
-    },
-    setClasses () {
-      this.$emit('getClasses', this.classes)
-    },
-    onAddHobby () {
-      const newHobby = {
-        id: Math.random() * Math.random() * 1000,
-        value: ''
-      }
-      this.hobbyInputs.push(newHobby)
-    },
-    onDeleteHobby (id) {
-      this.hobbyInputs = this.hobbyInputs.filter(hobby => hobby.id !== id)
     },
     onSubmit () {
       const formData = {
@@ -106,11 +96,10 @@ export default {
   },
   mounted () {
     this.setName()
-    this.setClasses()
+    this.setClasses(this.classes)
   },
   destroyed () {
-    this.classes = ['']
-    this.setClasses()
+    this.setClasses('')
   }
 }
 </script>
