@@ -1,41 +1,60 @@
 <template>
   <section class="order">
-    <nav class="selector d-flex justify-content-center">
-      <v-badge class="selector-option active" color="green accent-3">
-        <span slot="badge">2</span>
-        <span>
-          Novos
-        </span>
-      </v-badge>
-      <a href="#" class="selector-option">Aceitos</a>
-      <a href="#" class="selector-option">Negados</a>
+    <nav class="d-flex justify-content-center mb-3">
+      <v-tabs
+        slot="extension"
+        v-model="tabs"
+        :icons-and-text="true"
+        slider-color="green accent-3">
+        <v-tab href="#tab-1">
+          <v-badge color="green accent-3">
+            <span slot="badge">2</span>
+            <span>
+              Novos
+            </span>
+          </v-badge>
+        </v-tab>
+        <v-tab href="#tab-2">
+          Aceitos
+        </v-tab>
+        <v-tab href="#tab-3">
+            Negados
+        </v-tab>
+      </v-tabs>
     </nav>
     <main>
-      <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
-        <div class="order-item-info">
-          <div class="row">
-            <div class="col-8 order-item-title">
-              <h5>Compra de</h5>
-              <h4> Guarda-sóis</h4>
-            </div>
-            <div class="col-4">
-              <v-progress-circular
-                :rotate="-90"
-                :size="80"
-                :width="4"
-                :value="25"
-                color="green accent-3">
-                <div class="timer">
-                  <div class="timer-content">
-                    <small>Expira em</small>
-                    <time>2 dias</time>
-                  </div>
+      <v-tabs-items v-model="tabs" class="white elevation-1">
+        <v-tab-item
+          v-for="i in 3"
+          :id="'tab-' + i"
+          :key="i">
+          <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
+            <div class="order-item-info">
+              <div class="row">
+                <div class="col-8 order-item-title">
+                  <h5>Compra de</h5>
+                  <h4> Guarda-sóis</h4>
                 </div>
-              </v-progress-circular>
+                <div class="col-4">
+                  <v-progress-circular
+                    :rotate="-90"
+                    :size="80"
+                    :width="4"
+                    :value="25"
+                    color="green accent-3">
+                    <div class="timer">
+                      <div class="timer-content">
+                        <small>Expira em</small>
+                        <time>2 dias</time>
+                      </div>
+                    </div>
+                  </v-progress-circular>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </router-link>
+          </router-link>
+        </v-tab-item>
+      </v-tabs-items>
     </main>
   </section>
 </template>
@@ -45,7 +64,8 @@ export default {
   name: 'order',
   data: function () {
     return {
-      title: 'Pedidos'
+      title: 'Pedidos',
+      tabs: null
     }
   },
   methods: {

@@ -1,12 +1,6 @@
 <template>
-  <section id="checkout">
-    <header v-if="step == 0" id="order-top" style="background-image: url(//picsum.photos/640/560)">
-      <div class="info">
-        <h4>Guarda-sóis</h4>
-        <span class="order-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
-        <a href="#" class="gallery"><i class="fa fa-picture-o"></i>02 fotos</a>
-      </div>
-    </header>
+  <section>
+    <Gallery/>
 
     <main>
       <QuoteInfo :quote="quote" v-if="step == 0"/>
@@ -48,13 +42,15 @@ import { mapMutations } from 'vuex'
 import QuoteInfo from '@/components/Quote/Quote-Info.vue'
 import QuoteConfirm from '@/components/Quote/Quote-Confirm.vue'
 import Loading from '@/components/Loading.vue'
+import Gallery from '@/components/Gallery.vue'
 
 export default {
   name: 'quote-create',
   components: {
     QuoteInfo,
     QuoteConfirm,
-    Loading
+    Loading,
+    Gallery
   },
   data: function () {
     return {

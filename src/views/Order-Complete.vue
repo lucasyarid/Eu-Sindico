@@ -4,17 +4,29 @@
       <div class="row">
         <h5 class="col-5 mt-2">
           <strong>2017</strong> / NOVEMBRO
+          {{ date }}
         </h5>
         <div class="calendar col-7 form-group">
-          <v-icon small color="black">calendar_today</v-icon>
-          <select class="custom-select form-control form-control-sm d-inline-block">
-            <option disabled>Mês</option>
-            <option value="janeiro">Janeiro</option>
-          </select>
-          <select class="custom-select form-control form-control-sm d-inline-block">
-            <option disabled>Ano</option>
-            <option value="2017">2017</option>
-          </select>
+          <v-dialog
+            ref="dialog"
+            v-model="modal"
+            :return-value.sync="date"
+            lazy
+            full-width
+            width="290px"
+          >
+            <v-text-field
+              slot="activator"
+              v-model="date"
+              label="Filtrar por mês"
+              append-outer-icon="event"
+              readonly
+            ></v-text-field>
+            <v-date-picker color="green accent-3" v-model="date" type="month" scrollable>
+              <v-btn flat color="green accent-3" @click="modal = false">Cancel</v-btn>
+              <v-btn flat color="green accent-3" @click="$refs.dialog.save(date)">OK</v-btn>
+            </v-date-picker>
+          </v-dialog>
         </div>
       </div>
     </header>
@@ -42,7 +54,10 @@ export default {
   data: function () {
     return {
       title: 'Pedidos Concluídos',
-      rating: 4
+      rating: 4,
+      date: null,
+      menu: false,
+      modal: false
     }
   },
   methods: {

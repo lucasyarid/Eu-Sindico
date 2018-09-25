@@ -15,8 +15,27 @@
       </div>
       <div class="form-row">
         <div class="col mb-4 mt-1">
-          <label for="order-cost" class="mb-0">Prazo</label>
-          <input type="number" class="form-control" id="order-cost" v-model.number="order.deadline" required>
+          <v-dialog
+            ref="dialog"
+            v-model="modal"
+            :return-value.sync="order.deadline"
+            lazy
+            full-width
+            width="290px"
+          >
+            <v-text-field
+              slot="activator"
+              v-model="order.deadline"
+              label="Prazo"
+              prepend-icon="event"
+              readonly
+              color="white"
+            ></v-text-field>
+            <v-date-picker color="green accent-3" v-model="order.deadline" scrollable>
+              <v-btn flat color="green accent-3" @click="modal = false">Cancel</v-btn>
+              <v-btn flat color="green accent-3" @click="$refs.dialog.save(order.deadline)">OK</v-btn>
+            </v-date-picker>
+          </v-dialog>
         </div>
       </div>
       <div class="form-row">
@@ -61,6 +80,9 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'order-service-info',
   props: ['order'],
+  data: () => ({
+    modal: false
+  }),
   validations: {
     order: {
       name: { required },
