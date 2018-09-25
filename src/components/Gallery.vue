@@ -3,15 +3,18 @@
     <a href="#" class="gallery-box" :class="classes" style="background-image: url(//picsum.photos/640/560)">
       <div v-if="info" class="gallery-box-info">
         <h1>Guarda-sóis</h1>
-        <span class="gallery-box-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
+        <span class="gallery-box-reference align-text-top">
+          <v-icon :size="21" color="white">account_circle</v-icon>
+          À pedido do Síndico
+        </span>
       </div>
-      <div class="gallery-box-count"><i class="fa fa-picture-o"></i>02 fotos</div>
+      <div class="gallery-box-count"><v-icon small color="white" class="gallery-close">collections</v-icon>02 fotos</div>
     </a>
     <div class="gallery-lightbox" style="display: none;">
       <header>
         <div class="container-fluid d-flex align-items-center">
           <h4 class="gallery-title">Guarda-sóis</h4>
-          <i class="ml-auto fa fa-close gallery-close"></i>
+          <v-icon color="white" class="gallery-close">close</v-icon>
         </div>
       </header>
       <main class="h-100">

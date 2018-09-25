@@ -10,10 +10,11 @@
 
         <ul class="order-review-files">
           <li class="order-review-file">
-            <i class="fa fa-check"></i> Houve vistoria prévia</li>
+            <v-icon color="black">check</v-icon>
+            Houve vistoria prévia</li>
           <li class="order-review-file">
             <a href="#">
-              <i class="fa fa-paperclip"></i> Laudo Empresa XYZ.pdf
+              <v-icon color="primary">attachment</v-icon> Laudo Empresa XYZ.pdf
             </a>
           </li>
         </ul>

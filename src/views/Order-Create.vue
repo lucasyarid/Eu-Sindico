@@ -3,13 +3,13 @@
     <div v-if="step == 0">
       <nav class="pull-up">
         <div class="box product-option">
-          <i class="fa fa-shopping-cart mb-2"></i>
+          <v-icon x-large color="white">shopping_cart</v-icon>
           <h2>Compra de produto</h2>
           <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
           <button @click.prevent="setStep(1); order.type = 'produto';" type="button" class="btn btn-rounded btn-lg btn-outline-simple" tag="button">Começar ›</button>
         </div>
         <div class="box service-option">
-          <i class="fa fa-handshake-o mb-2"></i>
+          <v-icon x-large color="white">work</v-icon>
           <h2>Contratação de serviço</h2>
           <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
           <button @click.prevent="setStep(1); order.type = 'serviço';" type="button" class="btn btn-rounded btn-lg btn-outline-simple" tag="button">Começar ›</button>

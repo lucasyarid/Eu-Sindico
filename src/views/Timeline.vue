@@ -1,110 +1,69 @@
 <template>
   <section class="timeline">
     <Gallery info="true"/>
-    <main class="container">
+    <main>
 
-      <div class="timeline-overview d-flex justify-content-center mt-4 mb-4 text-center">
+      <div class="order-vote-overview d-flex justify-content-center mt-4 mb-4 text-center">
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-thumbs-up mt-3"></i>
-            <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
+            <span slot="badge"><v-icon color="white">check</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">thumb_up</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Pedido<br/>aprovado</p>
         </div>
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-newspaper-o mt-3"></i>
-            <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
+            <span slot="badge"><v-icon color="white">check</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">assignment</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Orçamento<br/>aprovado</p>
         </div>
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-shield mt-3"></i>
-            <span class="badge badge-pill badge-danger badge-bottom badge-right"><i class="fa fa-close"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="red">
+            <span slot="badge"><v-icon color="white">close</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">verified_user</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Realizado<br/>no prazo</p>
         </div>
       </div>
 
-      <h5>LINHA DO TEMPO COMPLETA</h5>
-      <ul class="timeline-complete mt-3">
-        <li class="timeline-item row pb-3">
-          <time class="col-3 pr-0 pl-0 pt-3">10/11/2017</time>
-          <div class="col-2 pr-0 pl-0 text-center">
-            <div class="bubble bubble-outline">
-              <i class="fa fa-info-circle mt-3"></i>
-              <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-            </div>
-          </div>
-          <div class="timeline-item-info col-7 pt-2">
-            <h5 class="timeline-item-info-title mt-0 mb-1">Pedido criado</h5>
-            <div class="timeline-item-info-view">
-              <h5 class="timeline-item-info-link"><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-item row pb-3">
-          <time class="col-3 pr-0 pl-0 pt-3">10/11/2017</time>
-          <div class="col-2 pr-0 pl-0 text-center">
-            <div class="bubble bubble-outline">
-              <i class="fa fa-inbox mt-3"></i>
-              <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-            </div>
-          </div>
-          <div class="timeline-item-info col-7 pt-2">
-            <h5 class="timeline-item-info-title mt-0 mb-1">Pedido aprovado</h5>
-            <div class="timeline-item-info-view">
-              <h5 class="timeline-item-info-link"><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-item row pb-3">
-          <time class="col-3 pr-0 pl-0 pt-3">10/11/2017</time>
-          <div class="col-2 pr-0 pl-0 text-center">
-            <div class="bubble bubble-outline">
-              <i class="fa fa-newspaper-o mt-3"></i>
-              <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-            </div>
-          </div>
-          <div class="timeline-item-info col-7 pt-2">
-            <h5 class="timeline-item-info-title mt-0 mb-1">Orçamento aprovado</h5>
-            <div class="timeline-item-info-view">
-              <h5 class="timeline-item-info-link"><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-item row pb-3">
-          <time class="col-3 pr-0 pl-0 pt-3">10/11/2017</time>
-          <div class="col-2 pr-0 pl-0 text-center">
-            <div class="bubble bubble-outline">
-              <i class="fa fa-cog mt-3"></i>
-              <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-            </div>
-          </div>
-          <div class="timeline-item-info col-7 pt-2">
-            <h5 class="timeline-item-info-title mt-0 mb-1">Inicio do serviço</h5>
-            <div class="timeline-item-info-view">
-              <h5 class="timeline-item-info-link"><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-item row pb-3">
-          <time class="col-3 pr-0 pl-0 pt-3">10/11/2017</time>
-          <div class="col-2 pr-0 pl-0 text-center">
-            <div class="bubble bubble-outline">
-              <i class="fa fa-shield mt-3"></i>
-              <span class="badge badge-pill badge-danger badge-bottom badge-right"><i class="fa fa-close"></i></span>
-            </div>
-          </div>
-          <div class="timeline-item-info col-7 pt-2">
-            <h5 class="timeline-item-info-title mt-0 mb-1">Pedido criado</h5>
-            <div class="timeline-item-info-view">
-              <h5 class="timeline-item-info-link"><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </div>
-          </div>
-        </li>
-      </ul>
+      <h5 class="container">LINHA DO TEMPO COMPLETA</h5>
+
+      <div class="list-wrapper">
+        <v-list three-line>
+          <v-list-tile
+            v-for="timelineItem in timeline"
+            :key="timelineItem.id"
+            active-class="active">
+
+            <v-list-tile-action class="col-2">
+              <div class="caption">{{ timelineItem.date }}</div>
+            </v-list-tile-action>
+
+            <v-list-tile-avatar class="col-2 offset-1">
+              <v-badge :bottom="true" :overlap="true" color="green accent-3" class="mx-auto">
+                <span slot="badge"><v-icon color="white">check</v-icon></span>
+                <v-avatar size="60" color="grey lighten-3" >
+                  <v-icon color="grey">assignment</v-icon>
+                </v-avatar>
+              </v-badge>
+            </v-list-tile-avatar>
+
+            <v-list-tile-content class="col-6  offset-1">
+              <h5>{{timelineItem.title}}</h5>
+              <h5><i class="fa fa-chevron-down"></i> Visualizar</h5>
+            </v-list-tile-content>
+
+          </v-list-tile>
+        </v-list>
+        <div class="list-line"></div>
+      </div>
     </main>
   </section>
 </template>
@@ -119,7 +78,14 @@ export default {
   },
   data: function () {
     return {
-      title: 'Aprovar Pedido'
+      title: 'Aprovar Pedido',
+      timeline: [
+        { id: 1, date: '10/08/2018', title: 'Pedido Criado' },
+        { id: 2, date: '10/08/2018', title: 'Pedido Aprovado' },
+        { id: 3, date: '10/08/2018', title: 'Orçamento Aprovado' },
+        { id: 4, date: '10/08/2018', title: 'Início do serviço' },
+        { id: 5, date: '10/08/2018', title: 'Pedido Criado' }
+      ]
     }
   },
   methods: {

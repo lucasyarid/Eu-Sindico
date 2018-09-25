@@ -12,7 +12,7 @@
     </div>
     <div class="sended">
       <div class="box">
-        <i class="fa fa-check"></i>
+        <v-icon color="white">check</v-icon>
         <h5>Enviado!</h5>
       </div>
     </div>

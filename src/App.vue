@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app-container"
+  <v-app id="app"
     :class="[childClasses, { 'open-menu': menuOpen }]">
     <Menu/>
     <div class="content" id="content">
@@ -14,7 +14,7 @@
         @getTitle="title = $event"
         @getClasses="childClasses = $event"/>
     </div>
-  </div>
+  </v-app>
 </template>
 
 <script>
@@ -66,7 +66,6 @@ export default {
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800');
   @import '../assets/libraries/bootstrap/4.0.0/css/bootstrap.min.css';
-  @import '../assets/libraries/font-awesome/4.7.0/css/font-awesome.min.css';
 </style>
 
 <style lang="scss">

@@ -66,8 +66,8 @@
         <div class="form-row">
           <div class="col attachment">
             <h4>ANEXOS</h4>
-            <p><i class="fa fa-camera"></i> Orçamento empresa XYZ.pdf</p>
-            <p><i class="fa fa-paperclip"></i> Orçamento empresa XYZ.pdf</p>
+            <p><v-icon color="white">add_a_photo</v-icon> Orçamento empresa XYZ.pdf</p>
+            <p><v-icon color="white">attachment</v-icon> Orçamento empresa XYZ.pdf</p>
           </div>
         </div>
 

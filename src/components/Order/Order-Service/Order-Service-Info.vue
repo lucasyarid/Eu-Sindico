@@ -31,14 +31,12 @@
               </div>
             </div>
           </div>
-          <span class="btn btn-camera fileinput-button">
-            <i class="fa fa-camera"></i>
-            <input type="file" name="files[]" multiple="">
-          </span>
-          <span class="btn btn-attachment fileinput-button">
-            <i class="fa fa-paperclip"></i>
-            <input type="file" name="files[]" multiple="">
-          </span>
+          <v-avatar size="60" color="white">
+            <v-icon color="light-blue lighten-2">add_a_photo</v-icon>
+          </v-avatar>
+          <v-avatar size="60" color="white">
+            <v-icon color="light-blue lighten-2">attachment</v-icon>
+          </v-avatar>
         </div>
       </div>
     </div>

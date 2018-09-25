@@ -36,8 +36,8 @@ ul, li {
   }
 }
 
-.app-container {
-  display: flex;
+.application--wrap {
+  flex-direction: initial;
   height: 100vh;
   max-height: 100vh;
   overflow: hidden;

@@ -1,4 +1,4 @@
-h1, h2, h3, h4, h5, h6, p, body { 
+h1, h2, h3, h4, h5, h6, p, body, .application { 
   font-family: $mainFontFamily;
   line-height: 1em;
 }
@@ -38,7 +38,7 @@ p {
   line-height: 1.3em;
 }
 
-a {
+.application a {
   color: $primaryColor;
   &:hover, &.active {
     color: $activeColor;

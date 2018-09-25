@@ -2,6 +2,8 @@ import Vue from 'vue'
 import {
   Vuetify,
   VApp,
+  // VGrid,
+  VDivider,
   VAvatar,
   VBadge,
   VBottomSheet,
@@ -14,6 +16,7 @@ import {
   VProgressCircular,
   VTabs,
   VTooltip,
+  VRating,
   transitions
 } from 'vuetify'
 import 'vuetify/src/stylus/app.styl'
@@ -23,6 +26,8 @@ Vue.use(Vuetify, {
     Vuetify,
     VApp,
     VAvatar,
+    // VGrid,
+    VDivider,
     VBadge,
     VBottomSheet,
     VBtn,
@@ -34,6 +39,7 @@ Vue.use(Vuetify, {
     VProgressCircular,
     VTabs,
     VTooltip,
+    VRating,
     transitions
   },
   customProperties: true,

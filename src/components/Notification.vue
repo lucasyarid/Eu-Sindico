@@ -1,58 +1,27 @@
 <template>
   <nav id="notifications" class="notifications" :class="{ open: notificationOpen }">
-    <h1>Notificações</h1>
-    <ul class="notification-list">
-      <li class="notification-item">
-        <a href="#" class="d-flex">
-          <i class="notification-item-icon active align-self-center fa fa-exclamation-triangle"></i>
-          <h5 class="notification-info">
-            <b class="notification-info-title">Nova proposta para analisar</b>
-            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
-          </h5>
-          <time class="notification-time ml-auto">1 min</time>
-        </a>
-      </li>
-      <li class="notification-item">
-        <a href="#" class="d-flex">
-          <i class="notification-item-icon active align-self-center fa fa-gavel"></i>
-          <h5 class="notification-info">
-            <b class="notification-info-title">Nova proposta para analisar</b>
-            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
-          </h5>
-          <time class="notification-time ml-auto">2d</time>
-        </a>
-      </li>
-      <li class="notification-item">
-        <a href="#" class="d-flex">
-          <i class="notification-item-icon active align-self-center fa fa-check"></i>
-          <h5 class="notification-info">
-            <b class="notification-info-title">Nova proposta para analisar</b>
-            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
-          </h5>
-          <time class="notification-time ml-auto">2d</time>
-        </a>
-      </li>
-      <li class="notification-item">
-        <a href="#" class="d-flex">
-          <i class="notification-item-icon danger align-self-center fa fa-times-circle-o"></i>
-          <h5 class="notification-info">
-            <b class="notification-info-title">Nova proposta para analisar</b>
-            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
-          </h5>
-          <time class="notification-time ml-auto">2d</time>
-        </a>
-      </li>
-      <li class="notification-item">
-        <a href="#" class="d-flex">
-          <i class="notification-item-icon expired align-self-center fa fa-exclamation-triangle"></i>
-          <h5 class="notification-info">
-            <b class="notification-info-title">Nova proposta para analisar</b>
-            <i class="notification-info-deadline">Prazo de <b>5 dias</b></i>
-          </h5>
-          <time class="notification-time ml-auto">1 sem</time>
-        </a>
-      </li>
-    </ul>
+    <div class="container">
+      <h1>Notificações</h1>
+      <v-list dense>
+        <template v-for="i in 4">
+          <v-list-tile :key="i">
+            <v-list-tile-action>
+              <v-icon color="green accent-3">sms_failed</v-icon>
+            </v-list-tile-action>
+
+            <v-list-tile-content>
+              <v-list-tile-title class="font-weight-bold">Nova proposta para analisar</v-list-tile-title>
+              <v-list-tile-sub-title>Prazo de <b>5 dias</b></v-list-tile-sub-title>
+            </v-list-tile-content>
+
+            <v-list-tile-action>
+              1 min
+            </v-list-tile-action>
+          </v-list-tile>
+          <v-divider :key="i * 10"></v-divider>
+        </template>
+      </v-list>
+    </div>
   </nav>
 </template>
 

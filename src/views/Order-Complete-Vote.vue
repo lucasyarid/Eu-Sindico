@@ -4,33 +4,46 @@
     <main>
 
       <div class="container justify-content-center text-center">
-        <div class="order-vote-type bubble active">
-          <i class="fa fa-handshake-o mt-3"></i>
-        </div>
+        <v-avatar size="60" color="grey lighten-3" class="order-vote-type">
+          <v-icon color="grey">work</v-icon>
+        </v-avatar>
         <h2>Serviço de reforma</h2>
-        <Rating :stars="3"/> 06 votos
+        <div class="text-xs-center">
+          <v-rating small
+            :dense="true"
+            :readonly="true"
+            color="green accent-3"
+            background-color="green accent-3"
+            v-model="rating"></v-rating> <span>06 votos</span>
+        </div>
       </div>
 
       <div class="order-vote-overview d-flex justify-content-center mt-4 mb-4 text-center">
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-thumbs-up mt-3"></i>
-            <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
+            <span slot="badge"><v-icon color="white">check</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">thumb_up</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Pedido<br/>aprovado</p>
         </div>
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-newspaper-o mt-3"></i>
-            <span class="badge badge-pill badge-success badge-bottom badge-right"><i class="fa fa-check"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
+            <span slot="badge"><v-icon color="white">check</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">assignment</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Orçamento<br/>aprovado</p>
         </div>
         <div class="mr-2 ml-2">
-          <div class="bubble">
-            <i class="fa fa-shield mt-3"></i>
-            <span class="badge badge-pill badge-danger badge-bottom badge-right"><i class="fa fa-close"></i></span>
-          </div>
+          <v-badge :bottom="true" :overlap="true" class="mb-3" color="red">
+            <span slot="badge"><v-icon color="white">close</v-icon></span>
+            <v-avatar size="60" color="grey lighten-3">
+              <v-icon color="grey">verified_user</v-icon>
+            </v-avatar>
+          </v-badge>
           <p class="pt-2 mb-0">Realizado<br/>no prazo</p>
         </div>
       </div>
@@ -40,8 +53,11 @@
         <h1>Carlos da Silva</h1>
       </div>
 
-      <div class="container justify-content-center text-center">
-        <Rating :stars="3" vote="true"/>
+      <div class="justify-content-center text-center">
+        <v-rating x-large
+          color="green accent-3"
+          background-color="green accent-3"
+          v-model="ratingVote"></v-rating>
       </div>
 
       <FooterButton
@@ -71,7 +87,9 @@ export default {
     return {
       title: 'Pedido Concluído',
       classes: ['color-layout', 'hide-title'],
-      menuBack: true
+      menuBack: true,
+      rating: 4,
+      ratingVote: 3
     }
   },
   methods: {

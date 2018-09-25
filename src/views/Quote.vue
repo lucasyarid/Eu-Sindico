@@ -12,7 +12,8 @@
             <h2> Guarda-sóis</h2>
           </div>
 
-          <span class="quote-item-reference align-text-top"><i class="fa fa-user-circle"></i> À pedido do Síndico</span>
+          <span class="quote-item-reference align-text-top">
+            <v-icon :size="21" color="white">account_circle</v-icon> À pedido do Síndico</span>
 
           <router-link to="/quote/review">
             <FooterButton

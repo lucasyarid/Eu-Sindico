@@ -6,7 +6,7 @@
           <strong>2017</strong> / NOVEMBRO
         </h5>
         <div class="calendar col-7 form-group">
-          <i class="fa fa-calendar mr-2"></i>
+          <v-icon small color="black">calendar_today</v-icon>
           <select class="custom-select form-control form-control-sm d-inline-block">
             <option disabled>Mês</option>
             <option value="janeiro">Janeiro</option>
@@ -23,7 +23,12 @@
         <div class="card card-image card-md mb-3" style="background-image: url(//picsum.photos/310/135)">
           <span class="order-complete-info">
             <h4>Serviço de reforma</h4>
-            <Rating :stars="3"/>
+            <v-rating small
+              :dense="true"
+              :readonly="true"
+              color="green accent-3"
+              background-color="green accent-3"
+              v-model="rating"></v-rating>
           </span>
         </div>
       </router-link>
@@ -41,7 +46,8 @@ export default {
   },
   data: function () {
     return {
-      title: 'Pedidos Concluídos'
+      title: 'Pedidos Concluídos',
+      rating: 4
     }
   },
   methods: {

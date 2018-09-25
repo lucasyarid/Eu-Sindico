@@ -10,10 +10,10 @@
 
             <ul class="quote-review-list">
               <li class="quote-review-list-item">
-                <a href="#"><i class="fa fa-list-alt"></i> Visitar website</a>
+                <a href="#"><v-icon :size="21" color="primary">web</v-icon> Visitar website</a>
               </li>
               <li class="quote-review-list-item">
-                <a href="#"><i class="fa fa-phone"></i> (11) 3666-1000</a>
+                <a href="#"><v-icon :size="21" color="primary">settings_phone</v-icon> (11) 3666-1000</a>
               </li>
             </ul>
 
@@ -24,7 +24,7 @@
             <ul class="quote-review-list">
               <li class="quote-review-list-item">
                 <a href="#">
-                  <i class="fa fa-paperclip"></i> Laudo para Cond...Tintoreto.pdf
+                  <v-icon :size="21" color="primary">attachment</v-icon> Laudo para Cond...Tintoreto.pdf
                 </a>
               </li>
             </ul>

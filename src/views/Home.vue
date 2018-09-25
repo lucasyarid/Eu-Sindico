@@ -7,12 +7,70 @@
         <h2 class="home-title">Quatro Estações Alto da Lapa</h2>
         <nav>
           <div class="row">
-            <div class="option col col-4"><router-link to="/order/"><span class="bubble-large orders"><i class="fa fa-folder"></i><i class="badge badge-pill">3</i></span>Pedidos</router-link></div>
-            <div class="option col col-4"><router-link to="/order/complete"><span class="bubble-large finished"><i class="fa fa-check"></i><i class="badge badge-pill">3</i></span>Concluidos</router-link></div>
-            <div class="option col col-4"><router-link to="/quote/"><span class="bubble-large budgeting"><i class="fa fa-wpforms"></i><i class="badge badge-pill">3</i></span>Orçamentos</router-link></div>
-            <div class="option col col-4"><router-link to="/settings"><span class="bubble-large configuration"><i class="fa fa-cog"></i></span>Ajustes</router-link></div>
-            <div class="option col col-4"><router-link active-class="active" to="/timeline"><span class="bubble-large in-progress"><i class="fa fa-play"></i><i class="badge badge-pill">3</i></span>Em Progresso</router-link></div>
-            <div class="option col col-4"><router-link to="/order/create"><span class="bubble-large new-order"><i class="fa fa-plus"></i></span>Novo Pedido</router-link></div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/order/">
+                <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
+                  <span slot="badge">3</span>
+                  <v-avatar size="50" color="green accent-3">
+                    <v-icon dark>email</v-icon>
+                  </v-avatar>
+                </v-badge>
+                <label>Pedidos</label>
+              </router-link>
+            </div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/quote/">
+                <v-badge :bottom="true" :overlap="true" class="mb-3" color="indigo darken-4">
+                  <span slot="badge">3</span>
+                  <v-avatar size="50" color="indigo darken-4">
+                    <v-icon dark>event_note</v-icon>
+                  </v-avatar>
+                </v-badge>
+                <label>Orçamentos</label>
+              </router-link>
+            </div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/timeline">
+                <v-badge :bottom="true" :overlap="true" class="mb-3" color="red accent-2">
+                  <span slot="badge">3</span>
+                  <v-avatar size="50" color="red accent-2">
+                    <v-icon dark>play_arrow</v-icon>
+                  </v-avatar>
+                </v-badge>
+                <label>Em Progresso</label>
+              </router-link>
+            </div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/order/complete">
+                <v-badge :bottom="true" :overlap="true" class="mb-3" color="deep-purple accent-2">
+                  <span slot="badge">3</span>
+                  <v-avatar size="50" color="deep-purple accent-2">
+                    <v-icon dark>check</v-icon>
+                  </v-avatar>
+                </v-badge>
+                <label>Concluidos</label>
+              </router-link>
+            </div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/settings">
+                <v-badge :bottom="true" :overlap="true" class="mb-3" color="light-blue lighten-2">
+                  <span slot="badge">3</span>
+                  <v-avatar size="50" color="light-blue lighten-2">
+                    <v-icon dark>settings</v-icon>
+                  </v-avatar>
+                </v-badge>
+                <label>Ajustes</label>
+              </router-link>
+            </div>
+            <div class="option col col-4 mb-5">
+              <router-link to="/order/create">
+                <span slot="badge">3</span>
+                <v-avatar size="50" class="mb-3" color="grey">
+                  <v-icon dark>add</v-icon>
+                </v-avatar>
+                <label>Novo Pedido</label>
+              </router-link>
+            </div>
           </div>
         </nav>
       </div>

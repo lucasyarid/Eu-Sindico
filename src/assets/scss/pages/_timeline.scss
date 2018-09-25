@@ -1,0 +1,20 @@
+.timeline {
+  .list-wrapper {
+    position: relative;
+    .v-list {
+      background-color: transparent;
+      z-index: 1;
+      position: relative;
+    }
+    .list-line {
+      position: absolute;
+      top: 50%;
+      left: 37.6%;
+      transform: translate(-37.6%, -50%);
+      height: 80%;
+      width: 1px;
+      background-color: #aaa;
+      z-index: 0;
+    }
+  }
+}

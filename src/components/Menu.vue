@@ -7,19 +7,26 @@
     </div>
     </header>
     <nav>
-      <div class="container">
-        <ul>
-          <li @click="menuToggle"><router-link active-class="active" exact to="/"><i class="fa fa-home"></i> Inicio</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" exact to="/order/"><i class="fa fa-folder"></i> Pedidos</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" exact to="/quote"><i class="fa fa-wpforms"></i> Orçamentos</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" to="/timeline"><i class="fa fa-play"></i> Em Progresso</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" to="/order/complete"><i class="fa fa-check"></i> Concluidos</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" to="/settings"><i class="fa fa-cog"></i> Ajustes</router-link></li>
-          <li @click="menuToggle"><router-link active-class="active" to="/about"><i class="fa fa-info-circle"></i> Sobre nós</router-link></li>
-          <li @click="menuToggle();onLogout();"><a href="#"><i class="fa fa-sign-out"></i> Sair</a></li>
-        </ul>
-        <div class="new-order" @click="menuToggle"><router-link class="btn btn-success btn-lg btn-rounded" to="/order/create"><strong>Criar novo pedido</strong></router-link></div>
-      </div>
+      <v-list dense>
+        <v-list-tile
+          v-for="menuItem in menu"
+          :key="menuItem.title"
+          :to="menuItem.link"
+          @click="!menuItem.logout ? menuToggle() : menuToggleQuit()"
+          active-class="active"
+          :exact="menuItem.exact"
+        >
+          <v-list-tile-action>
+            <v-icon color="black">{{ menuItem.icon }}</v-icon>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-title v-text="menuItem.title"></v-list-tile-title>
+          </v-list-tile-content>
+
+        </v-list-tile>
+      </v-list>
+      <div class="new-order" @click="menuToggle"><router-link class="btn btn-success btn-lg btn-rounded" to="/order/create"><strong>Criar novo pedido</strong></router-link></div>
     </nav>
   </div>
 </template>
@@ -29,11 +36,26 @@ import { mapMutations } from 'vuex'
 
 export default {
   name: 'Menu',
+  data () {
+    return {
+      menu: [
+        { icon: 'chrome_reader_mode', title: 'Início', link: '/', exact: true },
+        { icon: 'mail', title: 'Pedidos', link: '/order', exact: true },
+        { icon: 'event_note', title: 'Orçamentos', link: '/quote' },
+        { icon: 'play_arrow', title: 'Em progresso', link: '/timeline' },
+        { icon: 'check', title: 'Concluídos', link: '/order/complete' },
+        { icon: 'settings', title: 'Ajustes', link: '/settings' },
+        { icon: 'info', title: 'Sobre nós', link: '/about' },
+        { icon: 'input', title: 'Sair', logout: true }
+      ]
+    }
+  },
   methods: {
     ...mapMutations([
       'menuToggle'
     ]),
-    onLogout () {
+    menuToggleQuit () {
+      this.menuToggle()
       this.$store.dispatch('logout')
     }
   },
