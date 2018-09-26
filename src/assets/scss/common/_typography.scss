@@ -38,6 +38,10 @@ p {
   line-height: 1.3em;
 }
 
+a {
+  text-decoration: none !important;
+}
+
 .application a {
   color: $primaryColor;
   &:hover, &.active {

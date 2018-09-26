@@ -14,42 +14,4 @@
     opacity: 1;
     visibility: visible;
   }
-  .notification-list {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    .notification-item {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      line-height: 1em;
-      padding: 8px 0;
-      padding-left: 4px;
-      &:not(:last-child) {
-        border-bottom: 1px solid #D4D4D4;
-      }
-      .notification-item-icon {
-        font-size: 1.5em;
-        margin-right: 20px;
-        width: 26px;
-        &.active   {color: $activeColor;}
-        &.danger   {color: $dangerColor;}
-        &.expired  {color: $disabledColor;}
-      }
-      .notification-info {
-        line-height: 1.3em;
-        .notification-info-deadline {
-          font-style: normal;
-          font-size: 0.9em;
-          display: block;
-          color: $secondaryColor;
-        }
-      }
-      .notification-time {
-        margin-left: 20px;
-        font-size: 0.8em;
-        text-align: right;
-      }
-    }
-  }
 }

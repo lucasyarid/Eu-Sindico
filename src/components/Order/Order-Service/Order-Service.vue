@@ -1,7 +1,7 @@
 <template>
   <section id="order" class="service">
-    <form>
-      <main class="pull-up pt-5">
+    <main class="pull-up pt-5">
+      <v-form>
 
         <transition :name="slideDirection" mode="out-in">
           <OrderServiceName
@@ -34,8 +34,8 @@
           <Loading v-if="step == 7"/>
         </transition>
 
-      </main>
-    </form>
+      </v-form>
+    </main>
   </section>
 </template>
 

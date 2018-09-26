@@ -1,10 +1,12 @@
 <template>
   <div class="menu">
     <header style="background-image: url(//picsum.photos/640/480)">
-      <div class="container">
-        <div class="avatar" style="background-image: url(//api.adorable.io/avatars/64)"></div>
+      <v-container>
+        <v-avatar size="64px" class="mb-3">
+          <img src="//api.adorable.io/avatars/64" alt="Avatar">
+        </v-avatar>
         <p class="house-number">Apartamento 101</p>
-    </div>
+      </v-container>
     </header>
     <nav>
       <v-list dense>
@@ -26,7 +28,20 @@
 
         </v-list-tile>
       </v-list>
-      <div class="new-order" @click="menuToggle"><router-link class="btn btn-success btn-lg btn-rounded" to="/order/create"><strong>Criar novo pedido</strong></router-link></div>
+      <div class="text-xs-center">
+        <v-btn round large dark depressed
+          tag="button"
+          color="green accent-3"
+          @click="menuToggle"
+          to="/order/create">Criar novo pedido</v-btn>
+      </div>
+      <div class="text-xs-center">
+        <v-btn round large dark depressed
+          tag="button"
+          color="green accent-3"
+          @click="menuToggle"
+          to="/quote/create">Criar novo orçamento</v-btn>
+      </div>
     </nav>
   </div>
 </template>

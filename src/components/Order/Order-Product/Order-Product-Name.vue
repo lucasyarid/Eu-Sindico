@@ -1,28 +1,22 @@
 <template>
-  <div class="container">
-    <div class="step1">
-      <div class="form-row">
-        <div class="mb-1 mt-5 ml-3 mr-3">
-          <label for="want-buy" class="mb-0"><h2>O que deve ser comprado?</h2></label>
-          <input type="text" class="form-control" id="want-buy"
-            @blur="$v.order.name.$touch()"
-            v-model="order.name"
-            placeholder="Exemplo: guarda-sóis" />
-        </div>
-      </div>
+  <v-container>
+    <div class="mb-1 mt-5 ml-3 mr-3">
+      <h1>O que deve ser comprado?</h1>
+      <v-text-field dark
+        placeholder="Exemplo: guarda-sóis"
+        v-model="order.name"
+      ></v-text-field>
     </div>
-    <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="$v.$invalid"
-            @click.prevent="changeStep(1)">Prosseguir ›</button>
-        </div>
-      </div>
+    <footer class="mt-5 px-3">
+      <v-btn round large dark depressed block
+        tag="button"
+        color="green accent-3"
+        :disabled="$v.$invalid"
+        @click.prevent="changeStep(1)">
+        Prosseguir ›
+      </v-btn>
     </footer>
-  </div>
+  </v-container>
 </template>
 
 <script>

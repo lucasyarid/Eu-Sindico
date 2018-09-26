@@ -3,7 +3,7 @@
     <Gallery galeryClasses="pull-up large"/>
     <main>
 
-      <div class="container justify-content-center text-center">
+      <v-container text-xs-center>
         <v-avatar size="60" color="grey lighten-3" class="order-vote-type">
           <v-icon color="grey">work</v-icon>
         </v-avatar>
@@ -16,10 +16,10 @@
             background-color="green accent-3"
             v-model="rating"></v-rating> <span>06 votos</span>
         </div>
-      </div>
+      </v-container>
 
-      <div class="order-vote-overview d-flex justify-content-center mt-4 mb-4 text-center">
-        <div class="mr-2 ml-2">
+      <v-layout row justify-center mt-4 mb-4 text-xs-center class="order-vote-overview">
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
             <span slot="badge"><v-icon color="white">check</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -27,8 +27,8 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Pedido<br/>aprovado</p>
-        </div>
-        <div class="mr-2 ml-2">
+        </v-flex>
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
             <span slot="badge"><v-icon color="white">check</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -36,8 +36,8 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Orçamento<br/>aprovado</p>
-        </div>
-        <div class="mr-2 ml-2">
+        </v-flex>
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="red">
             <span slot="badge"><v-icon color="white">close</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -45,26 +45,42 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Realizado<br/>no prazo</p>
-        </div>
-      </div>
+        </v-flex>
+      </v-layout>
 
-      <div class="container justify-content-center text-center mb-5">
+      <div class="container justify-content-center text-xs-center mb-5">
         <h6>A pedido de</h6>
         <h1>Carlos da Silva</h1>
       </div>
 
-      <div class="justify-content-center text-center">
+      <div class="justify-content-center text-xs-center">
         <v-rating x-large
           color="green accent-3"
           background-color="green accent-3"
           v-model="ratingVote"></v-rating>
       </div>
 
-      <FooterButton
-        class="mt-5"
-        title="Confirmar Voto"
-        classes="btn-success btn-rounded btn-lg center-btn center-text"
-      />
+      <v-container>
+        <div class="footer-button">
+          <v-btn round large dark depressed block
+            tag="button"
+            color="green accent-3"
+            @click.native="changeStep(+1)">Enviar Orçamento</v-btn>
+          <v-progress-circular
+            :rotate="-90"
+            :size="80"
+            :width="4"
+            :value="25"
+            color="green accent-3">
+            <div class="timer">
+              <div class="timer-content">
+                <small>Expira em</small>
+                <time>2 dias</time>
+              </div>
+            </div>
+          </v-progress-circular>
+        </div>
+      </v-container>
 
     </main>
   </section>

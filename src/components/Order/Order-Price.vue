@@ -1,55 +1,66 @@
 <template>
-  <div class="container">
-    <div class="step3">
-      <div class="form-row">
-        <div class="col mb-1 mt-3 ml-1 mr-1">
-          <label for="want-buy" class="mb-0"><h2>Qual o custo máximo sugerido?</h2></label>
+  <v-container>
+    <div class="price">
+      <div class="mb-1 mt-3 ml-1 mr-1">
+        <h2>Qual o custo máximo sugerido?</h2>
 
-          <p class="mt-3">
-            <button
-              type="button"
-              class="btn btn-rounded btn-md btn-outline-simple"
-              @click="$emit('changeOrderPrice', order.price += 500)">+ R$500</button>
-          </p>
-          <p class="mt-3">
-            <button
-              type="button"
-              class="btn btn-rounded btn-md btn-outline-simple"
-              @click="$emit('changeOrderPrice', order.price += 100)">+ R$100</button>
-          </p>
+        <p class="mt-3">
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click="$emit('changeOrderPrice', order.price += 500)">
+            + R$500
+          </v-btn>
+        </p>
+        <p class="mt-3">
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click="$emit('changeOrderPrice', order.price += 100)">
+            + R$100
+          </v-btn>
+        </p>
 
-          <p class="mt-3">
-            <span>R$</span><input type="number" class="form-control" id="want-buy" v-model.number="order.price" placeholder="000" /><span>,00</span>
-          </p>
+        <p class="mt-3">
+          <span>R$</span>
+          <v-text-field dark
+            type="number"
+            class="price-input"
+            v-model.number="order.price"
+            placeholder="000 "
+          ></v-text-field>
+          <span>,00</span>
+        </p>
 
-          <p class="mt-3">
-            <button
-              type="button"
-              class="btn btn-rounded btn-md btn-outline-simple"
-              @click="$emit('changeOrderPrice', order.price -= 100)">- R$100</button>
-          </p>
-          <p class="mt-3">
-            <button
-              type="button"
-              class="btn btn-rounded btn-md btn-outline-simple"
-              @click="$emit('changeOrderPrice', order.price -= 500)">- R$500</button>
-          </p>
+        <p class="mt-3">
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click="$emit('changeOrderPrice', order.price -= 100)">
+            - R$100
+          </v-btn>
+        </p>
+        <p class="mt-3">
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click="$emit('changeOrderPrice', order.price -= 500)">
+            - R$500
+          </v-btn>
+        </p>
 
-        </div>
       </div>
     </div>
-    <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="$v.$invalid"
-            @click.prevent="changeStep(+1)">Prosseguir ›</button>
-        </div>
-      </div>
+    <footer class="mt-5 px-3">
+      <v-btn round large dark depressed block
+        tag="button"
+        color="green accent-3"
+        :disabled="$v.$invalid"
+        @click.prevent="changeStep(1)">
+        Prosseguir ›
+      </v-btn>
     </footer>
-  </div>
+  </v-container>
 </template>
 
 <script>

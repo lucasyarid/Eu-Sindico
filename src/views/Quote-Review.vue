@@ -3,7 +3,7 @@
     <Gallery info="true"/>
     <main class="pt-3 pb-3">
       <p class="container excerpt">O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.</p>
-      <div class="app-cards">
+      <div class="app-cards horizontal-scroll">
         <div class="quote-review-item card card-lg card-grey card-disabled">
           <div class="quote-review-info card-inner-card">
             <h3 class="quote-review-info-title">Jardim do Sul Alvenaria</h3>
@@ -32,15 +32,20 @@
             <h6>Custo</h6>
             <p>R$700,00</p>
           </div>
-          <div class="p-3">
-            <FooterButton
-              title="Confirmar"
-              classes="btn-success btn-rounded btn-lg center-text"
-              secondaryButton="true"
-              secondaryTitle="X"
-              secondaryClasses="btn-outline-danger btn-rounded btn-lg center-text"
-            />
-          </div>
+          <v-container fluid grid-list-xl>
+            <v-layout row justify-center class="footer-button">
+              <v-flex xs4>
+                <v-btn round large dark depressed outline block
+                  class="text-sm-left"
+                  color="red">X</v-btn>
+              </v-flex>
+              <v-flex xs8>
+                <v-btn round large dark depressed block
+                  class="text-sm-left"
+                  color="green accent-3">Confirmar</v-btn>
+              </v-flex>
+            </v-layout>
+          </v-container>
         </div>
       </div>
     </main>

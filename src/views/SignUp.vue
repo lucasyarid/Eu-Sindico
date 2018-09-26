@@ -1,51 +1,64 @@
 <template>
   <section id="signup">
-    <div class="signup-form">
-      <form @submit.prevent="onSubmit">
-        <div class="input validate" :class="{invalid: $v.email.$error}">
-          <label for="email">E-Mail</label>
-          <div v-if="$v.email.$error" class="active"
-            data-tooltip="Informe um e-mail válido"></div>
-          <input
-            type="email"
-            id="email"
-            @blur="$v.email.$touch()"
-            v-model="email">
-        </div>
-        <div class="input validate" :class="{invalid: $v.password.$error}">
-          <label for="password">Senha</label>
-          <div v-if="$v.password.$error" class="active"
-            data-tooltip="Sua senha é muito curta"></div>
-          <input
-            type="password"
-            id="password"
-            @blur="$v.password.$touch()"
-            v-model="password">
-        </div>
-        <div class="input validate" :class="{invalid: $v.confirmPassword.$error}">
-          <label for="confirm-password">Confirme a senha</label>
-          <div v-if="$v.confirmPassword.$error" class="active"
-            data-tooltip="As senhas não são iguais"></div>
-          <input
-            type="password"
-            id="confirm-password"
-            @blur="$v.confirmPassword.$touch()"
-            v-model="confirmPassword">
-        </div>
-        <div class="input inline">
-          <input type="checkbox" id="terms" v-model="terms">
-          <label for="terms"> Aceito os termos de uso</label>
-        </div>
-        <div class="row">
-          <div class="col submit">
-            <button type="submit" :disabled="$v.$invalid">Enviar</button>
-          </div>
-          <div class="col submit">
-            <router-link to="/signin" tag="button">Login</router-link>
-          </div>
-        </div>
-      </form>
-    </div>
+    <v-form @submit.prevent="onSubmit">
+      <v-container>
+        <v-layout row wrap>
+          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.email.$error}">
+            <div v-if="$v.email.$error" class="active"
+              data-tooltip="Informe um e-mail válido"></div>
+            <v-text-field
+              type="email"
+              label="E-Mail"
+              @blur="$v.email.$touch()"
+              v-model="email"
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.password.$error}">
+            <div v-if="$v.password.$error" class="active"
+              data-tooltip="Sua senha é muito curta"></div>
+            <v-text-field
+              v-model="password"
+              :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+              :type="showPassword ? 'text' : 'password'"
+              label="Senha"
+              @blur="$v.password.$touch()"
+              @click:append="showPassword = !showPassword"
+            ></v-text-field>
+          </v-flex>
+          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.confirmPassword.$error}">
+            <div v-if="$v.confirmPassword.$error" class="active"
+              data-tooltip="As senhas não são iguais"></div>
+            <v-text-field
+              v-model="confirmPassword"
+              :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+              :type="showPassword ? 'text' : 'password'"
+              label="Confirme a Senha"
+              @blur="$v.confirmPassword.$touch()"
+              @click:append="showPassword = !showPassword"
+            ></v-text-field>
+          </v-flex>
+          <v-flex>
+            <div class="input inline">
+              <input type="checkbox" id="terms" v-model="terms">
+              <label for="terms"> Aceito os termos de uso</label>
+            </div>
+          </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex>
+            <v-btn round block
+              color="green accent-3"
+              :disabled="$v.$invalid"
+              type="submit">Enviar</v-btn>
+          </v-flex>
+          <v-flex>
+            <v-btn round block
+              color="green accent-3"
+              to="/signin">Login</v-btn>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-form>
   </section>
 </template>
 
@@ -62,7 +75,8 @@ export default {
       email: '',
       password: '',
       confirmPassword: '',
-      terms: false
+      terms: '',
+      showPassword: false
     }
   },
   validations: {
@@ -76,6 +90,9 @@ export default {
     },
     confirmPassword: {
       sameAs: sameAs('password')
+    },
+    terms: {
+      sameAs: sameAs(() => true)
     }
   },
   methods: {

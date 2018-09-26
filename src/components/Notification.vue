@@ -1,8 +1,8 @@
 <template>
   <nav id="notifications" class="notifications" :class="{ open: notificationOpen }">
-    <div class="container">
+    <v-container>
       <h1>Notificações</h1>
-      <v-list dense>
+      <v-list dense two-line>
         <template v-for="i in 4">
           <v-list-tile :key="i">
             <v-list-tile-action>
@@ -21,7 +21,7 @@
           <v-divider :key="i * 10"></v-divider>
         </template>
       </v-list>
-    </div>
+    </v-container>
   </nav>
 </template>
 

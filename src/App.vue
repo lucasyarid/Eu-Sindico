@@ -68,7 +68,6 @@ export default {
 
 <style lang="scss">
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,800');
-  @import '../assets/libraries/bootstrap/4.0.0/css/bootstrap.min.css';
 </style>
 
 <style lang="scss">

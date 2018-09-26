@@ -1,18 +1,28 @@
 <template>
   <section class="order-create">
     <div v-if="step == 0">
-      <nav class="pull-up">
+      <nav class="pull-up order-select">
         <div class="box product-option">
           <v-icon x-large color="white">shopping_cart</v-icon>
           <h2>Compra de produto</h2>
           <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
-          <button @click.prevent="setStep(1); order.type = 'produto';" type="button" class="btn btn-rounded btn-lg btn-outline-simple" tag="button">Começar ›</button>
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click.prevent="setStep(1); order.type = 'produto';">
+            Começar ›
+          </v-btn>
         </div>
         <div class="box service-option">
           <v-icon x-large color="white">work</v-icon>
           <h2>Contratação de serviço</h2>
           <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
-          <button @click.prevent="setStep(1); order.type = 'serviço';" type="button" class="btn btn-rounded btn-lg btn-outline-simple" tag="button">Começar ›</button>
+          <v-btn round large dark depressed outline
+            tag="button"
+            color="white"
+            @click.prevent="setStep(1); order.type = 'serviço';">
+            Começar ›
+          </v-btn>
         </div>
       </nav>
     </div>

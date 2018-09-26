@@ -1,58 +1,22 @@
 <template>
   <section id="settings">
     <main>
-      <div class="container">
+      <v-container fluid grid-list-xs>
 
         <h1><b>Notificações</b></h1>
-        <div class="form-row">
-          <div class="form-group col-9">
+        <v-layout row justify-end mt-5>
+          <v-flex xs10>
             <p>Novo pedido</p>
-          </div>
-          <div class="form-group col-3">
+          </v-flex>
+          <v-flex xs2>
             <div class="onoffswitch">
               <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
               <label class="onoffswitch-label" for="myonoffswitch"></label>
             </div>
-          </div>
-        </div>
+          </v-flex>
+        </v-layout>
 
-        <div class="form-row">
-          <div class="form-group col-9">
-            <p>Pedido recusado/aceito</p>
-          </div>
-          <div class="form-group col-3">
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-              <label class="onoffswitch-label" for="myonoffswitch"></label>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-9">
-            <p>Orçamento escolhido</p>
-          </div>
-          <div class="form-group col-3">
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-              <label class="onoffswitch-label" for="myonoffswitch"></label>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group col-9">
-            <p>Novas ressalvas</p>
-          </div>
-          <div class="form-group col-3">
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-              <label class="onoffswitch-label" for="myonoffswitch"></label>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      </v-container>
     </main>
   </section>
 </template>

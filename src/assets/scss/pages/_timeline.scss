@@ -1,15 +1,14 @@
 .timeline {
-  .list-wrapper {
+  .timeline-progress {
     position: relative;
-    .v-list {
-      background-color: transparent;
+    .layout {
       z-index: 1;
       position: relative;
     }
     .list-line {
       position: absolute;
       top: 50%;
-      left: 37.6%;
+      left: 35.6%;
       transform: translate(-37.6%, -50%);
       height: 80%;
       width: 1px;

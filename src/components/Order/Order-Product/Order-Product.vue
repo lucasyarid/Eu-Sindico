@@ -1,8 +1,8 @@
 <template>
   <div>
     <section id="order" class="product">
-      <form>
-        <main class="pull-up pt-5">
+      <main class="pull-up pt-5">
+        <v-form>
 
           <transition :name="slideDirection" mode="out-in">
             <OrderProductName
@@ -31,8 +31,8 @@
             <Loading v-if="step == 6"/>
           </transition>
 
-        </main>
-      </form>
+        </v-form>
+      </main>
     </section>
   </div>
 </template>

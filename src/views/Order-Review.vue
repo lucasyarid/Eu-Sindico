@@ -2,7 +2,7 @@
   <section class="order-review">
     <Gallery info="true"/>
     <main>
-      <div class="container" v-if="step == 0">
+      <v-container v-if="step == 0">
         <p class="order-review-description">Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
 
         <h6>Submetido por</h6>
@@ -27,15 +27,27 @@
           <cite><strong>Renan Altendorf</strong> (conselheiro)</cite>
         </blockquote>
 
-        <FooterButton
-          @click.native="changeStep(+1)"
-          title="Enviar Orçamento"
-          classes="btn-success btn-rounded btn-lg center-btn center-text"
-          showTimer="true"
-          timerProgress="25"
-        />
+        <div class="footer-button mt-5">
+          <v-btn round large dark depressed block
+            tag="button"
+            color="green accent-3"
+            @click.native="changeStep(+1)">Enviar Orçamento</v-btn>
+          <v-progress-circular
+            :rotate="-90"
+            :size="80"
+            :width="4"
+            :value="25"
+            color="green accent-3">
+            <div class="timer">
+              <div class="timer-content">
+                <small>Expira em</small>
+                <time>2 dias</time>
+              </div>
+            </div>
+          </v-progress-circular>
+        </div>
 
-      </div>
+      </v-container>
       <transition name="fade" mode="in-out">
         <Loading v-if="step == 1"/>
       </transition>

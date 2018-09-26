@@ -3,8 +3,8 @@
     <Gallery info="true"/>
     <main>
 
-      <div class="order-vote-overview d-flex justify-content-center mt-4 mb-4 text-center">
-        <div class="mr-2 ml-2">
+      <v-layout row justify-center mt-4 mb-4 text-center class="order-vote-overview">
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
             <span slot="badge"><v-icon color="white">check</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -12,8 +12,8 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Pedido<br/>aprovado</p>
-        </div>
-        <div class="mr-2 ml-2">
+        </v-flex>
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="green accent-3">
             <span slot="badge"><v-icon color="white">check</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -21,8 +21,8 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Orçamento<br/>aprovado</p>
-        </div>
-        <div class="mr-2 ml-2">
+        </v-flex>
+        <v-flex xs3>
           <v-badge :bottom="true" :overlap="true" class="mb-3" color="red">
             <span slot="badge"><v-icon color="white">close</v-icon></span>
             <v-avatar size="60" color="grey lighten-3">
@@ -30,40 +30,32 @@
             </v-avatar>
           </v-badge>
           <p class="pt-2 mb-0">Realizado<br/>no prazo</p>
-        </div>
-      </div>
+        </v-flex>
+      </v-layout>
 
-      <h5 class="container">LINHA DO TEMPO COMPLETA</h5>
-
-      <div class="list-wrapper">
-        <v-list three-line>
-          <v-list-tile
-            v-for="timelineItem in timeline"
-            :key="timelineItem.id"
-            active-class="active">
-
-            <v-list-tile-action class="col-2">
-              <div class="caption">{{ timelineItem.date }}</div>
-            </v-list-tile-action>
-
-            <v-list-tile-avatar class="col-2 offset-1">
-              <v-badge :bottom="true" :overlap="true" color="green accent-3" class="mx-auto">
-                <span slot="badge"><v-icon color="white">check</v-icon></span>
-                <v-avatar size="60" color="grey lighten-3" >
-                  <v-icon color="grey">assignment</v-icon>
-                </v-avatar>
-              </v-badge>
-            </v-list-tile-avatar>
-
-            <v-list-tile-content class="col-6  offset-1">
-              <h5>{{timelineItem.title}}</h5>
-              <h5><i class="fa fa-chevron-down"></i> Visualizar</h5>
-            </v-list-tile-content>
-
-          </v-list-tile>
-        </v-list>
+      <v-container class="timeline-progress">
+        <h5 class="mb-5">LINHA DO TEMPO COMPLETA</h5>
+        <v-layout mb-2
+          v-for="timelineItem in timeline"
+          :key="timelineItem.id">
+          <v-flex xs3>
+            <div class="mt-3 caption">{{timelineItem.date}}</div>
+          </v-flex>
+          <v-flex xs3>
+            <v-badge :bottom="true" :overlap="true" color="green accent-3" class="mx-auto">
+              <span slot="badge"><v-icon color="white">check</v-icon></span>
+              <v-avatar size="60" color="grey lighten-3" >
+                <v-icon color="grey">assignment</v-icon>
+              </v-avatar>
+            </v-badge>
+          </v-flex>
+          <v-flex xs6>
+            <h5 class="mt-3">{{timelineItem.title}}</h5>
+            <h5><i class="fa fa-chevron-down"></i> Visualizar</h5>
+          </v-flex>
+        </v-layout>
         <div class="list-line"></div>
-      </div>
+      </v-container>
     </main>
   </section>
 </template>

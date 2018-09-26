@@ -4,7 +4,6 @@
   left: 0;
   width: 100%;
   z-index: 20;
-  padding-top: 15px;
   .color-layout & {
     color: #FFF !important;
     .notification .v-icon {
@@ -19,7 +18,6 @@
   .page-title {
     margin-bottom: 0;
     margin: 0 auto;
-    text-align: center;
     .hide-title & {
       display: none;
     }
@@ -35,12 +33,12 @@
       font-size: 1.5em;
     }
     .notification-circle {
-      background-color: transparent;
+      background-color: #fff;
       width: 10px;
       height: 10px;
       position: absolute;
       border-radius: 50%;
-      transform: scale(1);
+      transform: scale(0);
       z-index: 20;
       transition: transform .3s ease-in-out;
       margin: -20px 0px 0px -8px;
@@ -74,7 +72,6 @@
       }
       .notification-circle {
         transform: scale(120);
-        background-color: #fff;
       }
     }
   }

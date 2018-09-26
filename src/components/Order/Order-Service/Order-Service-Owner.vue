@@ -1,47 +1,41 @@
 <template>
-  <div class="container">
-    <div class="step1">
-      <div class="form-row">
-        <div class="mb-1 mt-5 ml-3 mr-3">
-          <fieldset>
-            <label for="want-buy" class="mb-0"><h2>Qual é o tipo de serviço?</h2></label>
+  <v-container>
+    <div class="mb-1 mt-5 ml-3 mr-3">
+      <fieldset>
+        <label for="want-buy" class="mb-0"><h2>Qual é o tipo de serviço?</h2></label>
 
-            <p class="mt-3">
-              <input type="radio" id="equipeConselheira" value="Equipe conselheira" v-model="order.owner" />
-              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="equipeConselheira">Equipe conselheira</label>
-            </p>
+        <p class="mt-3">
+          <input type="radio" id="equipeConselheira" value="Equipe conselheira" v-model="order.owner" />
+          <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="equipeConselheira">Equipe conselheira</label>
+        </p>
 
-            <p class="mt-3">
-              <input type="radio" id="sindico" value="sindico" v-model="order.owner" />
-              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="sindico">Síndico</label>
-            </p>
+        <p class="mt-3">
+          <input type="radio" id="sindico" value="sindico" v-model="order.owner" />
+          <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="sindico">Síndico</label>
+        </p>
 
-            <p class="mt-3">
-              <input type="radio" id="moradores" value="moradores" v-model="order.owner" />
-              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="moradores">Moradores</label>
-            </p>
+        <p class="mt-3">
+          <input type="radio" id="moradores" value="moradores" v-model="order.owner" />
+          <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="moradores">Moradores</label>
+        </p>
 
-            <p class="mt-3">
-              <input type="radio" id="outros" value="outros" v-model="order.owner" />
-              <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="outros">Outros</label>
-            </p>
+        <p class="mt-3">
+          <input type="radio" id="outros" value="outros" v-model="order.owner" />
+          <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="outros">Outros</label>
+        </p>
 
-          </fieldset>
-        </div>
-      </div>
+      </fieldset>
     </div>
-    <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="$v.$invalid"
-            @click.prevent="changeStep(+1)">Prosseguir ›</button>
-        </div>
-      </div>
+    <footer class="mt-5 px-3">
+      <v-btn round large dark depressed block
+        tag="button"
+        color="green accent-3"
+        :disabled="$v.$invalid"
+        @click.prevent="changeStep(1)">
+        Prosseguir ›
+      </v-btn>
     </footer>
-  </div>
+  </v-container>
 </template>
 
 <script>

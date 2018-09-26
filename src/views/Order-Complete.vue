@@ -1,12 +1,11 @@
 <template>
   <section class="order-complete">
-    <header class="container">
-      <div class="row">
-        <h5 class="col-5 mt-2">
-          <strong>2017</strong> / NOVEMBRO
-          {{ date }}
-        </h5>
-        <div class="calendar col-7 form-group">
+    <v-container>
+      <v-layout row px-3>
+        <v-flex pt-4>
+          <h5><strong>2017</strong> / NOVEMBRO</h5>
+        </v-flex>
+        <v-flex>
           <v-dialog
             ref="dialog"
             v-model="modal"
@@ -27,10 +26,10 @@
               <v-btn flat color="green accent-3" @click="$refs.dialog.save(date)">OK</v-btn>
             </v-date-picker>
           </v-dialog>
-        </div>
-      </div>
-    </header>
-    <main class="container">
+        </v-flex>
+      </v-layout>
+    </v-container>
+    <v-container>
       <router-link to="/order/complete/vote">
         <div class="card card-image card-md mb-3" style="background-image: url(//picsum.photos/310/135)">
           <span class="order-complete-info">
@@ -44,7 +43,7 @@
           </span>
         </div>
       </router-link>
-    </main>
+    </v-container>
   </section>
 </template>
 

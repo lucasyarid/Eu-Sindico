@@ -1,24 +1,22 @@
 <template>
-  <div class="container">
-    <div class="step1">
-      <div class="form-row">
-        <div class="col mb-1 mt-5 ml-3 mr-3"><label><h2>Caso o seu pedido seja aceito...</h2></label>
-          <input type="text" class="form-control" id="want-buy" v-model="order.scope" placeholder="Exemplo: guarda-sóis" />
-        </div>
-      </div>
+  <v-container>
+    <div class="mb-1 mt-5 ml-3 mr-3">
+      <h2>Caso o seu pedido seja aceito...</h2>
+      <v-text-field dark
+        placeholder="Exemplo: Colocar os guada-sóis na área externa"
+        v-model="order.scope"
+      ></v-text-field>
     </div>
-    <footer>
-      <div class="container">
-        <div class="d-flex justify-content-center">
-          <button
-            type="button"
-            class="btn btn-success btn-rounded btn-lg btn-block"
-            :disabled="$v.$invalid"
-            @click.prevent="changeStep(+1)">Prosseguir ›</button>
-        </div>
-      </div>
+    <footer class="mt-5 px-3">
+      <v-btn round large dark depressed block
+        tag="button"
+        color="green accent-3"
+        :disabled="$v.$invalid"
+        @click.prevent="changeStep(1)">
+        Prosseguir ›
+      </v-btn>
     </footer>
-  </div>
+  </v-container>
 </template>
 
 <script>

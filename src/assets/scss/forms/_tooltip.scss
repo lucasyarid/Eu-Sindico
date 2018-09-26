@@ -2,6 +2,7 @@
   position: relative;
   z-index: 2;
   cursor: pointer;
+  bottom: -25px;
   &:before, &:after {
     visibility: hidden;
     opacity: 0;

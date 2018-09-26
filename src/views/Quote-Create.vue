@@ -1,14 +1,14 @@
 <template>
   <section>
-    <Gallery/>
+    <Gallery info="true"/>
 
-    <main>
+    <v-form>
       <QuoteInfo :quote="quote" v-if="step == 0"/>
       <QuoteConfirm :quote="quote" v-if="step == 1"/>
       <transition name="fade" mode="in-out">
         <Loading v-if="step == 2"/>
       </transition>
-    </main>
+    </v-form>
 
     <footer>
       <div class="container">
