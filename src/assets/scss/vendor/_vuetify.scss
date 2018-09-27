@@ -1,3 +1,39 @@
 .theme--light.v-list, .theme--light.v-tabs__bar {
   background: transparent;
 }
+
+.v-badge.outline {
+  .v-badge__badge {
+    background-color: white !important;
+    border: 1px solid;
+  }
+}
+
+.v-progress-circular__underlay {
+  stroke: none;
+}
+
+.v-tabs__div {
+  text-transform: initial;
+  text-align: center;
+}
+
+.v-dialog {
+  background-color: white;
+}
+
+.v-btn {
+  &.v-btn--outline {
+    border-width: 2px;
+  }
+  &.align-left .v-btn__content {
+    margin: 0;
+    display: block;
+    text-align: left;
+  }
+}
+
+.v-btn__content {
+  text-transform: initial;
+  font-weight: 600;
+}

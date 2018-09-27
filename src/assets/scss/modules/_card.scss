@@ -4,6 +4,7 @@
   position: relative;
   border-radius: 20px;
   display: block;
+  width: 85%;
   &.card-lg {
     width: 85%;
     height: 450px;
@@ -30,7 +31,7 @@
   }
   &.card-disabled {
     background: $disabledColor;
-    border-color: $disabledColor;
+    border: 1px solid $disabledColor;
   }
   &.card-active {
     background: $activeColor;

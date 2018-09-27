@@ -1,16 +1,16 @@
 <template>
   <v-container>
     <div class="mb-1 mt-5 ml-3 mr-3">
-      <h2>Caso o seu pedido seja aceito...</h2>
+      <h1 class="font-weight-bold mb-4">Caso o seu pedido seja aceito...</h1>
       <v-text-field dark
-        placeholder="Exemplo: Colocar os guada-sóis na área externa"
+        label="Qual o escopo"
         v-model="order.scope"
       ></v-text-field>
     </div>
     <footer class="mt-5 px-3">
       <v-btn round large dark depressed block
         tag="button"
-        color="green accent-3"
+        color="accent"
         :disabled="$v.$invalid"
         @click.prevent="changeStep(1)">
         Prosseguir ›

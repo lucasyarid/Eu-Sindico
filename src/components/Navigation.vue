@@ -25,7 +25,7 @@
         </v-flex>
 
         <v-flex>
-          <h4 class="page-title text-xs-center">{{ title }}</h4>
+          <h5 class="page-title text-xs-center text-uppercase font-weight-bold pt-1">{{ title }}</h5>
         </v-flex>
         <v-flex layout justify-end pr-4>
           <div id="notification-trigger" class="notification" @click="notificationToggle" :class="{ open: notificationOpen }">

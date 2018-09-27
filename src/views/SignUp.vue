@@ -47,13 +47,13 @@
         <v-layout>
           <v-flex>
             <v-btn round block
-              color="green accent-3"
+              color="accent"
               :disabled="$v.$invalid"
               type="submit">Enviar</v-btn>
           </v-flex>
           <v-flex>
             <v-btn round block
-              color="green accent-3"
+              color="accent"
               to="/signin">Login</v-btn>
           </v-flex>
         </v-layout>

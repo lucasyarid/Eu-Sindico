@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <header style="background-image: url(//picsum.photos/640/480)">
+    <header class="bottom" style="background-image: url(//picsum.photos/640/480)">
       <v-container>
         <v-avatar size="64px" class="mb-3">
           <img src="//api.adorable.io/avatars/64" alt="Avatar">
@@ -8,7 +8,7 @@
         <p class="house-number">Apartamento 101</p>
       </v-container>
     </header>
-    <nav>
+    <nav class="mt-2">
       <v-list dense>
         <v-list-tile
           v-for="menuItem in menu"
@@ -16,6 +16,7 @@
           :to="menuItem.link"
           @click="!menuItem.logout ? menuToggle() : menuToggleQuit()"
           active-class="active"
+          class="mb-1"
           :exact="menuItem.exact"
         >
           <v-list-tile-action>
@@ -23,7 +24,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title v-text="menuItem.title"></v-list-tile-title>
+            <h5><v-list-tile-title v-text="menuItem.title"></v-list-tile-title></h5>
           </v-list-tile-content>
 
         </v-list-tile>
@@ -31,14 +32,14 @@
       <div class="text-xs-center">
         <v-btn round large dark depressed
           tag="button"
-          color="green accent-3"
+          color="accent"
           @click="menuToggle"
           to="/order/create">Criar novo pedido</v-btn>
       </div>
       <div class="text-xs-center">
         <v-btn round large dark depressed
           tag="button"
-          color="green accent-3"
+          color="accent"
           @click="menuToggle"
           to="/quote/create">Criar novo orçamento</v-btn>
       </div>

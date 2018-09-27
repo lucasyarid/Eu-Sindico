@@ -10,7 +10,6 @@
         display: block;
         line-height: 1em;
         font-size: 0.9em;
-        margin: 16px 0 20px 0;
         i {
           font-size: 1.3em;
           line-height: 1em;
@@ -22,24 +21,11 @@
 }
 
 .quote-review {
-  .quote-review-info-title {
-    margin-bottom: 22px;
-  }
   .quote-review-list {
-    margin-bottom: 22px;
     .quote-review-list-item {
-      margin-bottom: 8px;
       line-height: 1em;
       a {
         color: $linkColor;
-      }
-      i {
-        font-size: 1.3em;
-        line-height: 1em;
-        width: 24px;
-        text-align: center;
-        vertical-align: middle;
-        margin-right: 6px;
       }
     }
   }

@@ -25,7 +25,7 @@
   .notification {
     position: relative;
     .hide-notification & {
-      display: none;
+      visibility: hidden;
     }
     .badge-top {top: -8px;}
     .badge-right {right: -10px;}

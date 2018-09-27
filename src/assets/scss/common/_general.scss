@@ -47,6 +47,12 @@ ul, li {
   padding: 0 15px;
 }
 
+img {
+  &.thumb {
+    border-radius: 20px;
+  }
+}
+
 .horizontal-scroll {
   overflow: auto;
   white-space: nowrap;

@@ -36,18 +36,10 @@
   height: 100%;
   color: #fff;
   .product-option, .product {
-    background: rgb(80, 214, 241);
-    background: -moz-linear-gradient(-45deg, rgba(80, 214, 241, 1) 0%, rgba(129, 67, 255, 1) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(80, 214, 241, 1) 0%, rgba(129, 67, 255, 1) 100%);
     background: linear-gradient(135deg, rgba(80, 214, 241, 1) 0%, rgba(129, 67, 255, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#50d6f1', endColorstr='#8143ff',GradientType=1 );
   }
   .service-option, .service {
-    background: rgb(191, 156, 245);
-    background: -moz-linear-gradient(-45deg, rgba(191, 156, 245, 1) 0%, rgba(255, 70, 70, 1) 100%);
-    background: -webkit-linear-gradient(-45deg, rgba(191, 156, 245, 1) 0%, rgba(255, 70, 70, 1) 100%);
     background: linear-gradient(135deg, rgba(191, 156, 245, 1) 0%, rgba(255, 70, 70, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf9cf5', endColorstr='#ff4646',GradientType=1 );
   }
   .product-option, .service-option {
     height: 50vh;
@@ -65,8 +57,8 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
   .price {
@@ -114,28 +106,10 @@
    margin: 0 auto;
    display: block;
    position: relative;
-   bottom: 50px;
-   margin-bottom: -30px;
+   bottom: 67px;
+   margin-bottom: -50px;
+   box-shadow: 0 1px 12px 0px rgba(0, 0, 0, 0.35);
  }
-}
-
-.order-review {
-  .order-review-files {
-    margin-bottom: 22px;
-    .order-review-file {
-      margin-bottom: 8px;
-      a {
-        color: $linkColor;
-      }
-      i {
-        font-size: 1.5em;
-        line-height: 1em;
-        width: 24px;
-        text-align: center;
-        vertical-align: middle;
-      }
-    }
-  }
 }
 
 .order-complete {

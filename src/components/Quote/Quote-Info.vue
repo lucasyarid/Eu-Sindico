@@ -1,24 +1,24 @@
 <template>
   <v-container>
     <h3>Envie seu orçamento</h3>
-    <h4>PREENCHA OS DADOS</h4>
+    <h6 class="mt-2 text-uppercase">PREENCHA OS DADOS</h6>
 
-    <v-layout mb-1>
-      <v-flex>
+    <v-layout mt-2 >
+      <v-flex xs6>
         <v-text-field
           label="Nome da Empresa"
           v-model="quote.companyName"
         ></v-text-field>
       </v-flex>
-    </v-layout>
-    <v-layout>
       <v-flex xs6>
         <v-text-field
           label="Telefone"
           v-model="quote.companyPhone"
         ></v-text-field>
       </v-flex>
-      <v-flex xs6>
+    </v-layout>
+    <v-layout>
+      <v-flex>
         <v-text-field
           label="Site da Empresa"
           v-model="quote.companyWebsite"
@@ -41,11 +41,11 @@
     </v-layout>
     <v-layout mb-5>
       <v-flex>
-        <h4 class="pr-3">Adicione Anexos</h4>
-        <v-avatar size="60" color="green accent-3">
+        <h6 class="mb-3 text-uppercase">Adicione Anexos</h6>
+        <v-avatar size="60" color="accent" class="mr-2">
           <v-icon color="white">add_a_photo</v-icon>
         </v-avatar>
-        <v-avatar size="60" color="green accent-3">
+        <v-avatar size="60" color="accent">
           <v-icon color="white">attachment</v-icon>
         </v-avatar>
       </v-flex>
@@ -53,7 +53,7 @@
     <footer class="mt-5 px-3">
       <v-btn round large depressed block
         tag="button"
-        color="green accent-3"
+        color="accent"
         :disabled="$v.$invalid"
         @click.prevent="changeStep(1)">
         Prosseguir ›

@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <fieldset>
-      <h2>Qual é o tipo de serviço?</h2>
+    <fieldset class="pa-3">
+      <h1 class="font-weight-bold mb-4">Qual é o tipo de serviço?</h1>
 
       <p class="mt-3">
         <input type="radio" id="pintura" value="pintura" v-model="order.name" />
@@ -33,7 +33,7 @@
     <footer class="mt-5 px-3">
       <v-btn round large dark depressed block
         tag="button"
-        color="green accent-3"
+        color="accent"
         :disabled="$v.$invalid"
         @click.prevent="changeStep(1)">
         Prosseguir ›

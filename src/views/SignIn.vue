@@ -27,13 +27,13 @@
         <v-layout>
           <v-flex>
             <v-btn round block
-              color="green accent-3"
+              color="accent"
               :disabled="$v.$invalid"
               type="submit">Entrar</v-btn>
           </v-flex>
           <v-flex>
             <v-btn round block
-              color="green accent-3"
+              color="accent"
               to="/signup">Cadastre-se</v-btn>
           </v-flex>
         </v-layout>

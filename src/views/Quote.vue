@@ -3,7 +3,7 @@
     <v-tabs centered icons-and-text
       slot="extension"
       v-model="tabs"
-      slider-color="green accent-3">
+      slider-color="accent">
       <v-tab href="#tab-2">
         Em Aberto
       </v-tab>
@@ -16,21 +16,23 @@
         <div class="quote-item-info">
           <div class="quote-item-title">
             <h5>Compra de</h5>
-            <h2> Guarda-sóis</h2>
+            <h2 class="font-weight-bold"> Guarda-sóis</h2>
           </div>
 
-          <span class="quote-item-reference align-text-top">
-            <v-icon :size="21" color="white">account_circle</v-icon> À pedido do Síndico</span>
+          <span class="quote-item-reference align-text-top mt-2">
+            <v-icon :size="21" color="white">account_circle</v-icon>
+            À pedido do Síndico
+          </span>
 
-          <div class="footer-button container">
+          <div class="footer-button mt-4">
             <v-btn round large dark depressed block outline
-              color="white">Mais informações</v-btn>
+              color="white" class="align-left">Mais informações</v-btn>
             <v-progress-circular
               :rotate="-90"
               :size="80"
               :width="4"
               :value="25"
-              color="green accent-3">
+              color="accent">
               <div class="timer">
                 <div class="timer-content">
                   <small>Expira em</small>

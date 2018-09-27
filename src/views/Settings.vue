@@ -22,6 +22,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+
 export default {
   name: 'settings',
   data: function () {
@@ -31,12 +33,19 @@ export default {
     }
   },
   methods: {
+    ...mapMutations([
+      'setClasses'
+    ]),
     setName () {
       this.$emit('getTitle', this.title)
     }
   },
   mounted () {
     this.setName()
+    this.setClasses(this.classes)
+  },
+  destroyed () {
+    this.setClasses('')
   }
 }
 </script>

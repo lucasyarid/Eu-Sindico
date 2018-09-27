@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Gallery info="true"/>
+    <Gallery info="true" v-if="step == 0"/>
 
     <v-form>
       <QuoteInfo :quote="quote" v-if="step == 0"/>

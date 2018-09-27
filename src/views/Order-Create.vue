@@ -3,9 +3,9 @@
     <div v-if="step == 0">
       <nav class="pull-up order-select">
         <div class="box product-option">
-          <v-icon x-large color="white">shopping_cart</v-icon>
-          <h2>Compra de produto</h2>
-          <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
+          <v-icon :size="70" color="white">shopping_cart</v-icon>
+          <h2 class="font-weight-bold my-3">Compra de produto</h2>
+          <p class="px-2">Escolha abaixo a categoria que melhor se encaixa com seu pedido <br>de compra</p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
@@ -14,9 +14,10 @@
           </v-btn>
         </div>
         <div class="box service-option">
-          <v-icon x-large color="white">work</v-icon>
-          <h2>Contratação de serviço</h2>
-          <p>Escolha abaixo a categoria que melhor se encaixa com seu pedido de compra</p>
+          <v-icon :size="70" color="white">work</v-icon>
+          <h2 class="font-weight-bold my-3">Contratação de serviço</h2>
+          <p>Escolha abaixo a categoria que melhor se encaixa com a contratação<br>
+            de serviço</p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"

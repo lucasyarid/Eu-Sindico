@@ -3,9 +3,9 @@
     <v-tabs centered icons-and-text
       slot="extension"
       v-model="tabs"
-      slider-color="green accent-3">
+      slider-color="accent">
       <v-tab href="#tab-1">
-        <v-badge color="green accent-3">
+        <v-badge color="accent">
           <span slot="badge">2</span>
           <span>
             Novos
@@ -22,17 +22,17 @@
     <main class="mt-3">
       <router-link to="/order/review" class="order-item" style="background-image: url(//picsum.photos/300/400)">
         <v-layout pl-4 mt-5 class="order-item-info">
-          <v-flex xs8 pt-4>
+          <v-flex xs9 pt-4>
             <h5>Compra de</h5>
-            <h4> Guarda-sóis</h4>
+            <h4 class="font-weight-bold pt-1"> Guarda-sóis</h4>
           </v-flex>
-          <v-flex xs4>
+          <v-flex xs3>
             <v-progress-circular
               :rotate="-90"
               :size="80"
               :width="4"
               :value="25"
-              color="green accent-3">
+              color="accent">
               <div class="timer">
                 <div class="timer-content">
                   <small>Expira em</small>

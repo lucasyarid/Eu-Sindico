@@ -10,7 +10,7 @@
     <footer class="mt-5 px-3">
       <v-btn round large dark depressed block
         tag="button"
-        color="green accent-3"
+        color="accent"
         :disabled="$v.$invalid"
         @click.prevent="changeStep(1)">
         Prosseguir ›

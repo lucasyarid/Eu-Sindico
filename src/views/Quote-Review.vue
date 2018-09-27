@@ -1,35 +1,40 @@
 <template>
   <section class="quote-review">
     <Gallery info="true"/>
-    <main class="pt-3 pb-3">
-      <p class="container excerpt">O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.</p>
+    <v-container class="pb-3">
+      <p>
+        O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.
+      </p>
       <div class="app-cards horizontal-scroll">
-        <div class="quote-review-item card card-lg card-grey card-disabled">
+        <div class="quote-review-item card card-grey card-disabled">
           <div class="quote-review-info card-inner-card">
-            <h3 class="quote-review-info-title">Jardim do Sul Alvenaria</h3>
+            <h4 class="quote-review-info-title mb-3">Jardim do Sul Alvenaria</h4>
 
             <ul class="quote-review-list">
               <li class="quote-review-list-item">
-                <a href="#"><v-icon :size="21" color="primary">web</v-icon> Visitar website</a>
+                <v-icon :size="21" color="primary">web</v-icon>
+                <p class="d-inline-block pl-2 primary--text mb-2">Visitar website</p>
               </li>
               <li class="quote-review-list-item">
-                <a href="#"><v-icon :size="21" color="primary">settings_phone</v-icon> (11) 3666-1000</a>
+                <v-icon :size="21" color="primary">settings_phone</v-icon>
+                <p class="d-inline-block pl-2 primary--text">(11) 3666-1000</p>
               </li>
             </ul>
 
-            <h6>Tempo estimado</h6>
+            <h6 class="text-uppercase pb-1 mt-2">Tempo estimado</h6>
             <p>12 dias</p>
 
-            <h6>Anexos</h6>
+            <h6 class="text-uppercase mt-4">Anexos</h6>
             <ul class="quote-review-list">
               <li class="quote-review-list-item">
                 <a href="#">
-                  <v-icon :size="21" color="primary">attachment</v-icon> Laudo para Cond...Tintoreto.pdf
+                  <v-icon :size="21" color="primary">attachment</v-icon>
+                  <p class="d-inline-block pl-2 primary--text">Laudo para Cond...pdf</p>
                 </a>
               </li>
             </ul>
 
-            <h6>Custo</h6>
+            <h6 class="text-uppercase pb-1 mt-2">Custo</h6>
             <p>R$700,00</p>
           </div>
           <v-container fluid grid-list-xl>
@@ -37,18 +42,18 @@
               <v-flex xs4>
                 <v-btn round large dark depressed outline block
                   class="text-sm-left"
-                  color="red">X</v-btn>
+                  color="red"><v-icon>close</v-icon></v-btn>
               </v-flex>
               <v-flex xs8>
                 <v-btn round large dark depressed block
                   class="text-sm-left"
-                  color="green accent-3">Confirmar</v-btn>
+                  color="accent">Confirmar</v-btn>
               </v-flex>
             </v-layout>
           </v-container>
         </div>
       </div>
-    </main>
+    </v-container>
   </section>
 </template>
 

@@ -1,4 +1,6 @@
 import Vue from 'vue'
+import colors from 'vuetify/es5/util/colors'
+
 import {
   Vuetify,
   VApp,
@@ -55,5 +57,10 @@ Vue.use(Vuetify, {
     transitions
   },
   customProperties: true,
-  iconfont: 'md'
+  iconfont: 'md',
+  theme: {
+    primary: colors.lightBlue.lighten2,
+    secondary: colors.red.lighten1,
+    accent: colors.green.accent3
+  }
 })

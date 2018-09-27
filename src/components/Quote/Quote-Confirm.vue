@@ -1,72 +1,76 @@
 <template>
-  <section id="confirmation">
+  <section>
     <v-container>
-      <h2>Confirme as informações</h2>
+      <h1 class="font-weight-bold mb-4">Confirme as informações</h1>
       <v-layout>
         <v-flex>
-          <h4>Empresa</h4>
+          <h6 class="text-uppercase">Empresa</h6>
           <p>{{ quote.companyName }}</p>
         </v-flex>
       </v-layout>
 
       <v-layout>
         <v-flex>
-          <h4>Telefone</h4>
+          <h6 class="text-uppercase">Telefone</h6>
           <p>{{ quote.companyPhone }}</p>
         </v-flex>
       </v-layout>
 
       <v-layout>
         <v-flex>
-          <h4>Site da Empresa</h4>
+          <h6 class="text-uppercase">Site da Empresa</h6>
           <p>{{ quote.companyWebsite }}</p>
         </v-flex>
       </v-layout>
 
       <v-layout>
         <v-flex>
-          <h4>Tempo Estimado</h4>
+          <h6 class="text-uppercase">Tempo Estimado</h6>
           <p>{{ quote.time }}</p>
         </v-flex>
         <v-flex>
-          <h4>Custo Total</h4>
+          <h6 class="text-uppercase">Custo Total</h6>
           <p>{{ quote.price }}</p>
         </v-flex>
       </v-layout>
 
       <div class="horizontal-scroll">
-        <h4>FOTOS</h4>
-        <v-layout>
-          <v-flex v-for="i in 6" :key="i">
-            <img src="//picsum.photos/68/68" />
+        <h6 class="text-uppercase">FOTOS</h6>
+        <v-layout pt-2>
+          <v-flex mr-1 v-for="i in 6" :key="i">
+            <img class="thumb" src="//picsum.photos/68/68" />
           </v-flex>
         </v-layout>
       </div>
 
-      <v-layout mt-5>
+      <h6 class="text-uppercase mt-4 mb-2">ANEXOS</h6>
+      <v-layout>
         <v-flex>
-          <h4>ANEXOS</h4>
-          <p><v-icon>add_a_photo</v-icon> Orçamento empresa XYZ.pdf</p>
-          <p><v-icon>attachment</v-icon> Orçamento empresa XYZ.pdf</p>
+          <v-avatar :size="25" color="secondary">
+            <v-icon :size="15" dark>close</v-icon>
+          </v-avatar>
+          <p class="d-inline-block pl-2"> Orçamento empresa XYZ.pdf</p>
         </v-flex>
       </v-layout>
 
-      <footer class="mt-5 px-3">
-        <v-layout justify-center class="footer-button">
-          <v-flex xs4>
-            <v-btn round large depressed outline block
-              class="text-sm-left"
-              @click.prevent="setStep(1)"
-              color="light-blue lighten-2">Alterar</v-btn>
-          </v-flex>
-          <v-flex xs8>
-            <v-btn round large depressed block
-              class="text-sm-left"
-              @click.prevent="changeStep(1)"
-              color="green accent-3">Submeter solicitação</v-btn>
-          </v-flex>
-        </v-layout>
-      </footer>
+      <v-form>
+        <v-container pa-0>
+          <v-layout justify-center class="footer-button">
+            <v-flex xs4>
+              <v-btn round large depressed outline block
+                class="text-sm-left"
+                @click.prevent="setStep(1)"
+                color="light-blue lighten-2">Alterar</v-btn>
+            </v-flex>
+            <v-flex xs8>
+              <v-btn round large depressed block
+                class="text-sm-left"
+                @click.prevent="changeStep(1)"
+                color="accent">Submeter solicitação</v-btn>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-form>
     </v-container>
   </section>
 </template>

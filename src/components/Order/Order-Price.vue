@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <div class="price">
-      <div class="mb-1 mt-3 ml-1 mr-1">
-        <h2>Qual o custo máximo sugerido?</h2>
+      <div>
+        <h1 class="font-weight-bold mb-5">Qual o custo<br>máximo sugerido?</h1>
 
-        <p class="mt-3">
+        <p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
@@ -12,7 +12,7 @@
             + R$500
           </v-btn>
         </p>
-        <p class="mt-3">
+        <p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
@@ -21,7 +21,7 @@
           </v-btn>
         </p>
 
-        <p class="mt-3">
+        <p>
           <span>R$</span>
           <v-text-field dark
             type="number"
@@ -32,7 +32,7 @@
           <span>,00</span>
         </p>
 
-        <p class="mt-3">
+        <p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
@@ -40,7 +40,7 @@
             - R$100
           </v-btn>
         </p>
-        <p class="mt-3">
+        <p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
@@ -54,7 +54,7 @@
     <footer class="mt-5 px-3">
       <v-btn round large dark depressed block
         tag="button"
-        color="green accent-3"
+        color="accent"
         :disabled="$v.$invalid"
         @click.prevent="changeStep(1)">
         Prosseguir ›

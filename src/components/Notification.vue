@@ -1,7 +1,7 @@
 <template>
   <nav id="notifications" class="notifications" :class="{ open: notificationOpen }">
     <v-container>
-      <h1>Notificações</h1>
+      <h1 class="font-weight-bold pl-3 mb-3">Notificações</h1>
       <v-list dense two-line>
         <template v-for="i in 4">
           <v-list-tile :key="i">

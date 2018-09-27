@@ -1,36 +1,31 @@
 h1, h2, h3, h4, h5, h6, p, body, .application { 
   font-family: $mainFontFamily;
   line-height: 1em;
+  font-weight: 400;
 }
 
 h1 {
   font-size: 28px;
-  font-weight: 600;
 }
 
 h2 {
   font-size: 24px;
-  font-weight: 600;
 }
 
 h3 {
   font-size: 24px;
-  text-align: left;
 }
 
 h4 {
   font-size: 18px;
-  font-weight: 600;
 }
 
 h5 {
   font-size: 14px;
-  text-align: left;
 }
 
 h6 {
   font-size: 12px;
-  text-transform: uppercase;
 }
 
 p {
@@ -44,9 +39,12 @@ a {
 
 .application a {
   color: $primaryColor;
-  &:hover, &.active {
-    color: $activeColor;
-    text-decoration: none;
+}
+
+.active {
+  color: $activeColor !important;
+  .v-icon {
+    color: $activeColor !important;
   }
 }
 
@@ -80,7 +78,7 @@ blockquote {
   cite {
     text-align: right;
     display: block;
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-style: normal;
   }
 }

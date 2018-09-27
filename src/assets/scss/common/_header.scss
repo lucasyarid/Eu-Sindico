@@ -1,17 +1,25 @@
-.header {
+header {
   position: relative;
   background-size: 100% auto;
   min-height: 100px;
+  &.up:before {
+    top: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+  &.bottom:before {
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+  }
   &:before {
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 50%;
     content: " ";
-    background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+    z-index: 1;
+  }
+  .container {
+    z-index: 2;
+    position: relative;
   }
 }

@@ -3,48 +3,80 @@
     <Gallery info="true"/>
     <main>
       <v-container v-if="step == 0">
-        <p class="order-review-description">Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
+        <p class="order-review-description mb-4">Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
 
-        <h6>Submetido por</h6>
+        <h6 class="text-uppercase pb-2">Submetido por</h6>
         <p class="order-review-reference">Eduardo Fontenele</p>
 
         <ul class="order-review-files">
-          <li class="order-review-file">
-            <v-icon color="black">check</v-icon>
-            Houve vistoria prévia</li>
-          <li class="order-review-file">
-            <a href="#">
-              <v-icon color="primary">attachment</v-icon> Laudo Empresa XYZ.pdf
-            </a>
+          <li class="order-review-file mb-1">
+            <v-icon color="black" class="pr-2">check</v-icon>
+            <p class="d-inline-block mb-0">Houve vistoria prévia</p>
+          </li>
+          <li class="order-review-file mb-1">
+            <v-icon color="primary" class="pr-2">attachment</v-icon>
+            <p class="d-inline-block mb-0">Laudo Empresa XYZ.pdf</p>
           </li>
         </ul>
 
-        <h6>Ressalvas</h6>
+        <h6 class="text-uppercase mt-4 pb-2">Ressalvas</h6>
         <blockquote>
           <p>
             "Contanto que não seja do mesmo tecido que tínhamos antes, estou de acordo."
           </p>
-          <cite><strong>Renan Altendorf</strong> (conselheiro)</cite>
+          <cite class="mt-4"><strong>Renan Altendorf </strong> (conselheiro)</cite>
         </blockquote>
 
+        <div class="text-xs-center">
+          <v-bottom-sheet hide-overlay v-model="sheet">
+            <v-btn text-xs-center round large
+              slot="activator"
+              color="light-blue lighten-2"
+              dark>
+              Adicionar ressalva
+            </v-btn>
+
+            <v-form>
+              <v-container>
+                <h1>Suas ressalvas</h1>
+                <v-textarea no-resize
+                  rows="3"
+                  v-model="comment"
+                ></v-textarea>
+                <v-layout justify-center class="footer-button">
+                  <v-flex xs4>
+                    <v-btn round large dark depressed outline block
+                      class="text-sm-left"
+                      color="red">Cancelar</v-btn>
+                  </v-flex>
+                  <v-flex xs8>
+                    <v-btn round large dark depressed block
+                      class="text-sm-left"
+                      color="accent">Enviar</v-btn>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-form>
+          </v-bottom-sheet>
+        </div>
+
         <div class="footer-button mt-5">
-          <v-btn round large dark depressed block
-            tag="button"
-            color="green accent-3"
-            @click.native="changeStep(+1)">Enviar Orçamento</v-btn>
-          <v-progress-circular
-            :rotate="-90"
-            :size="80"
-            :width="4"
-            :value="25"
-            color="green accent-3">
-            <div class="timer">
-              <div class="timer-content">
-                <small>Expira em</small>
-                <time>2 dias</time>
-              </div>
-            </div>
-          </v-progress-circular>
+          <v-form>
+            <v-container pa-0>
+              <v-layout justify-center class="footer-button">
+                <v-flex xs4>
+                  <v-btn round large dark depressed outline block
+                    class="text-sm-left"
+                    color="red">Declinar</v-btn>
+                </v-flex>
+                <v-flex xs8>
+                  <v-btn round large dark depressed block
+                    class="text-sm-left"
+                    color="accent">Aceitar Solicitação</v-btn>
+                </v-flex>
+              </v-layout>
+            </v-container>
+          </v-form>
         </div>
 
       </v-container>
@@ -71,7 +103,9 @@ export default {
   data: function () {
     return {
       title: 'Aprovar Pedido',
-      menuBack: true
+      menuBack: true,
+      sheet: false,
+      comment: ''
     }
   },
   computed: {

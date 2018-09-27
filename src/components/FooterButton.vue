@@ -12,7 +12,7 @@
         :size="80"
         :width="4"
         :value="25"
-        color="green accent-3">
+        color="accent">
         <div class="timer">
           <div class="timer-content">
             <small>Expira em</small>
