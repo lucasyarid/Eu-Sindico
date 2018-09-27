@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import store from './store'
+import store from './store/store'
 
 Vue.use(Router)
 
 // Function to guard pages
 export function ifAuthenticated (to, from, next) {
   store.dispatch('tryAutoLogin')
-  if (store.state.apiToken) {
+  if (store.getters.isAuthenticated) {
     next()
   } else {
-    next('/signin')
   }
 }
 
 export function ifNotAuthenticated (to, from, next) {
   store.dispatch('tryAutoLogin')
-  if (!store.state.idToken) {
+  if (!store.getters.isAuthenticated) {
     next()
   } else {
     next('/')
