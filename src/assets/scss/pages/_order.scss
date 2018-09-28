@@ -1,4 +1,13 @@
 .order {
+  position: relative;
+  main {
+    height: stretch;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 70px;
+    padding-bottom: 70px;
+  }
   .order-item {
     height: 250px;
     background-size: 100% auto;
@@ -24,9 +33,6 @@
       left: 0px;
       padding: 20px;
       width: 100%;
-      .orders-item-title {
-        padding-top: 25px;
-      }
     }
   }
 }

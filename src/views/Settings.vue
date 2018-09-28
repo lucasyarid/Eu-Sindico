@@ -3,16 +3,18 @@
     <main>
       <v-container fluid grid-list-xs>
 
-        <h1><b>Notificações</b></h1>
-        <v-layout row justify-end mt-5>
+        <h1 class="mb-5"><b>Notificações</b></h1>
+
+        <v-layout v-for="notifications in userSettingsNotifications" :key="notifications.length">
           <v-flex xs10>
-            <p>Novo pedido</p>
+            <p class="mb-0">{{notifications['name']}}</p>
           </v-flex>
           <v-flex xs2>
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-              <label class="onoffswitch-label" for="myonoffswitch"></label>
-            </div>
+            <v-switch
+              height="10"
+              class="mt-0 ml-3"
+              v-model="notifications['value']"
+            ></v-switch>
           </v-flex>
         </v-layout>
 
@@ -38,6 +40,11 @@ export default {
     ]),
     setName () {
       this.$emit('getTitle', this.title)
+    }
+  },
+  computed: {
+    userSettingsNotifications () {
+      return this.$store.state.user.settings.notifications
     }
   },
   mounted () {

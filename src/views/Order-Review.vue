@@ -9,10 +9,10 @@
         <p class="order-review-reference">Eduardo Fontenele</p>
 
         <ul class="order-review-files">
-          <li class="order-review-file mb-1">
+          <!-- <li class="order-review-file mb-1">
             <v-icon color="black" class="pr-2">check</v-icon>
             <p class="d-inline-block mb-0">Houve vistoria prévia</p>
-          </li>
+          </li> -->
           <li class="order-review-file mb-1">
             <v-icon color="primary" class="pr-2">attachment</v-icon>
             <p class="d-inline-block mb-0">Laudo Empresa XYZ.pdf</p>

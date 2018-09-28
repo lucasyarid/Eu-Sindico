@@ -15,7 +15,9 @@
           <v-flex xs4>
             <router-link to="/order/">
               <v-badge bottom overlap class="mb-3 outline" color="accent">
-                <span slot="badge" class="black--text">3</span>
+                <span slot="badge" class="black--text">
+                  {{userNotifications.order}}
+                </span>
                 <v-avatar size="50" color="accent">
                   <v-icon dark>email</v-icon>
                 </v-avatar>
@@ -26,7 +28,9 @@
           <v-flex xs4>
             <router-link to="/quote/">
               <v-badge bottom overlap class="mb-3 outline" color="indigo darken-4">
-                <span slot="badge" class="black--text">3</span>
+                <span slot="badge" class="black--text">
+                  {{userNotifications.quote}}
+                </span>
                 <v-avatar size="50" color="indigo darken-4">
                   <v-icon dark>event_note</v-icon>
                 </v-avatar>
@@ -37,7 +41,9 @@
           <v-flex xs4>
             <router-link to="/timeline">
               <v-badge bottom overlap class="mb-3 outline" color="red accent-2">
-                <span slot="badge" class="black--text">3</span>
+                <span slot="badge" class="black--text">
+                  {{userNotifications.inProgress}}
+                </span>
                 <v-avatar size="50" color="red accent-2">
                   <v-icon dark>play_arrow</v-icon>
                 </v-avatar>
@@ -50,7 +56,9 @@
           <v-flex xs4>
             <router-link to="/order/complete">
               <v-badge bottom overlap class="mb-3 outline" color="deep-purple accent-2">
-                <span slot="badge" class="black--text">3</span>
+                <span slot="badge" class="black--text">
+                  {{userNotifications.completed}}
+                </span>
                 <v-avatar size="50" color="deep-purple accent-2">
                   <v-icon dark>check</v-icon>
                 </v-avatar>
@@ -98,6 +106,11 @@ export default {
     ]),
     setName () {
       this.$emit('getTitle', this.title)
+    }
+  },
+  computed: {
+    userNotifications () {
+      return this.$store.state.user.notifications
     }
   },
   mounted () {

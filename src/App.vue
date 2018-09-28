@@ -9,7 +9,6 @@
         :title="title"
         @goBack="goBack"/>
       <router-view
-        @click.native="menuClose"
         @getMenu="menuBack = $event"
         @getTitle="title = $event"
         @getClasses="childClasses = $event"/>
