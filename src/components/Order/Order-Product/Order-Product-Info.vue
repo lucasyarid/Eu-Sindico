@@ -5,7 +5,7 @@
         <h4 class="font-weight-bold">O que deve ser comprado?</h4>
         <v-text-field dark
           placeholder="Exemplo: guarda-sóis"
-          v-model="order.name"
+          v-model="order.title"
         ></v-text-field>
       </v-flex>
     </v-layout>
@@ -14,7 +14,7 @@
         <h4 class="font-weight-bold">Explique os motivos</h4>
         <v-textarea no-resize dark
           placeholder="Exemplo: Nossos guarda-sóis estão todos furados e não podem ser utilizados. Uma pena para todos!"
-          v-model="order.details"
+          v-model="order.description"
         ></v-textarea>
       </v-flex>
     </v-layout>
@@ -84,10 +84,10 @@ export default {
   }),
   validations: {
     order: {
-      name: {
+      title: {
         required
       },
-      details: {
+      description: {
         required
       },
       quantity: {

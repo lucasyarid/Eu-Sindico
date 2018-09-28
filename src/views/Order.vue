@@ -20,7 +20,6 @@
       </v-tab>
     </v-tabs>
     <main class="mt-3">
-
       <template v-for="order in orders">
         <router-link
           to="order/review"
@@ -58,6 +57,7 @@
 
 <script>
 import { dateCalc } from '../mixins/dateCalc'
+import axios from '../axios-auth'
 
 export default {
   name: 'order',
@@ -107,7 +107,21 @@ export default {
       this.$emit('getTitle', this.title)
     }
   },
+  computed: {
+    apiToken () {
+      return this.$store.state.auth.apiToken
+    }
+  },
   mounted () {
+    axios
+      .get('/orders')
+      .then(res => {
+        // this.info = res.data.bpi
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
     this.setName()
   }
 }

@@ -6,7 +6,7 @@
         <v-textarea no-resize dark
           rows="3"
           placeholder="Exemplo: Nosso contrato de segurança está acabando. Precisamos escolher uma nova empresa."
-          v-model="order.details"
+          v-model="order.description"
         ></v-textarea>
       </v-flex>
     </v-layout>
@@ -79,8 +79,8 @@ export default {
   }),
   validations: {
     order: {
-      name: { required },
-      details: { required },
+      title: { required },
+      description: { required },
       scope: { required },
       deadline: { required }
     }

@@ -50,7 +50,6 @@ const actions = {
       password: authData.password
     })
       .then(res => {
-        console.log(res)
         commit('authUser', {
           apiToken: res.data.token,
           userName: res.data.name
@@ -73,7 +72,6 @@ const actions = {
       password: authData.password
     })
       .then(res => {
-        console.log(res)
         const now = new Date()
         const day = 86400000
         const expirationDate = new Date(now.getTime() + day)
@@ -139,7 +137,6 @@ const actions = {
     }
     globalAxios.get('/users.json' + '?auth=' + state.apiToken)
       .then(res => {
-        console.log(res)
         const data = res.data
         const users = []
         for (let key in data) {
@@ -147,7 +144,6 @@ const actions = {
           user.id = key
           users.push(user)
         }
-        console.log(users)
         commit('storeUser', users[0])
       })
       .catch(error => console.log(error))

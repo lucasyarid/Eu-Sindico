@@ -8,7 +8,7 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click="$emit('changeOrderPrice', order.price += 500)">
+            @click="$emit('changeOrderPrice', order.maxValue += 500)">
             + R$500
           </v-btn>
         </p>
@@ -16,7 +16,7 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click="$emit('changeOrderPrice', order.price += 100)">
+            @click="$emit('changeOrderPrice', order.maxValue += 100)">
             + R$100
           </v-btn>
         </p>
@@ -26,7 +26,7 @@
           <v-text-field dark
             type="number"
             class="price-input"
-            v-model.number="order.price"
+            v-model.number="order.maxValue"
             placeholder="000 "
           ></v-text-field>
           <span>,00</span>
@@ -36,7 +36,7 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click="$emit('changeOrderPrice', order.price -= 100)">
+            @click="$emit('changeOrderPrice', order.maxValue -= 100)">
             - R$100
           </v-btn>
         </p>
@@ -44,7 +44,7 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click="$emit('changeOrderPrice', order.price -= 500)">
+            @click="$emit('changeOrderPrice', order.maxValue -= 500)">
             - R$500
           </v-btn>
         </p>
@@ -72,7 +72,7 @@ export default {
   props: ['order'],
   validations: {
     order: {
-      price: {
+      maxValue: {
         required,
         numeric
       }

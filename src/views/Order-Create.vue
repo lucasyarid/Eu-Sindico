@@ -52,13 +52,13 @@ export default {
       menuBack: true,
       order: {
         type: '',
-        name: '',
-        details: '',
+        title: '',
+        description: '',
         quantity: 1,
         deadline: '',
         files: '',
-        price: null,
-        priority: '',
+        maxValue: null,
+        priority: 0,
         scope: '',
         owner: ''
       }

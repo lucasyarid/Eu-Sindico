@@ -4,7 +4,7 @@
       <h1>O que deve ser comprado?</h1>
       <v-text-field dark
         placeholder="Exemplo: guarda-sóis"
-        v-model="order.name"
+        v-model="order.title"
       ></v-text-field>
     </div>
     <footer class="mt-5 px-3">
@@ -28,7 +28,7 @@ export default {
   props: ['order'],
   validations: {
     order: {
-      name: {
+      title: {
         required
       }
     }

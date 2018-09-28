@@ -5,7 +5,7 @@
       <v-layout my-3>
         <v-flex>
           <h6 class="text-uppercase mb-2">{{ order.type }}</h6>
-          <p>{{ order.name }}</p>
+          <p>{{ order.title }}</p>
         </v-flex>
         <v-flex v-if="order.type == 'produto'">
           <h6 class="text-uppercase mb-2">Quantidade</h6>
@@ -20,7 +20,7 @@
       <v-layout>
         <v-flex>
           <h6 class="text-uppercase mb-2">Detalhes sobre a situação</h6>
-          <p>{{ order.details }}</p>
+          <p>{{ order.description }}</p>
         </v-flex>
       </v-layout>
 
@@ -66,26 +66,83 @@
             <v-flex xs8>
               <v-btn round large depressed block
                 class="text-sm-left"
-                @click.prevent="changeStep(1)"
+                @click.prevent="postOrder(); dialog = true"
                 color="accent">Submeter solicitação</v-btn>
             </v-flex>
           </v-layout>
         </v-container>
       </v-form>
     </v-container>
+
+    <v-dialog
+      v-model="dialog"
+      hide-overlay
+      persistent
+      width="300"
+    >
+      <v-card
+        color="primary"
+        dark
+      >
+        <v-card-text>
+          Enviando...
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
   </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import axios from '@/axios-auth'
 
 export default {
   name: 'order-confirm',
   props: ['order'],
+  data () {
+    return {
+      dialog: false
+    }
+  },
   methods: {
     ...mapMutations([
       'setStep', 'changeStep'
-    ])
+    ]),
+    postOrder () {
+      axios
+        .post('/orders', {
+          approvalDeadline: this.order.deadline + 'T19:59:21.150Z',
+          budgetDeadline: this.order.deadline + 'T19:59:21.150Z',
+          deadline: this.order.deadline + 'T19:59:21.150Z',
+          description: this.order.description,
+          maxValue: this.order.maxValue,
+          pollingDeadline: this.order.deadline + 'T19:59:21.150Z',
+          priority: this.order.priority,
+          quantity: this.order.quantity,
+          scope: this.order.scope,
+          status: {
+            id: '0'
+          },
+          title: this.order.title,
+          type: {
+            id: 0
+          }
+        })
+        .then(res => {
+          setTimeout(() => {
+            this.changeStep(1)
+          }, 2000)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>
