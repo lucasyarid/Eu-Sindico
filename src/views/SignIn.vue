@@ -17,9 +17,12 @@
             <div v-if="$v.password.$error" class="active"
                 data-tooltip="Senha inválida"></div>
             <v-text-field
+              v-model="password"
+              :append-icon="showPassword ? 'visibility_off' : 'visibility'"
+              :type="showPassword ? 'text' : 'password'"
               label="Senha"
               @blur="$v.password.$touch()"
-              v-model="password"
+              @click:append="showPassword = !showPassword"
             ></v-text-field>
           </v-flex>
         </v-layout>
@@ -53,7 +56,8 @@ export default {
       title: 'Login',
       classes: ['hide-menu', 'hide-notification'],
       email: '',
-      password: ''
+      password: '',
+      showPassword: false
     }
   },
   validations: {

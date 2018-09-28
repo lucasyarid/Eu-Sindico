@@ -5,7 +5,8 @@ import globalAxios from 'axios'
 const state = {
   httpErrorMessage: null,
   apiToken: null,
-  userId: null,
+  userName: null,
+  userCompany: null,
   user: null
 }
 
@@ -21,14 +22,16 @@ const getters = {
 const mutations = {
   authUser (state, userData) {
     state.apiToken = userData.apiToken
-    state.userId = userData.userId
+    state.userName = userData.userName
+    state.userCompany = userData.userCompany
   },
   storeUser (state, user) {
     state.user = user
   },
   clearAuthData (state) {
     state.apiToken = null
-    state.userId = null
+    state.userName = null
+    state.userCompany = null
   },
   setHttpErrorMessage (state, errorMessage) {
     state.httpErrorMessage = errorMessage
@@ -50,13 +53,13 @@ const actions = {
         console.log(res)
         commit('authUser', {
           apiToken: res.data.token,
-          userId: res.data.localId
+          userName: res.data.name
         })
         const now = new Date()
         const day = 86400000
         const expirationDate = new Date(now.getTime() + day)
         localStorage.setItem('apiToken', res.data.token)
-        localStorage.setItem('userId', res.data.localId)
+        localStorage.setItem('userName', res.data.name)
         localStorage.setItem('expirationDate', expirationDate)
         dispatch('storeUser', authData)
         dispatch('setLogoutTimer', day)
@@ -75,11 +78,13 @@ const actions = {
         const day = 86400000
         const expirationDate = new Date(now.getTime() + day)
         localStorage.setItem('apiToken', res.data.token)
-        localStorage.setItem('userId', res.data.localId)
+        localStorage.setItem('userName', res.data.name)
+        localStorage.setItem('userCompany', res.data.company.name)
         localStorage.setItem('expirationDate', expirationDate)
         commit('authUser', {
           apiToken: res.data.token,
-          userId: res.data.localId
+          userName: res.data.name,
+          userCompany: res.data.company.name
         })
         dispatch('setLogoutTimer', day)
         router.push('/')
@@ -104,16 +109,19 @@ const actions = {
     if (now >= expirationDate) {
       return
     }
-    const userId = localStorage.getItem('userId')
+    const userName = localStorage.getItem('userName')
+    const userCompany = localStorage.getItem('userCompany')
     commit('authUser', {
       apiToken: apiToken,
-      userId: userId
+      userName: userName,
+      userCompany: userCompany
     })
   },
   logout ({ commit }) {
     commit('clearAuthData')
     localStorage.removeItem('apiToken')
-    localStorage.removeItem('userId')
+    localStorage.removeItem('userName')
+    localStorage.removeItem('userCompany')
     localStorage.removeItem('expirationDate')
     router.replace('/signin')
   },

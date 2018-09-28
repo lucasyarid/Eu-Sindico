@@ -5,7 +5,7 @@
         <v-avatar size="64px" class="mb-3">
           <img src="//api.adorable.io/avatars/64" alt="Avatar">
         </v-avatar>
-        <p class="house-number">Apartamento 101</p>
+        <p class="house-number">{{userName}}</p>
       </v-container>
     </header>
     <nav class="mt-2">
@@ -78,6 +78,9 @@ export default {
   computed: {
     menuOpen () {
       return this.$store.state.menuOpen
+    },
+    userName () {
+      return this.$store.state.auth.userName
     }
   }
 }

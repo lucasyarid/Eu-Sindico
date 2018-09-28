@@ -4,12 +4,14 @@
     <main>
       <v-container grid-list-xs text-xs-center>
         <v-layout row wrap align-center justify-center text-xs-center mt-3 mb-4>
-          <h6 class="home-title-description text-uppercase font-weight-regular">
-            Condomínio
-          </h6>
-          <h2 class="home-title text-uppercase font-weight-bold mt-1">
-            Quatro Estações Alto da Lapa
-          </h2>
+          <div>
+            <h6 class="home-title-description text-uppercase font-weight-regular">
+              Condomínio
+            </h6>
+            <h2 class="home-title text-uppercase font-weight-bold mt-1 d-block">
+              {{userCompany}}
+            </h2>
+          </div>
         </v-layout>
         <v-layout row wrap align-center justify-center text-xs-center mt-5 mb-4>
           <v-flex xs4>
@@ -111,6 +113,9 @@ export default {
   computed: {
     userNotifications () {
       return this.$store.state.user.notifications
+    },
+    userCompany () {
+      return this.$store.state.auth.userCompany
     }
   },
   mounted () {
