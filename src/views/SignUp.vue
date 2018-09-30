@@ -3,7 +3,7 @@
     <v-form @submit.prevent="onSubmit">
       <v-container>
         <v-layout row wrap>
-          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.email.$error}">
+          <v-flex xs12 class="validate" :class="{invalid: $v.email.$error}">
             <div v-if="$v.email.$error" class="active"
               data-tooltip="Informe um e-mail válido"></div>
             <v-text-field
@@ -13,7 +13,7 @@
               v-model="email"
             ></v-text-field>
           </v-flex>
-          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.password.$error}">
+          <v-flex xs12 class="validate" :class="{invalid: $v.password.$error}">
             <div v-if="$v.password.$error" class="active"
               data-tooltip="Sua senha é muito curta"></div>
             <v-text-field
@@ -25,7 +25,7 @@
               @click:append="showPassword = !showPassword"
             ></v-text-field>
           </v-flex>
-          <v-flex xs12 sm6 md3 class="validate" :class="{invalid: $v.confirmPassword.$error}">
+          <v-flex xs12 class="validate" :class="{invalid: $v.confirmPassword.$error}">
             <div v-if="$v.confirmPassword.$error" class="active"
               data-tooltip="As senhas não são iguais"></div>
             <v-text-field
