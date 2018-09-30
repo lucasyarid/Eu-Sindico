@@ -1,13 +1,4 @@
 .order {
-  position: relative;
-  main {
-    height: stretch;
-    width: 100%;
-    overflow: auto;
-    position: absolute;
-    top: 70px;
-    padding-bottom: 70px;
-  }
   .order-item {
     height: 250px;
     background-size: 100% auto;
@@ -112,7 +103,7 @@
    margin: 0 auto;
    display: block;
    position: relative;
-   bottom: 67px;
+   bottom: 53px;
    margin-bottom: -50px;
    box-shadow: 0 1px 12px 0px rgba(0, 0, 0, 0.35);
  }

@@ -8,7 +8,7 @@
         <p class="house-number">{{userName}}</p>
       </v-container>
     </header>
-    <nav class="mt-2">
+    <nav class="mt-1">
       <v-list dense>
         <v-list-tile
           v-for="menuItem in menu"
@@ -16,7 +16,6 @@
           :to="menuItem.link"
           @click="!menuItem.logout ? menuToggle() : menuToggleQuit()"
           active-class="active"
-          class="mb-1"
           :exact="menuItem.exact"
         >
           <v-list-tile-action>
@@ -36,13 +35,13 @@
           @click="menuToggle"
           to="/order/create">Criar novo pedido</v-btn>
       </div>
-      <div class="text-xs-center">
+      <!-- <div class="text-xs-center">
         <v-btn round large dark depressed
           tag="button"
           color="accent"
           @click="menuToggle"
           to="/quote/create">Criar novo orçamento</v-btn>
-      </div>
+      </div> -->
     </nav>
   </div>
 </template>

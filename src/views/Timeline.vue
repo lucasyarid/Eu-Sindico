@@ -1,7 +1,7 @@
 <template>
   <section class="timeline">
     <Gallery info="true"/>
-    <main>
+    <main class="scrollable gallery">
 
       <v-layout row justify-center mt-4 mb-4 text-xs-center class="order-vote-overview">
         <v-flex xs3>

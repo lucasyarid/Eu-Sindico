@@ -1,12 +1,12 @@
 <template>
   <section class="quote-review">
     <Gallery info="true"/>
-    <v-container class="pb-3">
+    <v-container class="pb-3 scrollable gallery">
       <p>
         O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.
       </p>
       <div class="app-cards horizontal-scroll">
-        <div class="quote-review-item card card-grey card-disabled">
+        <div class="quote-review-item card card-full card-grey card-disabled">
           <div class="quote-review-info card-inner-card">
             <h4 class="quote-review-info-title mb-3">Jardim do Sul Alvenaria</h4>
 

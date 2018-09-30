@@ -19,7 +19,7 @@
           Negados
       </v-tab>
     </v-tabs>
-    <main class="mt-3">
+    <main class="mt-3 scrollable tab">
       <template v-for="order in orders">
         <router-link
           to="order/review"

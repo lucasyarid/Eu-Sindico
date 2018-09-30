@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout mb-1>
+    <v-layout>
       <v-flex>
         <h4 class="font-weight-bold">O que deve ser comprado?</h4>
         <v-text-field dark
@@ -9,7 +9,7 @@
         ></v-text-field>
       </v-flex>
     </v-layout>
-    <v-layout mb-1>
+    <v-layout>
       <v-flex>
         <h4 class="font-weight-bold">Explique os motivos</h4>
         <v-textarea no-resize dark
@@ -18,7 +18,7 @@
         ></v-textarea>
       </v-flex>
     </v-layout>
-    <v-layout row wrap mb-1>
+    <v-layout row wrap>
       <v-flex xs6>
         <h4 class="font-weight-bold">Quantidade</h4>
         <v-text-field dark
@@ -49,7 +49,7 @@
         </v-dialog>
       </v-flex>
     </v-layout>
-    <v-layout mb-5>
+    <v-layout>
       <v-flex>
         <h4 slot="activator" class="font-weight-bold mb-2">Anexos</h4>
         <v-avatar size="60" color="white" class="mr-2">
@@ -60,7 +60,7 @@
         </v-avatar>
       </v-flex>
     </v-layout>
-    <footer class="mt-5 px-3">
+    <footer class="px-3">
       <v-btn round large dark depressed block
         tag="button"
         color="accent"

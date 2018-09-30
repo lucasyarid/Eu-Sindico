@@ -21,7 +21,7 @@
           </v-btn>
         </p>
 
-        <p>
+        <p class="nowrap">
           <span>R$</span>
           <v-text-field dark
             type="number"

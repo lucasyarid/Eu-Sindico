@@ -61,3 +61,25 @@ img {
     margin: 0 5px;
   }
 }
+
+section {
+  position: relative;
+  .scrollable {
+    height: stretch;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    &.tab {
+      top: 70px;
+    padding-bottom: 70px;
+    }
+    &.gallery {
+      top: 130px;
+      padding-bottom: 130px !important;
+    }
+    &.icon {
+      top: initial;
+      padding-bottom: 100px;
+    }
+  }
+}

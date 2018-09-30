@@ -3,7 +3,7 @@
     <header class="dark up pull-up" style="background-image: url(//picsum.photos/640/560)"></header>
     <main>
       <v-container grid-list-xs text-xs-center>
-        <v-layout row wrap align-center justify-center text-xs-center mt-3 mb-4>
+        <v-layout row wrap align-center justify-center text-xs-center mb-3>
           <div>
             <h6 class="home-title-description text-uppercase font-weight-regular">
               Condomínio
@@ -13,7 +13,7 @@
             </h2>
           </div>
         </v-layout>
-        <v-layout row wrap align-center justify-center text-xs-center mt-5 mb-4>
+        <v-layout row wrap align-center justify-center text-xs-center my-4>
           <v-flex xs4>
             <router-link to="/order/">
               <v-badge bottom overlap class="mb-3 outline" color="accent">
@@ -54,7 +54,7 @@
             </router-link>
           </v-flex>
         </v-layout>
-        <v-layout row wrap align-center justify-center text-xs-center mt-5 mb-4>
+        <v-layout row wrap align-center justify-center text-xs-center my-4>
           <v-flex xs4>
             <router-link to="/order/complete">
               <v-badge bottom overlap class="mb-3 outline" color="deep-purple accent-2">

@@ -1,7 +1,7 @@
 <template>
   <section id="confirmation">
     <v-container>
-      <h1 class="font-weight-bold mb-4">Confirme as informações</h1>
+      <h1 class="font-weight-bold mb-1">Confirme as informações</h1>
       <v-layout my-3>
         <v-flex>
           <h6 class="text-uppercase mb-2">{{ order.type }}</h6>
@@ -24,7 +24,7 @@
         </v-flex>
       </v-layout>
 
-      <div class="horizontal-scroll my-3">
+      <div class="horizontal-scroll my-1">
         <h6 class="text-uppercase">FOTOS</h6>
         <v-layout pt-2>
           <v-flex mr-1 v-for="i in 6" :key="i">
@@ -33,7 +33,7 @@
         </v-layout>
       </div>
 
-      <h6 class="text-uppercase mt-4 mb-2">ANEXOS</h6>
+      <h6 class="text-uppercase mt-4 mb-1">ANEXOS</h6>
       <v-layout>
         <v-flex>
           <v-avatar :size="25" color="secondary">
@@ -43,7 +43,7 @@
         </v-flex>
       </v-layout>
 
-      <v-layout mt-4>
+      <v-layout mt-2>
         <v-flex>
           <h6 class="text-uppercase mb-2">Prazo</h6>
           <p>{{ order.deadline }}</p>

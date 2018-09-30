@@ -5,9 +5,12 @@
   border-radius: 20px;
   display: block;
   width: 85%;
+  &.card-full {
+    width: 100%;
+  }
   &.card-lg {
     width: 85%;
-    height: 450px;
+    height: 415px;
   }
   &.card-md {
     width: 100%;

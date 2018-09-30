@@ -1,12 +1,12 @@
 <template>
   <section class="order-vote">
     <Gallery :classes="classes" galeryClasses="pull-up large"/>
-    <main>
+    <v-avatar size="60" color="grey lighten-3" class="order-vote-type">
+      <v-icon color="grey">work</v-icon>
+    </v-avatar>
+    <main class="scrollable icon">
 
       <v-container text-xs-center>
-        <v-avatar size="60" color="grey lighten-3" class="order-vote-type">
-          <v-icon color="grey">work</v-icon>
-        </v-avatar>
         <h1 class="font-weight-bold mb-2">Serviço de reforma</h1>
         <div class="text-xs-center">
           <v-rating small

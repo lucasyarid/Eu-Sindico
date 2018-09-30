@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-layout mb-1>
+    <v-layout>
       <v-flex>
         <h4 class="font-weight-bold">Explique a situação</h4>
         <v-textarea no-resize dark
@@ -20,7 +20,7 @@
         ></v-textarea>
       </v-flex>
     </v-layout>
-    <v-layout mb-2>
+    <v-layout>
       <v-flex>
         <v-dialog
           ref="dialog"
@@ -44,7 +44,7 @@
         </v-dialog>
       </v-flex>
     </v-layout>
-    <v-layout mb-5>
+    <v-layout>
       <v-flex>
         <h4 slot="activator" class="font-weight-bold mb-2">Anexos</h4>
         <v-avatar size="60" color="white" class="mr-2">
@@ -55,7 +55,7 @@
         </v-avatar>
       </v-flex>
     </v-layout>
-    <footer class="mt-5 px-3">
+    <footer class="px-3">
       <v-btn round large dark depressed block
         tag="button"
         color="accent"

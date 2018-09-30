@@ -1,7 +1,7 @@
 <template>
   <section class="order-review">
     <Gallery info="true"/>
-    <main>
+    <main class="scrollable gallery">
       <v-container v-if="step == 0">
         <p class="order-review-description mb-4">Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
 
