@@ -28,7 +28,7 @@
           <h5 class="page-title text-xs-center text-uppercase font-weight-bold pt-1">{{ title }}</h5>
         </v-flex>
         <v-flex layout justify-end pr-4>
-          <div id="notification-trigger" class="notification" @click="notificationToggle" :class="{ open: notificationOpen }">
+          <div id="notification-trigger" style="visibility: hidden" class="notification" @click="notificationToggle" :class="{ open: notificationOpen }">
             <v-badge overlap color="red accent-4">
               <span slot="badge" class="caption">2</span>
               <v-icon :size="28" color="black">

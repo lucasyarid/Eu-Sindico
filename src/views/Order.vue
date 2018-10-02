@@ -5,18 +5,13 @@
       v-model="tabs"
       slider-color="accent">
       <v-tab href="#new">
-        <v-badge color="accent">
-          <span slot="badge">2</span>
-          <span>
-            Novos
-          </span>
-        </v-badge>
+        Novos
       </v-tab>
       <v-tab href="#accepted">
         Aceitos
       </v-tab>
       <v-tab href="#denied">
-          Negados
+        Negados
       </v-tab>
     </v-tabs>
     <main class="mt-3 scrollable tab">
