@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import store from './store/store'
+import Home from '@/views/Pages/Home.vue'
+import store from '@/store/store'
 
 Vue.use(Router)
 
@@ -35,73 +35,73 @@ export default new Router({
       path: '/signup',
       name: 'signup',
       beforeEnter: ifNotAuthenticated,
-      component: () => import(/* webpackChunkName: "signup" */ './views/SignUp.vue')
+      component: () => import(/* webpackChunkName: "signup" */ './views/Auth/SignUp.vue')
     },
     {
       path: '/signin',
       name: 'signin',
       beforeEnter: ifNotAuthenticated,
-      component: () => import(/* webpackChunkName: "signin" */ './views/SignIn.vue')
+      component: () => import(/* webpackChunkName: "signin" */ './views/Auth/SignIn.vue')
     },
     {
       path: '/timeline',
       name: 'timeline',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline.vue')
+      component: () => import(/* webpackChunkName: "timeline" */ './views/Pages/Timeline.vue')
     },
     {
       path: '/order',
       name: 'order',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order" */ './views/Order.vue')
+      component: () => import(/* webpackChunkName: "order" */ './views/Order/Order.vue')
     },
     {
       path: '/order/create',
       name: 'order-create',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order-create" */ './views/Order-Create.vue')
+      component: () => import(/* webpackChunkName: "order-create" */ './views/Order/Order-Create.vue')
     },
     {
       path: '/order/complete',
       name: 'order-complete',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order-complete" */ './views/Order-Complete.vue')
+      component: () => import(/* webpackChunkName: "order-complete" */ './views/Order/Order-Complete.vue')
     },
     {
       path: '/order/complete/vote',
       name: 'order-complete-vote',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order-complete-vote" */ './views/Order-Complete-Vote.vue')
+      component: () => import(/* webpackChunkName: "order-complete-vote" */ './views/Order/Order-Complete-Vote.vue')
     },
     {
       path: '/order/:id',
       name: 'order-review',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order-review" */ './views/Order-Review.vue')
+      component: () => import(/* webpackChunkName: "order-review" */ './views/Order/Order-Review.vue')
     },
     {
       path: '/quote',
       name: 'quote',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "quote" */ './views/Quote.vue')
+      component: () => import(/* webpackChunkName: "quote" */ './views/Quote/Quote.vue')
     },
     {
       path: '/quote/create',
       name: 'quote-create',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote-Create.vue')
+      component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote/Quote-Create.vue')
     },
     {
       path: '/quote/review',
       name: 'quote-review',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote-Review.vue')
+      component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote/Quote-Review.vue')
     },
     {
       path: '/settings',
       name: 'settings',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue')
+      component: () => import(/* webpackChunkName: "settings" */ './views/Pages/Settings.vue')
     },
     {
       path: '/about',
@@ -110,7 +110,7 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      component: () => import(/* webpackChunkName: "about" */ './views/Pages/About.vue')
     }
   ]
 })

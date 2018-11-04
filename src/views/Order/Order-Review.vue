@@ -91,7 +91,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
-import axios from '../axios-auth'
+import axios from '@/axios-auth'
 import Gallery from '@/components/Gallery.vue'
 import FooterButton from '@/components/FooterButton.vue'
 import Loading from '@/components/Loading.vue'

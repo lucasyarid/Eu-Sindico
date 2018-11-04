@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { dateCalc } from '../mixins/dateCalc'
+import { dateCalc } from '@/mixins/dateCalc'
 
 export default {
   name: 'quote',

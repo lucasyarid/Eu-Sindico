@@ -50,8 +50,8 @@
 </template>
 
 <script>
-import { dateCalc } from '../mixins/dateCalc'
-import axios from '../axios-auth'
+import { dateCalc } from '@/mixins/dateCalc'
+import axios from '@/axios-auth'
 
 export default {
   name: 'order',
