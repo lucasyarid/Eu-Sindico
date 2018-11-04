@@ -7,11 +7,11 @@
           <h6 class="text-uppercase mb-2">{{ order.type }}</h6>
           <p>{{ order.title }}</p>
         </v-flex>
-        <v-flex v-if="order.type == 'produto'">
+        <v-flex v-if="order.type == 1">
           <h6 class="text-uppercase mb-2">Quantidade</h6>
           <p>{{ order.quantity }}</p>
         </v-flex>
-        <v-flex v-if="order.type == 'serviço'">
+        <v-flex v-if="order.type == 2">
           <h6 class="text-uppercase mb-2">Prioridade</h6>
           <p>{{ order.priority }}</p>
         </v-flex>
@@ -50,7 +50,7 @@
         </v-flex>
         <v-flex>
           <h6 class="text-uppercase mb-2">Custo Máx.</h6>
-          <p><b>R${{ order.price }},00</b></p>
+          <p><b>R${{ order.maxValue }},00</b></p>
         </v-flex>
       </v-layout>
 
@@ -74,6 +74,7 @@
       </v-form>
     </v-container>
 
+    {{order}}
     <v-dialog
       v-model="dialog"
       hide-overlay
@@ -117,22 +118,13 @@ export default {
     postOrder () {
       axios
         .post('/orders', {
-          approvalDeadline: this.order.deadline + 'T00:00:00.000Z',
-          budgetDeadline: this.order.deadline + 'T00:00:00.000Z',
-          deadline: this.order.deadline + 'T00:00:00.000Z',
           description: this.order.description,
           maxValue: this.order.maxValue,
-          pollingDeadline: this.order.deadline + 'T00:00:00.000Z',
           priority: this.order.priority,
           quantity: this.order.quantity,
           scope: this.order.scope,
-          status: {
-            id: '0'
-          },
           title: this.order.title,
-          type: {
-            id: 0
-          }
+          type: this.order.type
         })
         .then(res => {
           setTimeout(() => {

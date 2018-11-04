@@ -15,7 +15,7 @@
           <OrderPrice
             :order="order"
             key="step"
-            @changeOrderPrice="order.price = $event"
+            @changeOrderPrice="order.maxValue = $event"
             v-if="step == 3" />
           <OrderServicePriority
             :order="order"

@@ -9,7 +9,7 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click.prevent="setStep(1); order.type = 'produto';">
+            @click.prevent="setStep(1); order.type = 1;">
             Começar ›
           </v-btn>
         </div>
@@ -20,15 +20,15 @@
           <v-btn round large dark depressed outline
             tag="button"
             color="white"
-            @click.prevent="setStep(1); order.type = 'serviço';">
+            @click.prevent="setStep(1); order.type = 2;">
             Começar ›
           </v-btn>
         </div>
       </nav>
     </div>
     <div v-if="step != 0" key="2">
-      <OrderProduct v-if="order.type == 'produto'" :order="order"/>
-      <OrderService v-if="order.type == 'serviço'" :order="order"/>
+      <OrderProduct v-if="order.type === 1" :order="order"/>
+      <OrderService v-if="order.type === 2" :order="order"/>
     </div>
   </section>
 </template>

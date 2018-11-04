@@ -23,7 +23,7 @@
           class="order-item">
           <v-layout class="order-item-info">
             <v-flex xs9 pt-4>
-              <h5>{{order.type.id}}</h5>
+              <h5>{{order.type.name}}</h5>
               <h4 class="font-weight-bold pt-1"> {{order.title}}</h4>
             </v-flex>
             <v-flex xs3>
@@ -31,12 +31,12 @@
                 :rotate="-90"
                 :size="80"
                 :width="4"
-                :value="getDatePercentage(order.dateCreated,order.deadline)"
+                :value="getDatePercentage(order.dateCreated,order.approvalDeadline)"
                 color="accent">
                 <div class="timer">
                   <div class="timer-content">
                     <small class="text-xs-center">Expira em</small>
-                    <time class="text-xs-center">{{ getDaysLeft(order.deadline) }} dias</time>
+                    <time class="text-xs-center">{{ getDaysLeft(order.approvalDeadline) }} dias</time>
                   </div>
                 </div>
               </v-progress-circular>
@@ -60,40 +60,7 @@ export default {
     return {
       title: 'Pedidos',
       tabs: null,
-      orders: {
-        order1: {
-          type: 'Compra de',
-          status: 'new',
-          name: 'Guarda-sóis',
-          dateCreated: 1537239600000,
-          deadline: 1538276400000,
-          thumbnail: '//picsum.photos/300/400'
-        },
-        order2: {
-          type: 'Serviço',
-          status: 'accepted',
-          name: 'Pintar Paredes',
-          dateCreated: 1535425200000,
-          deadline: 1542247200000,
-          thumbnail: '//picsum.photos/300/400'
-        },
-        order3: {
-          type: 'Serviço',
-          status: 'new',
-          name: 'Trocar Janelas',
-          dateCreated: 1536721200000,
-          deadline: 1539313200000,
-          thumbnail: '//picsum.photos/300/400'
-        },
-        order4: {
-          type: 'Compra de',
-          status: 'denied',
-          name: 'Janelas',
-          dateCreated: 1535857200000,
-          deadline: 1539512200000,
-          thumbnail: '//picsum.photos/300/400'
-        }
-      }
+      orders: []
     }
   },
   methods: {
@@ -110,7 +77,6 @@ export default {
     axios
       .get('/orders')
       .then(res => {
-        console.log(res)
         this.orders = res.data
       })
       .catch(error => {

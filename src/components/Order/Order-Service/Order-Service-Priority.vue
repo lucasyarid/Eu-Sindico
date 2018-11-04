@@ -4,22 +4,22 @@
       <h1 class="font-weight-bold mb-4">Defina a urgência</h1>
 
       <p class="mt-3">
-        <input type="radio" id="alta" value="3" v-model="order.priority" />
+        <input type="radio" id="alta" :value="3" v-model="order.priority" />
         <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="alta">Urgência alta</label>
       </p>
 
       <p class="mt-3">
-        <input type="radio" id="media" value="2" v-model="order.priority" />
+        <input type="radio" id="media" :value="2" v-model="order.priority" />
         <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="media">Urgência média</label>
       </p>
 
       <p class="mt-3">
-        <input type="radio" id="baixa" value="1" v-model="order.priority" />
+        <input type="radio" id="baixa" :value="1" v-model="order.priority" />
         <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="baixa">Urgência baixa</label>
       </p>
 
       <p class="mt-3">
-        <input type="radio" id="nao" value="0" v-model="order.priority" />
+        <input type="radio" id="nao" :value="0" v-model="order.priority" />
         <label class="btn btn-rounded btn-md btn-outline-simple btn-block" for="nao">Sem urgência</label>
       </p>
 

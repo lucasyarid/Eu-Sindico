@@ -135,6 +135,7 @@ export default {
     axios
       .get('/orders/' + this.$route.params.id)
       .then(res => {
+        console.log(res.data)
         this.order = res.data
       })
       .catch(error => {
