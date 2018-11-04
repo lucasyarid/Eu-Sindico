@@ -117,12 +117,12 @@ export default {
     postOrder () {
       axios
         .post('/orders', {
-          approvalDeadline: this.order.deadline + 'T19:59:21.150Z',
-          budgetDeadline: this.order.deadline + 'T19:59:21.150Z',
-          deadline: this.order.deadline + 'T19:59:21.150Z',
+          approvalDeadline: this.order.deadline + 'T00:00:00.000Z',
+          budgetDeadline: this.order.deadline + 'T00:00:00.000Z',
+          deadline: this.order.deadline + 'T00:00:00.000Z',
           description: this.order.description,
           maxValue: this.order.maxValue,
-          pollingDeadline: this.order.deadline + 'T19:59:21.150Z',
+          pollingDeadline: this.order.deadline + 'T00:00:00.000Z',
           priority: this.order.priority,
           quantity: this.order.quantity,
           scope: this.order.scope,

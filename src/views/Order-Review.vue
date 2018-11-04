@@ -1,9 +1,11 @@
 <template>
   <section class="order-review">
-    <Gallery info="true"/>
+    <Gallery info="true" :title="order.title"/>
     <main class="scrollable gallery">
       <v-container v-if="step == 0">
-        <p class="order-review-description mb-4">Em 3 meses, a licitação da empresa que cuida da segurança irá vencer. Precisamos de novas alternativas para manutenção ou renovação do serviço</p>
+        <p class="order-review-description mb-4">
+          {{ order.description }}
+        </p>
 
         <h6 class="text-uppercase pb-2">Submetido por</h6>
         <p class="order-review-reference">Eduardo Fontenele</p>
@@ -19,7 +21,7 @@
           </li>
         </ul>
 
-        <h6 class="text-uppercase mt-4 pb-2">Ressalvas</h6>
+        <!-- <h6 class="text-uppercase mt-4 pb-2">Ressalvas</h6>
         <blockquote>
           <p>
             "Contanto que não seja do mesmo tecido que tínhamos antes, estou de acordo."
@@ -58,7 +60,7 @@
               </v-container>
             </v-form>
           </v-bottom-sheet>
-        </div>
+        </div> -->
 
         <div class="footer-button mt-5">
           <v-form>
@@ -89,6 +91,7 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import axios from '../axios-auth'
 import Gallery from '@/components/Gallery.vue'
 import FooterButton from '@/components/FooterButton.vue'
 import Loading from '@/components/Loading.vue'
@@ -105,7 +108,8 @@ export default {
       title: 'Aprovar Pedido',
       menuBack: true,
       sheet: false,
-      comment: ''
+      comment: '',
+      order: {}
     }
   },
   computed: {
@@ -128,6 +132,15 @@ export default {
     this.setName()
     this.setMenu()
     this.setStep(0)
+    axios
+      .get('/orders/' + this.$route.params.id)
+      .then(res => {
+        this.order = res.data
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    this.setName()
   },
   destroyed () {
     this.menuBack = false

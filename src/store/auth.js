@@ -16,6 +16,9 @@ const getters = {
   },
   isAuthenticated (state) {
     return state.apiToken !== null
+  },
+  errorMessage (state) {
+    return state.httpErrorMessage
   }
 }
 
@@ -90,7 +93,7 @@ const actions = {
       .catch(error => {
         if (error.response) {
           console.log(error.response.data)
-          commit('setHttpErrorMessage', error.response.data.error.message)
+          commit('setHttpErrorMessage', error.response.data.Message)
         } else {
           console.log('Error', error.message)
         }

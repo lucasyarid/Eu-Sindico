@@ -7,7 +7,7 @@
       <v-tab href="#new">
         Novos
       </v-tab>
-      <v-tab href="#accepted">
+      <v-tab href="#1">
         Aceitos
       </v-tab>
       <v-tab href="#denied">
@@ -17,15 +17,14 @@
     <main class="mt-3 scrollable tab">
       <template v-for="order in orders">
         <router-link
-          to="order/review"
-          v-if="tabs == order.status"
+          :to=" 'order/' + order.id "
           :key="order.length"
-          :style="{ backgroundImage: 'url(' + order.thumbnail + ')' }"
+          :style="{ backgroundImage: 'url(//picsum.photos/300/400)' }"
           class="order-item">
           <v-layout class="order-item-info">
             <v-flex xs9 pt-4>
-              <h5>{{order.type}}</h5>
-              <h4 class="font-weight-bold pt-1"> {{order.name}}</h4>
+              <h5>{{order.type.id}}</h5>
+              <h4 class="font-weight-bold pt-1"> {{order.title}}</h4>
             </v-flex>
             <v-flex xs3>
               <v-progress-circular
@@ -111,8 +110,8 @@ export default {
     axios
       .get('/orders')
       .then(res => {
-        // this.info = res.data.bpi
         console.log(res)
+        this.orders = res.data
       })
       .catch(error => {
         console.log(error)

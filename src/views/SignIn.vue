@@ -26,7 +26,7 @@
             ></v-text-field>
           </v-flex>
         </v-layout>
-        {{ this.$store.state.httpErrorMessage }}
+        {{ errorMessage }}
         <v-layout>
           <v-flex>
             <v-btn round block
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import { required, email } from 'vuelidate/lib/validators'
 
 export default {
@@ -69,6 +69,9 @@ export default {
       required
     }
   },
+  computed: mapGetters([
+    'errorMessage'
+  ]),
   methods: {
     ...mapMutations([
       'setClasses'
