@@ -4,7 +4,7 @@
       slot="extension"
       v-model="tabs"
       slider-color="accent">
-      <v-tab href="#new">
+      <v-tab href="#Novo">
         Novos
       </v-tab>
       <v-tab href="#1">
@@ -17,6 +17,7 @@
     <main class="mt-3 scrollable tab">
       <template v-for="order in orders">
         <router-link
+          v-if="tabs == order.currentStatus"
           :to=" 'order/' + order.id "
           :key="order.length"
           :style="{ backgroundImage: 'url(//picsum.photos/300/400)' }"
@@ -31,7 +32,7 @@
                 :rotate="-90"
                 :size="80"
                 :width="4"
-                :value="getDatePercentage(order.dateCreated,order.approvalDeadline)"
+                :value="getDatePercentage(order.created, order.approvalDeadline)"
                 color="accent">
                 <div class="timer">
                   <div class="timer-content">
@@ -78,6 +79,7 @@ export default {
       .get('/orders')
       .then(res => {
         this.orders = res.data
+        console.log(res.data)
       })
       .catch(error => {
         console.log(error)
