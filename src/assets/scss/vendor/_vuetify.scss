@@ -38,6 +38,14 @@
   font-weight: 600;
 }
 
+.v-text-field {
+  padding-top: 0;
+}
+
 .v-text-field__details {
   display: none !important;
+}
+
+.v-textarea textarea {
+  height: 70px;
 }

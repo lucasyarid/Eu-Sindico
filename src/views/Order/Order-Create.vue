@@ -55,7 +55,7 @@ export default {
         description: '',
         quantity: 1,
         deadline: '',
-        files: '',
+        files: [],
         maxValue: null,
         priority: 0,
         scope: '',

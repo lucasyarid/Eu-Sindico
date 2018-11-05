@@ -1,0 +1,24 @@
+.file-upload {
+  .file-list {
+    .file-list-item {
+      margin-bottom: 2px;
+      .file-list-item-icon,
+      .file-list-item-close {
+        width: 10%;
+      }
+      .file-list-item-title {
+        width: 80%;
+        padding-top: 7px;
+      }
+      .file-list-item-close {
+        padding-top: 3px;
+        cursor: pointer;
+      }
+    }
+  }
+  .file-upload-button {
+    margin-top: 5px;
+    cursor: pointer;
+    float: right;
+  }
+}

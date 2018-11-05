@@ -82,6 +82,7 @@ const actions = {
         localStorage.setItem('userName', res.data.name)
         localStorage.setItem('userCompany', res.data.company.name)
         localStorage.setItem('expirationDate', expirationDate)
+        commit('setHttpErrorMessage', '')
         commit('authUser', {
           apiToken: res.data.token,
           userName: res.data.name,

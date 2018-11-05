@@ -4,7 +4,8 @@
       <h1 class="font-weight-bold mb-1">Confirme as informações</h1>
       <v-layout my-3>
         <v-flex>
-          <h6 class="text-uppercase mb-2">{{ order.type }}</h6>
+          <h6 v-if="order.type === 1" class="text-uppercase mb-2">Produto</h6>
+          <h6 v-if="order.type === 2" class="text-uppercase mb-2">Serviço</h6>
           <p>{{ order.title }}</p>
         </v-flex>
         <v-flex v-if="order.type == 1">
@@ -24,22 +25,12 @@
         </v-flex>
       </v-layout>
 
-      <div class="horizontal-scroll my-1">
-        <h6 class="text-uppercase">FOTOS</h6>
-        <v-layout pt-2>
-          <v-flex mr-1 v-for="i in 6" :key="i">
-            <img class="thumb" src="//picsum.photos/68/68" />
-          </v-flex>
-        </v-layout>
-      </div>
-
       <h6 class="text-uppercase mt-4 mb-1">ANEXOS</h6>
-      <v-layout>
+      <v-layout mb-2>
         <v-flex>
-          <v-avatar :size="25" color="secondary">
-            <v-icon :size="15" dark>close</v-icon>
-          </v-avatar>
-          <p class="d-inline-block pl-2"> Orçamento empresa XYZ.pdf</p>
+          <Files list hide-btn
+            :files="order.files"
+            @uploadedFiles="order.files = $event"/>
         </v-flex>
       </v-layout>
 
@@ -74,7 +65,6 @@
       </v-form>
     </v-container>
 
-    {{order}}
     <v-dialog
       v-model="dialog"
       hide-overlay
@@ -102,10 +92,14 @@
 <script>
 import { mapMutations } from 'vuex'
 import axios from '@/axios-auth'
+import Files from '@/components/Files.vue'
 
 export default {
   name: 'order-confirm',
   props: ['order'],
+  components: {
+    Files
+  },
   data () {
     return {
       dialog: false

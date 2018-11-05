@@ -47,12 +47,9 @@
     <v-layout>
       <v-flex>
         <h4 slot="activator" class="font-weight-bold mb-2">Anexos</h4>
-        <v-avatar size="60" color="white" class="mr-2">
-          <v-icon color="primary">add_a_photo</v-icon>
-        </v-avatar>
-        <v-avatar size="60" color="white">
-          <v-icon color="primary">attachment</v-icon>
-        </v-avatar>
+        <Files list
+          :files="order.files"
+          @uploadedFiles="order.files = $event"/>
       </v-flex>
     </v-layout>
     <footer class="px-3">
@@ -70,9 +67,13 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
+import Files from '@/components/Files.vue'
 
 export default {
   name: 'order-service-info',
+  components: {
+    Files
+  },
   props: ['order'],
   data: () => ({
     modal: false
