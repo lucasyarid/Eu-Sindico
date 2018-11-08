@@ -12,8 +12,10 @@ export const dateCalc = {
     },
     getDatePercentage (dateCreated, deadline) {
       var today = new Date()
-      var todayTime = today.getTime() - dateCreated
-      var totalLength = deadline - dateCreated
+      var setDateCreated = new Date(dateCreated)
+      var setDeadline = new Date(deadline)
+      var todayTime = today.getTime() - setDateCreated
+      var totalLength = setDeadline - setDateCreated
       var percentage = todayTime * 100 / totalLength
 
       return Math.floor(percentage)
