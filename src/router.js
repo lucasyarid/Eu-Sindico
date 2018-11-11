@@ -68,7 +68,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order-complete" */ './views/Order/Order-Complete.vue')
     },
     {
-      path: '/order/complete/vote',
+      path: '/order/complete/:id',
       name: 'order-complete-vote',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "order-complete-vote" */ './views/Order/Order-Complete-Vote.vue')
@@ -92,7 +92,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote/Quote-Create.vue')
     },
     {
-      path: '/quote/review',
+      path: '/quote/review/:id',
       name: 'quote-review',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote/Quote-Review.vue')

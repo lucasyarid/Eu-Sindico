@@ -1,9 +1,12 @@
 <template>
   <section class="quote-review">
-    <Gallery info="true"/>
-    <v-container class="pb-3 scrollable gallery">
+    <Gallery info="true"
+      :order="order"
+      :name="order.type.name"
+      :title="order.title"/>
+    <v-container class="scrollable gallery pb-3 mb-4">
       <p>
-        O muro do fundo da garagem foi prejudicado pelas recentes fortes chuvas e precisa ser reforçado pois pode cair sob os carros.
+         {{ order.description }}
       </p>
       <div class="app-cards horizontal-scroll">
         <div class="quote-review-item card card-full card-grey card-disabled">
@@ -54,6 +57,7 @@
 
 <script>
 import Gallery from '@/components/Gallery.vue'
+import axios from '@/axios-auth'
 import FooterButton from '@/components/FooterButton.vue'
 
 export default {
@@ -65,7 +69,13 @@ export default {
   data: function () {
     return {
       title: 'Aprovar Orçamentos',
-      menuBack: true
+      menuBack: true,
+      order: {
+        title: '',
+        type: {
+          name: ''
+        }
+      }
     }
   },
   methods: {
@@ -74,11 +84,23 @@ export default {
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
+    },
+    getOrder () {
+      axios
+        .get('/orders/' + this.$route.params.id)
+        .then(res => {
+          console.log(res.data)
+          this.order = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   mounted () {
     this.setName()
     this.setMenu()
+    this.getOrder()
   },
   destroyed () {
     this.menuBack = false

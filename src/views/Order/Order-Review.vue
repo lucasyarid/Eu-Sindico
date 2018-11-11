@@ -1,6 +1,7 @@
 <template>
   <section class="order-review">
-    <Gallery info="true"
+    <Gallery info
+      :images="images"
       :order="order"
       :name="order.type.name"
       :title="order.title"/>
@@ -20,16 +21,14 @@
           </li> -->
           <li
             class="order-review-attachment attachment-list-item mb-1"
-            v-for="(attachment, key) in order.attachments"
+            v-for="(attachment, key) in pdfs"
             :key="key">
-            <template v-if="attachment.fileType === 'pdf'">
-              <v-icon color="primary" class="pr-2">attachment</v-icon>
-              <p class="d-inline-block attachment-list-item-title mb-0">
-                <a :href="attachment.url">
-                  Nome do Arquivo.{{ attachment.fileType }}
-                </a>
-              </p>
-            </template>
+            <v-icon color="primary" class="pr-2">attachment</v-icon>
+            <p class="d-inline-block attachment-list-item-title mb-0">
+              <a :href="attachment.url" target="_blank">
+                Anexo {{ key + 1 }}.{{ attachment.fileType }}
+              </a>
+            </p>
           </li>
         </ul>
 
@@ -120,6 +119,7 @@ export default {
       comment: '',
       order: {
         title: '',
+        attachments: [],
         type: {
           name: ''
         }
@@ -129,6 +129,20 @@ export default {
   computed: {
     step () {
       return this.$store.state.step
+    },
+    images () {
+      return this.order.attachments.filter((attachment) => {
+        if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
+          return attachment
+        }
+      })
+    },
+    pdfs () {
+      return this.order.attachments.filter((attachment) => {
+        if (attachment.fileType === 'pdf') {
+          return attachment
+        }
+      })
     }
   },
   methods: {

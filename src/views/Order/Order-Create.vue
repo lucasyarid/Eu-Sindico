@@ -54,7 +54,7 @@ export default {
         title: '',
         description: '',
         quantity: 1,
-        deadline: '',
+        estimatedDays: '',
         files: [],
         maxValue: null,
         priority: 0,

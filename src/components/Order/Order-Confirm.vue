@@ -1,5 +1,5 @@
 <template>
-  <section id="confirmation">
+  <section id="confirmation" class="scrollable tab">
     <v-container>
       <h1 class="font-weight-bold mb-1">Confirme as informações</h1>
       <v-layout my-3>
@@ -36,8 +36,8 @@
 
       <v-layout mt-2>
         <v-flex>
-          <h6 class="text-uppercase mb-2">Prazo</h6>
-          <p>{{ order.deadline }}</p>
+          <h6 class="text-uppercase mb-2">Dias após aprovado</h6>
+          <p>{{ order.estimatedDays }}</p>
         </v-flex>
         <v-flex>
           <h6 class="text-uppercase mb-2">Custo Máx.</h6>

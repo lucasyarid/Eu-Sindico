@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="scrollable tab">
     <v-layout>
       <v-flex>
         <h4 class="font-weight-bold">O que deve ser comprado?</h4>
@@ -22,32 +22,20 @@
       <v-flex>
         <h4 class="font-weight-bold">Quantidade</h4>
         <v-text-field dark
+          class="pt-4"
           placeholder="Exemplo: guarda-sóis"
           v-model.number="order.quantity"
         ></v-text-field>
       </v-flex>
-      <!-- <v-flex xs6>
-        <v-dialog
-          ref="dialog"
-          v-model="modal"
-          :return-value.sync="order.deadline"
-          lazy
-          full-width
-          width="290px"
-        >
-          <h4 slot="activator" class="font-weight-bold">Prazo</h4>
-          <v-text-field dark
-            slot="activator"
-            v-model="order.deadline"
-            append-icon="event"
-            readonly
-          ></v-text-field>
-          <v-date-picker color="accent" v-model="order.deadline" scrollable>
-            <v-btn flat color="accent" @click="modal = false">Cancel</v-btn>
-            <v-btn flat color="accent" @click="$refs.dialog.save(order.deadline)">OK</v-btn>
-          </v-date-picker>
-        </v-dialog>
-      </v-flex> -->
+      <v-flex>
+        <h4 class="font-weight-bold">Estimativa de dias após aprovado</h4>
+        <v-text-field dark
+          class="pt-4"
+          placeholder="Exemplo: 30"
+          suffix="dias"
+          v-model.number="order.estimatedDays"
+        ></v-text-field>
+      </v-flex>
     </v-layout>
     <v-layout>
       <v-flex>
@@ -94,10 +82,10 @@ export default {
       quantity: {
         required,
         numeric
+      },
+      estimatedDays: {
+        required
       }
-      // deadline: {
-      //   required
-      // }
     }
   },
   methods: {
