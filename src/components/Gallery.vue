@@ -2,7 +2,7 @@
   <div class="gallery">
     <div class="gallery-box" @click="lightboxToggle"  :class="galeryClasses" style="background-image: url(//picsum.photos/640/560)">
       <div v-if="info" class="gallery-box-info">
-        <h5 class="font-weight-bold">Compra de</h5>
+        <h5 class="font-weight-bold">{{ name }} de</h5>
         <h1 class="font-weight-bold">{{ title }}</h1>
         <span class="gallery-box-reference align-text-top">
           <v-icon :size="21" color="white">account_circle</v-icon>
@@ -33,6 +33,7 @@ export default {
     'info',
     'classes',
     'galeryClasses',
+    'name',
     'title'
   ],
   data () {

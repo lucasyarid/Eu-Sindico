@@ -39,15 +39,10 @@
           </div>
           <v-container fluid grid-list-xl>
             <v-layout row justify-center class="footer-button">
-              <v-flex xs4>
-                <v-btn round large dark depressed outline block
-                  class="text-sm-left"
-                  color="red"><v-icon>close</v-icon></v-btn>
-              </v-flex>
-              <v-flex xs8>
+              <v-flex>
                 <v-btn round large dark depressed block
                   class="text-sm-left"
-                  color="accent">Confirmar</v-btn>
+                  color="accent">Votar nessa opção</v-btn>
               </v-flex>
             </v-layout>
           </v-container>

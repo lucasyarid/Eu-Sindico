@@ -1,23 +1,35 @@
 <template>
   <section class="order-review">
-    <Gallery info="true" :title="order.title"/>
+    <Gallery info="true"
+      :order="order"
+      :name="order.type.name"
+      :title="order.title"/>
     <main class="scrollable gallery">
       <v-container v-if="step == 0">
         <p class="order-review-description mb-4">
           {{ order.description }}
         </p>
 
-        <h6 class="text-uppercase pb-2">Submetido por</h6>
-        <p class="order-review-reference">Eduardo Fontenele</p>
+        <!-- <h6 class="text-uppercase pb-2">Submetido por</h6>
+        <p class="order-review-reference">Eduardo Fontenele</p> -->
 
         <ul class="order-review-files">
           <!-- <li class="order-review-file mb-1">
             <v-icon color="black" class="pr-2">check</v-icon>
             <p class="d-inline-block mb-0">Houve vistoria prévia</p>
           </li> -->
-          <li class="order-review-file mb-1">
-            <v-icon color="primary" class="pr-2">attachment</v-icon>
-            <p class="d-inline-block mb-0">Laudo Empresa XYZ.pdf</p>
+          <li
+            class="order-review-attachment attachment-list-item mb-1"
+            v-for="(attachment, key) in order.attachments"
+            :key="key">
+            <template v-if="attachment.fileType === 'pdf'">
+              <v-icon color="primary" class="pr-2">attachment</v-icon>
+              <p class="d-inline-block attachment-list-item-title mb-0">
+                <a :href="attachment.url">
+                  Nome do Arquivo.{{ attachment.fileType }}
+                </a>
+              </p>
+            </template>
           </li>
         </ul>
 
@@ -66,15 +78,12 @@
           <v-form>
             <v-container pa-0>
               <v-layout justify-center class="footer-button">
-                <v-flex xs4>
-                  <v-btn round large dark depressed outline block
-                    class="text-sm-left"
-                    color="red">Declinar</v-btn>
-                </v-flex>
                 <v-flex xs8>
                   <v-btn round large dark depressed block
                     class="text-sm-left"
-                    color="accent">Aceitar Solicitação</v-btn>
+                    color="accent"
+                    @click="orderApprove">
+                    Aceitar Solicitação</v-btn>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -109,7 +118,12 @@ export default {
       menuBack: true,
       sheet: false,
       comment: '',
-      order: {}
+      order: {
+        title: '',
+        type: {
+          name: ''
+        }
+      }
     }
   },
   computed: {
@@ -126,22 +140,36 @@ export default {
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
+    },
+    getOrder () {
+      axios
+        .get('/orders/' + this.$route.params.id)
+        .then(res => {
+          console.log(res.data)
+          this.order = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    orderApprove () {
+      axios
+        .post('/orders/' + this.order.id + '/approve', (data) => {
+          console.log(data)
+        })
+        .then(res => {
+          this.$router.push({ path: '/order' })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     }
   },
   mounted () {
+    this.getOrder()
     this.setName()
     this.setMenu()
     this.setStep(0)
-    axios
-      .get('/orders/' + this.$route.params.id)
-      .then(res => {
-        console.log(res.data)
-        this.order = res.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    this.setName()
   },
   destroyed () {
     this.menuBack = false

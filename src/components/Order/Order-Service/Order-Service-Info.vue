@@ -20,7 +20,7 @@
         ></v-textarea>
       </v-flex>
     </v-layout>
-    <v-layout>
+    <!-- <v-layout>
       <v-flex>
         <v-dialog
           ref="dialog"
@@ -43,7 +43,7 @@
           </v-date-picker>
         </v-dialog>
       </v-flex>
-    </v-layout>
+    </v-layout> -->
     <v-layout>
       <v-flex>
         <h4 slot="activator" class="font-weight-bold mb-2">Anexos</h4>
@@ -82,8 +82,8 @@ export default {
     order: {
       title: { required },
       description: { required },
-      scope: { required },
-      deadline: { required }
+      scope: { required }
+      // deadline: { required }
     }
   },
   methods: {

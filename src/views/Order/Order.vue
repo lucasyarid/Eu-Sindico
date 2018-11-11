@@ -32,7 +32,7 @@
                 :rotate="-90"
                 :size="80"
                 :width="4"
-                :value="getDatePercentage(order.created, order.approvalDeadline)"
+                :value="getDatePercentage(order.approvalDeadline, order.created)"
                 color="accent">
                 <div class="timer">
                   <div class="timer-content">
@@ -67,24 +67,22 @@ export default {
   methods: {
     setName () {
       this.$emit('getTitle', this.title)
-    }
-  },
-  computed: {
-    apiToken () {
-      return this.$store.state.auth.apiToken
+    },
+    getOrders () {
+      axios
+        .get('/orders')
+        .then(res => {
+          this.orders = res.data
+          console.log(res.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   mounted () {
-    axios
-      .get('/orders')
-      .then(res => {
-        this.orders = res.data
-        console.log(res.data)
-      })
-      .catch(error => {
-        console.log(error)
-      })
     this.setName()
+    this.getOrders()
   }
 }
 </script>

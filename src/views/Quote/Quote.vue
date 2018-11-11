@@ -58,6 +58,7 @@
 
 <script>
 import { dateCalc } from '@/mixins/dateCalc'
+import axios from '@/axios-auth'
 
 export default {
   name: 'quote',
@@ -105,10 +106,22 @@ export default {
   methods: {
     setName () {
       this.$emit('getTitle', this.title)
+    },
+    getOrders () {
+      axios
+        .get('/orders')
+        .then(res => {
+          // this.orders = res.data
+          console.log(res.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   mounted () {
     this.setName()
+    this.getOrders()
   }
 }
 </script>

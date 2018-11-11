@@ -19,14 +19,14 @@
       </v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs6>
+      <v-flex>
         <h4 class="font-weight-bold">Quantidade</h4>
         <v-text-field dark
           placeholder="Exemplo: guarda-sóis"
           v-model.number="order.quantity"
         ></v-text-field>
       </v-flex>
-      <v-flex xs6>
+      <!-- <v-flex xs6>
         <v-dialog
           ref="dialog"
           v-model="modal"
@@ -47,7 +47,7 @@
             <v-btn flat color="accent" @click="$refs.dialog.save(order.deadline)">OK</v-btn>
           </v-date-picker>
         </v-dialog>
-      </v-flex>
+      </v-flex> -->
     </v-layout>
     <v-layout>
       <v-flex>
@@ -94,10 +94,10 @@ export default {
       quantity: {
         required,
         numeric
-      },
-      deadline: {
-        required
       }
+      // deadline: {
+      //   required
+      // }
     }
   },
   methods: {
