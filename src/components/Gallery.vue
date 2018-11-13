@@ -3,7 +3,7 @@
     <div class="gallery-box"
       @click="lightboxToggle"
       :class="galeryClasses"
-      :style="'background-image: url(' + this.images[0].url + ')'">
+      :style="backgroundImage()">
       <div v-if="info" class="gallery-box-info">
         <h5 class="font-weight-bold">{{ name }}</h5>
         <h1 class="font-weight-bold">{{ title }}</h1>
@@ -68,18 +68,20 @@ export default {
   },
   data () {
     return {
-      galleryItems: [
-        { src: '//picsum.photos/640/560' },
-        { src: '//picsum.photos/640/560' },
-        { src: '//picsum.photos/640/560' },
-        { src: '//picsum.photos/640/560' }
-      ]
+      defaultImage: 'background-image: url(//picsum.photos/640/560)'
     }
   },
   methods: {
     ...mapMutations([
       'lightboxToggle', 'setClasses'
-    ])
+    ]),
+    backgroundImage () {
+      if (this.images && this.images.length) {
+        return 'background-image: url(' + this.images[0].url + ')'
+      } else {
+        return this.defaultImage
+      }
+    }
   },
   computed: {
     lightboxOpen () {

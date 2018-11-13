@@ -16,7 +16,7 @@
         <div class="box service-option pt-3">
           <v-icon :size="50" color="white">work</v-icon>
           <h2 class="font-weight-bold my-2">Contratação de serviço</h2>
-          <p>Escolha abaixo a categoria que melhor se encaixa com a contratação            de serviço</p>
+          <p>Escolha abaixo a categoria que melhor se encaixa com a contratação de serviço</p>
           <v-btn round large dark depressed outline
             tag="button"
             color="white"

@@ -35,13 +35,6 @@
           @click="menuToggle"
           to="/order/create">Criar novo pedido</v-btn>
       </div>
-      <!-- <div class="text-xs-center">
-        <v-btn round large dark depressed
-          tag="button"
-          color="accent"
-          @click="menuToggle"
-          to="/quote/create">Criar novo orçamento</v-btn>
-      </div> -->
     </nav>
   </div>
 </template>

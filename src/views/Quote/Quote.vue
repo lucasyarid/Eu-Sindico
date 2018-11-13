@@ -4,10 +4,10 @@
       slot="extension"
       v-model="tabs"
       slider-color="accent">
-      <v-tab href="#open">
+      <v-tab href="#Em Orçamento">
         Em Aberto
       </v-tab>
-      <v-tab href="#vote">
+      <v-tab href="#Em Votação">
         Em Votação
       </v-tab>
     </v-tabs>
@@ -15,11 +15,11 @@
 
       <template v-for="order in orders">
         <router-link
-
+          v-if="tabs == order.currentStatus"
           :key="order.length"
-          :to="'/quote/review/' + order.id"
+          :to="'/order/' + order.id +'/quote/'"
           class="quote-item card card-image card-lg"
-          :style="{ backgroundImage: 'url(' + order.thumbnail + ')' }">
+          :style="backgroundImage(order)">
           <div class="quote-item-info">
             <div class="quote-item-title">
               <h5>{{order.type.name}}</h5>
@@ -67,7 +67,8 @@ export default {
     return {
       title: 'Orçamentos',
       tabs: null,
-      orders: {}
+      orders: {},
+      defaultImage: 'background-image: url(//picsum.photos/640/560)'
     }
   },
   methods: {
@@ -84,6 +85,20 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    backgroundImage (order) {
+      if (order.attachments && order.attachments.length) {
+        for (let i = 0; i < order.attachments.length; i++) {
+          const attachment = order.attachments[i]
+          if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
+            return 'background-image: url(' + attachment.url + ')'
+          } else {
+            return this.defaultImage
+          }
+        }
+      } else {
+        return this.defaultImage
+      }
     }
   },
   mounted () {

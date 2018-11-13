@@ -1,6 +1,10 @@
 <template>
   <section>
-    <Gallery info="true" v-if="step == 0"/>
+    <Gallery info
+      :images="images"
+      :order="order"
+      :name="order.type.name"
+      :title="order.title"/>
 
     <v-form>
       <QuoteInfo :quote="quote" v-if="step == 0"/>
@@ -9,31 +13,6 @@
         <Loading v-if="step == 2"/>
       </transition>
     </v-form>
-
-    <footer>
-      <div class="container">
-        <h2 style="display: none !important;">Deseja adicionar ressalvas?</h2>
-        <textarea style="display: none !important;">Concordo com o conselheiro e não quero o mesmo tecido d os antigos guarda-sóis. Algo de melhor qualidade!</textarea>
-
-        <div class="d-flex justify-content-center" style="display: none !important;">
-          <button type="button" class="btn btn-outline-danger btn-lg btn-rounded mr-3">Declinar</button><button type="button" class="btn btn-success btn-rounded btn-lg">Aceitar solicitação</button>
-        </div>
-
-        <div class="d-flex justify-content-center" style="display: none !important;">
-          <button type="button" class="btn btn-success btn-rounded btn-lg btn-block">Enviar Orçamento</button>
-          <span id="timer" class="p60">
-            <span class="bird">
-              <small>EXPIRA EM</small>
-              <time>1 dias</time>
-            </span>
-            <span class="slice">
-              <span class="bar"></span>
-              <span class="fill"></span>
-            </span>
-          </span>
-        </div>
-      </div>
-    </footer>
   </section>
 </template>
 
@@ -43,6 +22,7 @@ import QuoteInfo from '@/components/Quote/Quote-Info.vue'
 import QuoteConfirm from '@/components/Quote/Quote-Confirm.vue'
 import Loading from '@/components/Loading.vue'
 import Gallery from '@/components/Gallery.vue'
+import axios from '@/axios-auth'
 
 export default {
   name: 'quote-create',
@@ -52,18 +32,24 @@ export default {
     Loading,
     Gallery
   },
-  data: function () {
+  data () {
     return {
       title: 'Novo Orçamento',
       menuBack: true,
+      order: {
+        title: '',
+        attachments: [],
+        type: {
+          name: ''
+        }
+      },
       quote: {
         status: 'a',
-        order: '',
         companyName: '',
         companyPhone: '',
         companyWebsite: '',
         time: '',
-        files: '',
+        files: [],
         price: '',
         comments: []
       }
@@ -72,6 +58,13 @@ export default {
   computed: {
     step () {
       return this.$store.state.step
+    },
+    images () {
+      return this.order.attachments.filter((attachment) => {
+        if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
+          return attachment
+        }
+      })
     }
   },
   methods: {
@@ -83,12 +76,23 @@ export default {
     },
     setMenu () {
       this.$emit('getMenu', this.menuBack)
+    },
+    getOrder () {
+      axios
+        .get('/orders/' + this.$route.params.id)
+        .then(res => {
+          this.order = res.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   },
   mounted () {
     this.setName()
     this.setMenu()
     this.setStep(0)
+    this.getOrder()
   },
   destroyed () {
     this.menuBack = false

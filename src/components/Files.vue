@@ -1,5 +1,7 @@
 <template>
-  <div class="file-upload">
+  <div
+    :class="{ dark: dark }"
+    class="file-upload">
     <v-layout v-if="thumb" class="file-thumb">
       <v-flex>
         <img
@@ -20,14 +22,14 @@
               v-if="file.fileExtension === '.jpeg' || file.fileExtension === '.png'"
               :size="20"
               class="file-list-item-icon"
-              color="white">
+              :color="isDark">
               collections
             </v-icon>
             <v-icon
               v-if="file.fileExtension === '.pdf'"
               :size="20"
               class="file-list-item-icon"
-              color="white">
+              :color="isDark">
               picture_as_pdf
             </v-icon>
             <div class="file-list-item-title">{{ file.name }}</div>
@@ -51,12 +53,19 @@
         accept=".jpg,.png,.pdf"
         @change="onFileSelected"
         multiple>
-      <v-avatar
+      <v-avatar v-if="dark"
         class="file-upload-button"
         size="45"
-        color="white"
+        :color="isDark"
         @click="$refs.fileInput.click()">
         <v-icon color="primary">attachment</v-icon>
+      </v-avatar>
+      <v-avatar v-else
+        class="file-upload-button"
+        size="45"
+        color="accent"
+        @click="$refs.fileInput.click()">
+        <v-icon color="white">attachment</v-icon>
       </v-avatar>
     </template>
   </div>
@@ -85,11 +94,23 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    dark: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   data () {
     return {
       selectedFiles: []
+    }
+  },
+  computed: {
+    isDark () {
+      if (this.dark) {
+        return 'white'
+      }
     }
   },
   created () {

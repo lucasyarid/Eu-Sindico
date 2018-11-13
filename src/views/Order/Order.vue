@@ -7,20 +7,20 @@
       <v-tab href="#Novo">
         Novos
       </v-tab>
-      <v-tab href="#1">
+      <v-tab href="#Aceitos">
         Aceitos
       </v-tab>
-      <v-tab href="#denied">
+      <v-tab href="#Cancelada">
         Negados
       </v-tab>
     </v-tabs>
     <main class="mt-3 scrollable tab">
-      <template v-for="order in orders">
+      <template v-for="order in orderByTab">
         <router-link
           v-if="tabs == order.currentStatus"
           :to=" 'order/' + order.id "
           :key="order.length"
-          :style="{ backgroundImage: 'url(//picsum.photos/300/400)' }"
+          :style="backgroundImage(order)"
           class="order-item">
           <v-layout class="order-item-info">
             <v-flex xs9 pt-4>
@@ -61,7 +61,8 @@ export default {
     return {
       title: 'Pedidos',
       tabs: null,
-      orders: []
+      orders: [],
+      defaultImage: 'background-image: url(//picsum.photos/640/560)'
     }
   },
   methods: {
@@ -78,6 +79,32 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    backgroundImage (order) {
+      if (order.attachments && order.attachments.length) {
+        for (let i = 0; i < order.attachments.length; i++) {
+          const attachment = order.attachments[i]
+          if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
+            return 'background-image: url(' + attachment.url + ')'
+          } else {
+            return this.defaultImage
+          }
+        }
+      } else {
+        return this.defaultImage
+      }
+    }
+  },
+  computed: {
+    orderByTab () {
+      return this.orders.filter((order) => {
+        if (order.currentStatus === 'Novo' || order.currentStatus === 'Cancelada') {
+          return order
+        } else {
+          order.currentStatus = 'Aceitos'
+          return order
+        }
+      })
     }
   },
   mounted () {

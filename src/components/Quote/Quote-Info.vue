@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container scrollable icon>
     <h3>Envie seu orçamento</h3>
-    <h6 class="mt-2 text-uppercase">PREENCHA OS DADOS</h6>
+    <h6 class="mt-4 text-uppercase">PREENCHA OS DADOS</h6>
 
     <v-layout mt-2 >
       <v-flex xs6>
@@ -39,18 +39,19 @@
         ></v-text-field>
       </v-flex>
     </v-layout>
-    <v-layout mb-5>
+    <v-layout>
       <v-flex>
-        <h6 class="mb-3 text-uppercase">Adicione Anexos</h6>
-        <v-avatar size="60" color="accent" class="mr-2">
-          <v-icon color="white">add_a_photo</v-icon>
-        </v-avatar>
-        <v-avatar size="60" color="accent">
-          <v-icon color="white">attachment</v-icon>
-        </v-avatar>
+        <h6 class="text-uppercase mt-4 mb-1">ANEXOS</h6>
+        <v-layout mb-5>
+          <v-flex>
+            <Files list
+              :files="quote.files"
+              @uploadedFiles="quote.files = $event"/>
+          </v-flex>
+        </v-layout>
       </v-flex>
     </v-layout>
-    <footer class="mt-5 px-3">
+    <footer class="px-3">
       <v-btn round large depressed block
         tag="button"
         color="accent"
@@ -65,10 +66,14 @@
 <script>
 import { required, numeric } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
+import Files from '@/components/Files.vue'
 
 export default {
   name: 'quote-info',
   props: ['quote'],
+  components: {
+    Files
+  },
   validations: {
     quote: {
       companyName: { required },

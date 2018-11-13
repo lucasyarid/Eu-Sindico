@@ -34,7 +34,7 @@
     <v-layout>
       <v-flex>
         <h4 slot="activator" class="font-weight-bold mb-2">Anexos</h4>
-        <Files list
+        <Files list dark
           :files="order.files"
           @uploadedFiles="order.files = $event"/>
       </v-flex>

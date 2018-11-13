@@ -86,13 +86,13 @@ export default new Router({
       component: () => import(/* webpackChunkName: "quote" */ './views/Quote/Quote.vue')
     },
     {
-      path: '/quote/create',
+      path: '/order/:id/quote/create',
       name: 'quote-create',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote/Quote-Create.vue')
     },
     {
-      path: '/quote/review/:id',
+      path: '/order/:id/quote/',
       name: 'quote-review',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote/Quote-Review.vue')
