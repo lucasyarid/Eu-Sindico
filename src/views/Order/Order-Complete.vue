@@ -28,7 +28,7 @@
         </v-flex>
       </v-layout>
     </v-container>
-    <v-container>
+    <v-container scrollable tab>
       <h6 v-if="date" class="mb-3">
         <strong>{{ date | year }}</strong> / {{ date | month | uppercase }}
       </h6>
@@ -112,15 +112,17 @@ export default {
   computed: {
     filteredOrders () {
       return this.orders.filter((order) => {
-        if (this.date) {
-          var dateFilter = new Date(this.date)
-          var orderDate = new Date(order.budgetDeadline.substring(0, 7))
-          if (this.compareDates(orderDate, dateFilter)) {
-            return order.title.match(this.search)
+        if (order.currentStatus === 'Concluido') {
+          if (this.date) {
+            var dateFilter = new Date(this.date)
+            var orderDate = new Date(order.budgetDeadline.substring(0, 7))
+            if (this.compareDates(orderDate, dateFilter)) {
+              return order.title.match(this.search)
+            }
+          } else {
+            return order.title.toLowerCase().match(this.search.toLowerCase()) ||
+            order.type.name.toLowerCase().match(this.search.toLowerCase())
           }
-        } else {
-          return order.title.toLowerCase().match(this.search.toLowerCase()) ||
-          order.type.name.toLowerCase().match(this.search.toLowerCase())
         }
       })
     }
