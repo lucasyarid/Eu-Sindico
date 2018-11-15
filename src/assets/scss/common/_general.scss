@@ -59,7 +59,7 @@ img {
 .horizontal-scroll {
   overflow: auto;
   white-space: nowrap;
-  a {
+  a, .card {
     display: inline-block;
     margin: 0 5px;
   }

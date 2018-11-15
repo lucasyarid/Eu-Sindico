@@ -56,39 +56,19 @@
         </v-container>
       </div>
 
-      <div v-if="order.currentStatus === 'Em Votação'" class="app-cards horizontal-scroll">
-        <div class="quote-review-item card card-full card-grey card-disabled">
-          <div class="quote-review-info card-inner-card">
-            <h4 class="quote-review-info-title mb-3">Jardim do Sul Alvenaria</h4>
-
-            <ul class="quote-review-list">
-              <li class="quote-review-list-item">
-                <v-icon :size="21" color="primary">web</v-icon>
-                <p class="d-inline-block pl-2 primary--text mb-2">Visitar website</p>
-              </li>
-              <li class="quote-review-list-item">
-                <v-icon :size="21" color="primary">settings_phone</v-icon>
-                <p class="d-inline-block pl-2 primary--text">(11) 3666-1000</p>
-              </li>
-            </ul>
-
-            <h6 class="text-uppercase pb-1 mt-2">Tempo estimado</h6>
-            <p>12 dias</p>
-
-            <h6 class="text-uppercase mt-4">Anexos</h6>
-            <ul class="quote-review-list">
-              <li class="quote-review-list-item">
-                <a href="#">
-                  <v-icon :size="21" color="primary">attachment</v-icon>
-                  <p class="d-inline-block pl-2 primary--text">Laudo para Cond...pdf</p>
-                </a>
-              </li>
-            </ul>
-
-            <h6 class="text-uppercase pb-1 mt-2">Custo</h6>
-            <p>R$700,00</p>
-          </div>
-        </div>
+      <div v-else class="app-cards horizontal-scroll pb-1">
+        <quote-item
+          v-for="option in order.options"
+          :key="option.id"
+          :order-id="order.id"
+          :quote-id="option.id"
+          :company-name="option.companyName"
+          :company-phone="option.companyPhone"
+          :company-web-site="option.companyWebSite"
+          :estimated-days="option.estimatedDays"
+          :price="option.price"
+          :voted="option.voted"
+          :files="option.optionAttachments"/>
       </div>
     </v-container>
   </section>
@@ -99,24 +79,37 @@ import { dateCalc } from '@/mixins/dateCalc'
 import Gallery from '@/components/Gallery.vue'
 import axios from '@/axios-auth'
 import FooterButton from '@/components/FooterButton.vue'
+import QuoteItem from '@/components/Quote/Quote-Item.vue'
 
 export default {
   name: 'quote-review',
   mixins: [dateCalc],
   components: {
     Gallery,
-    FooterButton
+    FooterButton,
+    QuoteItem
   },
   data: function () {
     return {
       title: 'Aprovar Orçamentos',
       menuBack: true,
       order: {
+        id: 0,
         title: '',
         attachments: [],
         type: {
           name: ''
-        }
+        },
+        options: [{
+          id: 0,
+          companyName: '',
+          companyPhone: '',
+          companyWebSite: '',
+          estimatedDays: 0,
+          optionAttachments: [],
+          price: 0,
+          voted: true
+        }]
       }
     }
   },
@@ -145,7 +138,7 @@ export default {
     },
     getOrder () {
       axios
-        .get('/orders/' + this.$route.params.id)
+        .get('/orders/' + this.$route.params.orderId)
         .then(res => {
           console.log(res.data)
           this.order = res.data

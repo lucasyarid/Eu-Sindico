@@ -110,7 +110,7 @@ export default {
     postQuote () {
       this.dialog = true
       axios
-        .post('/orders/' + this.$route.params.id + '/options', {
+        .post('/orders/' + this.$route.params.orderId + '/options', {
           attachments: this.quote.files,
           companyName: this.quote.companyName,
           companyPhone: this.quote.companyPhone,

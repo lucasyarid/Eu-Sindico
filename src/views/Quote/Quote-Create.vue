@@ -77,7 +77,7 @@ export default {
     },
     getOrder () {
       axios
-        .get('/orders/' + this.$route.params.id)
+        .get('/orders/' + this.$route.params.orderId)
         .then(res => {
           this.order = res.data
         })

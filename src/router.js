@@ -68,13 +68,13 @@ export default new Router({
       component: () => import(/* webpackChunkName: "order-complete" */ './views/Order/Order-Complete.vue')
     },
     {
-      path: '/order/complete/:id',
+      path: '/order/complete/:orderId',
       name: 'order-complete-vote',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "order-complete-vote" */ './views/Order/Order-Complete-Vote.vue')
     },
     {
-      path: '/order/:id',
+      path: '/order/:orderId',
       name: 'order-review',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "order-review" */ './views/Order/Order-Review.vue')
@@ -86,13 +86,13 @@ export default new Router({
       component: () => import(/* webpackChunkName: "quote" */ './views/Quote/Quote.vue')
     },
     {
-      path: '/order/:id/quote/create',
+      path: '/order/:orderId/quote/create',
       name: 'quote-create',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "quote-create" */ './views/Quote/Quote-Create.vue')
     },
     {
-      path: '/order/:id/quote/',
+      path: '/order/:orderId/quote/',
       name: 'quote-review',
       beforeEnter: ifAuthenticated,
       component: () => import(/* webpackChunkName: "quote-review" */ './views/Quote/Quote-Review.vue')

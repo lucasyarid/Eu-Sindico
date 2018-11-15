@@ -6,14 +6,14 @@
   display: block;
   width: 85%;
   &.card-full {
-    width: 100%;
+    width: 98%;
   }
   &.card-lg {
     width: 85%;
     height: 415px;
   }
   &.card-md {
-    width: 100%;
+    width: 98%;
     height: 155px;
   }
   &.card-image {
@@ -47,5 +47,9 @@
     width: 100%;
     background: #fff;
     border-radius: 20px;
+  }
+  .scrollable {
+    height: 100px;
+    position: initial;
   }
 }
