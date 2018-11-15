@@ -57,7 +57,7 @@
             <v-flex xs8>
               <v-btn round large depressed block
                 class="text-sm-left"
-                @click.prevent="postOrder(); dialog = true"
+                @click.prevent="postOrder"
                 color="accent">Submeter solicitação</v-btn>
             </v-flex>
           </v-layout>
@@ -113,6 +113,7 @@ export default {
       'setStep', 'changeStep'
     ]),
     postOrder () {
+      this.dialog = true
       axios
         .post('/orders', {
           attachments: this.order.files,

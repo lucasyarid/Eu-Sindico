@@ -7,12 +7,18 @@
       <v-flex xs6>
         <v-text-field
           label="Nome da Empresa"
+          placeholder="Construções S.A."
           v-model="quote.companyName"
         ></v-text-field>
       </v-flex>
-      <v-flex xs6>
+      <v-flex xs6 class="validate" :class="{invalid: $v.quote.companyPhone.$error}">
+        <div v-if="$v.quote.companyPhone.$error" class="active"
+          data-tooltip="Informe um telefone válido"></div>
         <v-text-field
+          :mask="'(##) ##### - ####'"
           label="Telefone"
+          placeholder="(11) 11111 - 1111"
+          @blur="$v.quote.companyPhone.$touch()"
           v-model="quote.companyPhone"
         ></v-text-field>
       </v-flex>
@@ -21,6 +27,7 @@
       <v-flex>
         <v-text-field
           label="Site da Empresa"
+          placeholder="Ex: construcoessa.com.br"
           v-model="quote.companyWebsite"
         ></v-text-field>
       </v-flex>
@@ -29,12 +36,18 @@
       <v-flex xs6>
         <v-text-field
           label="Tempo Estimado"
-          v-model="quote.time"
+          suffix="dias"
+          placeholder="Ex: 30"
+          v-model="quote.estimatedDays"
         ></v-text-field>
       </v-flex>
       <v-flex xs6>
         <v-text-field
+          class="price"
           label="Custo"
+          prefix="R$"
+          suffix=",00"
+          placeholder="Ex: 1000"
           v-model="quote.price"
         ></v-text-field>
       </v-flex>
@@ -64,7 +77,7 @@
 </template>
 
 <script>
-import { required, numeric } from 'vuelidate/lib/validators'
+import { required, numeric, minLength } from 'vuelidate/lib/validators'
 import { mapMutations } from 'vuex'
 import Files from '@/components/Files.vue'
 
@@ -77,8 +90,15 @@ export default {
   validations: {
     quote: {
       companyName: { required },
-      companyPhone: { required },
-      time: { required },
+      companyWebsite: {
+        required
+      },
+      companyPhone: {
+        required,
+        numeric,
+        minLength: minLength(10)
+      },
+      estimatedDays: { required },
       price: {
         required,
         numeric
@@ -92,3 +112,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.price input {
+  padding-left: 10px;
+}
+</style>

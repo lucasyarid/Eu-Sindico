@@ -44,14 +44,12 @@ export default {
         }
       },
       quote: {
-        status: 'a',
         companyName: '',
-        companyPhone: '',
         companyWebsite: '',
-        time: '',
-        files: [],
-        price: '',
-        comments: []
+        companyPhone: '',
+        estimatedDays: null,
+        price: null,
+        files: []
       }
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <section>
     <v-container>
-      <h1 class="font-weight-bold mb-4">Confirme as informações</h1>
+      <h3 class="font-weight-bold mb-4">Confirme as informações</h3>
       <v-layout>
         <v-flex>
           <h6 class="text-uppercase">Empresa</h6>
@@ -26,7 +26,7 @@
       <v-layout>
         <v-flex>
           <h6 class="text-uppercase">Tempo Estimado</h6>
-          <p>{{ quote.time }}</p>
+          <p>{{ quote.estimatedDays }}</p>
         </v-flex>
         <v-flex>
           <h6 class="text-uppercase">Custo Total</h6>
@@ -34,22 +34,12 @@
         </v-flex>
       </v-layout>
 
-      <div class="horizontal-scroll">
-        <h6 class="text-uppercase">FOTOS</h6>
-        <v-layout pt-2>
-          <v-flex mr-1 v-for="i in 6" :key="i">
-            <img class="thumb" src="//picsum.photos/68/68" />
-          </v-flex>
-        </v-layout>
-      </div>
-
-      <h6 class="text-uppercase mt-4 mb-2">ANEXOS</h6>
-      <v-layout>
+      <h6 class="text-uppercase mt-4 mb-1">ANEXOS</h6>
+      <v-layout mb-5>
         <v-flex>
-          <v-avatar :size="25" color="secondary">
-            <v-icon :size="15" dark>close</v-icon>
-          </v-avatar>
-          <p class="d-inline-block pl-2"> Orçamento empresa XYZ.pdf</p>
+          <Files list hide-btn
+            :files="quote.files"
+            @uploadedFiles="quote.files = $event"/>
         </v-flex>
       </v-layout>
 
@@ -59,32 +49,100 @@
             <v-flex xs4>
               <v-btn round large depressed outline block
                 class="text-sm-left"
-                @click.prevent="setStep(1)"
+                @click.prevent="setStep(0)"
                 color="light-blue lighten-2">Alterar</v-btn>
             </v-flex>
             <v-flex xs8>
               <v-btn round large depressed block
                 class="text-sm-left"
-                @click.prevent="changeStep(1)"
+                @click.prevent="postQuote"
                 color="accent">Submeter solicitação</v-btn>
             </v-flex>
           </v-layout>
         </v-container>
       </v-form>
     </v-container>
+
+    <v-dialog
+      v-model="dialog"
+      hide-overlay
+      persistent
+      width="300">
+      <v-card
+        color="primary"
+        dark>
+        <v-card-text>
+          Enviando...
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </section>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import axios from '@/axios-auth'
+import Files from '@/components/Files.vue'
 
 export default {
   name: 'quote-confirm',
   props: ['quote'],
+  components: {
+    Files
+  },
+  data () {
+    return {
+      dialog: false
+    }
+  },
+  mounted () {
+    console.log(this.quote)
+  },
   methods: {
     ...mapMutations([
       'setStep', 'changeStep'
-    ])
+    ]),
+    postQuote () {
+      this.dialog = true
+      axios
+        .post('/orders/' + this.$route.params.id + '/options', {
+          attachments: this.quote.files,
+          companyName: this.quote.companyName,
+          companyPhone: this.quote.companyPhone,
+          companyWebSite: this.quote.companyWebsite,
+          estimatedDays: this.quote.estimatedDays,
+          price: this.quote.price
+        })
+        .then(res => {
+          setTimeout(() => {
+            this.changeStep(1)
+          }, 2000)
+        })
+        .catch((error) => {
+        // Error
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data)
+            console.log(error.response.status)
+            console.log(error.response.headers)
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request)
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message)
+          }
+          console.log(error.config)
+        })
+    }
   }
 }
 </script>
