@@ -97,6 +97,10 @@ export default {
     this.setName()
     this.setMenu()
     this.getOrder()
+  },
+  destroyed () {
+    this.menuBack = false
+    this.setMenu()
   }
 }
 </script>
