@@ -66,7 +66,7 @@ export default {
   },
   data () {
     return {
-      icons: ['announcement', 'inbox', 'how_to_vote', 'gavel', 'work']
+      icons: ['announcement', 'inbox', 'how_to_vote', 'gavel', 'work', 'thumb_up']
     }
   },
   computed: {
