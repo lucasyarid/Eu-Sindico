@@ -1,5 +1,5 @@
 <template>
-  <section class="order-complete">
+  <section class="order-list">
     <v-container py-0>
       <v-layout row>
         <v-flex>
@@ -33,22 +33,15 @@
         <strong>{{ date | year }}</strong> / {{ date | month | uppercase }}
       </h6>
 
-      <template v-for="order in filteredOrders">
-        <router-link
-          :key="order.length"
-          :to="'/order/complete/' + order.id">
-          <div class="card card-image card-md mb-3" style="background-image: url(//picsum.photos/310/135)">
-            <span class="order-complete-info">
-              <h4 class="font-weight-bold">{{order.type.name}} {{order.title}}</h4>
-              <v-rating small
-                :dense="true"
-                :readonly="true"
-                color="accent"
-                background-color="accent"
-                v-model="rating"></v-rating>
-            </span>
-          </div>
-        </router-link>
+      <template v-for="order in statusOrder">
+        <card-width
+          :show-stars="currentPage === 'order-complete'"
+          :key="order.id"
+          :to="goToPath + order.id"
+          :background-image="backgroundImage(order)"
+          :name="order.type.name"
+          :title="order.title"
+          :stars="order.rate.stars"/>
       </template>
 
     </v-container>
@@ -57,11 +50,17 @@
 
 <script>
 import axios from '@/axios-auth'
+import CardWidth from '@/components/List/Card-Width.vue'
 
 export default {
-  name: 'order-complete',
+  name: 'order-list',
+  components: {
+    CardWidth
+  },
   data: function () {
     return {
+      currentPage: '',
+      goToPath: '',
       title: 'Pedidos Concluídos',
       rating: 4,
       orders: [],
@@ -72,10 +71,26 @@ export default {
     }
   },
   mounted () {
+    this.getPage()
     this.setName()
     this.getOrders()
   },
+  watch: {
+    '$route.name' () {
+      this.getPage()
+      this.setName()
+    }
+  },
   methods: {
+    getPage () {
+      this.currentPage = this.$route.name
+      if (this.currentPage === 'timeline') {
+        this.title = 'Pedidos em andamento'
+        this.goToPath = '/timeline/'
+      } else if (this.currentPage === 'order-complete') {
+        this.goToPath = '/order/complete/'
+      }
+    },
     setName () {
       this.$emit('getTitle', this.title)
     },
@@ -92,6 +107,16 @@ export default {
       }
       return false
     },
+    backgroundImage (order) {
+      if (order.attachments && order.attachments.length) {
+        for (let i = 0; i < order.attachments.length; i++) {
+          const attachment = order.attachments[i]
+          if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
+            return 'background-image: url(' + attachment.url + ')'
+          }
+        }
+      }
+    },
     resetDate () {
       this.modal = false
       this.date = null
@@ -107,21 +132,30 @@ export default {
         .catch(error => {
           console.log(error)
         })
+    },
+    filterOrder (order) {
+      if (this.date) {
+        var dateFilter = new Date(this.date)
+        var orderDate = new Date(order.budgetDeadline.substring(0, 7))
+        if (this.compareDates(orderDate, dateFilter)) {
+          return order.title.match(this.search)
+        }
+      } else {
+        return order.title.toLowerCase().match(this.search.toLowerCase()) ||
+        order.type.name.toLowerCase().match(this.search.toLowerCase())
+      }
     }
   },
   computed: {
-    filteredOrders () {
+    statusOrder () {
       return this.orders.filter((order) => {
-        if (order.currentStatus === 'Concluido') {
-          if (this.date) {
-            var dateFilter = new Date(this.date)
-            var orderDate = new Date(order.budgetDeadline.substring(0, 7))
-            if (this.compareDates(orderDate, dateFilter)) {
-              return order.title.match(this.search)
-            }
-          } else {
-            return order.title.toLowerCase().match(this.search.toLowerCase()) ||
-            order.type.name.toLowerCase().match(this.search.toLowerCase())
+        if (this.currentPage === 'timeline') {
+          if (order.currentStatus !== 'Concluido' || order.currentStatus !== 'Cancelada') {
+            return this.filterOrder(order)
+          }
+        } else if (this.currentPage === 'order-complete') {
+          if (order.currentStatus === 'Concluido') {
+            return this.filterOrder(order)
           }
         }
       })

@@ -50,7 +50,7 @@ export default {
         { icon: 'chrome_reader_mode', title: 'Início', link: '/', exact: true },
         { icon: 'mail', title: 'Pedidos', link: '/order', exact: true },
         { icon: 'event_note', title: 'Orçamentos', link: '/quote' },
-        // { icon: 'play_arrow', title: 'Em progresso', link: '/timeline' },
+        { icon: 'play_arrow', title: 'Em progresso', link: '/timeline' },
         { icon: 'check', title: 'Concluídos', link: '/order/complete' },
         // { icon: 'settings', title: 'Ajustes', link: '/settings' },
         { icon: 'info', title: 'Sobre nós', link: '/about' },

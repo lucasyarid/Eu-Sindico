@@ -47,7 +47,13 @@ export default new Router({
       path: '/timeline',
       name: 'timeline',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "timeline" */ './views/Pages/Timeline.vue')
+      component: () => import(/* webpackChunkName: "timeline" */ './views/Order/Order-List.vue')
+    },
+    {
+      path: '/timeline/:orderId',
+      name: 'timeline-item',
+      beforeEnter: ifAuthenticated,
+      component: () => import(/* webpackChunkName: "timeline" */ './views/Timeline/Timeline-item.vue')
     },
     {
       path: '/order',
@@ -65,7 +71,7 @@ export default new Router({
       path: '/order/complete',
       name: 'order-complete',
       beforeEnter: ifAuthenticated,
-      component: () => import(/* webpackChunkName: "order-complete" */ './views/Order/Order-Complete.vue')
+      component: () => import(/* webpackChunkName: "order-complete" */ './views/Order/Order-List.vue')
     },
     {
       path: '/order/complete/:orderId',

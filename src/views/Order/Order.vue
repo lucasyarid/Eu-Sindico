@@ -16,53 +16,34 @@
     </v-tabs>
     <main class="mt-3 scrollable tab">
       <template v-for="order in orderByTab">
-        <router-link
+        <full-width
           v-if="tabs == order.currentStatus"
-          :to=" 'order/' + order.id "
-          :key="order.length"
-          :style="backgroundImage(order)"
-          class="order-item">
-          <v-layout class="order-item-info">
-            <v-flex xs9 pt-4>
-              <h5>{{order.type.name}}</h5>
-              <h4 class="font-weight-bold pt-1"> {{order.title}}</h4>
-            </v-flex>
-            <v-flex xs3>
-              <v-progress-circular
-                :rotate="-90"
-                :size="80"
-                :width="4"
-                :value="getDatePercentage(order.approvalDeadline, order.created)"
-                color="accent">
-                <div class="timer">
-                  <div class="timer-content">
-                    <small class="text-xs-center">Expira em</small>
-                    <time class="text-xs-center">{{ getDaysLeft(order.approvalDeadline) }} dias</time>
-                  </div>
-                </div>
-              </v-progress-circular>
-            </v-flex>
-          </v-layout>
-        </router-link>
+          :key="order.id"
+          :to="'order/' + order.id"
+          :background-image="backgroundImage(order)"
+          :name="order.type.name"
+          :title="order.title"
+          :date1="order.approvalDeadline"
+          :date2="order.created"/>
       </template>
-
     </main>
   </section>
 </template>
 
 <script>
-import { dateCalc } from '@/mixins/dateCalc'
 import axios from '@/axios-auth'
+import FullWidth from '@/components/List/Full-Width.vue'
 
 export default {
   name: 'order',
-  mixins: [dateCalc],
+  components: {
+    FullWidth
+  },
   data: function () {
     return {
       title: 'Pedidos',
       tabs: null,
-      orders: [],
-      defaultImage: 'background-image: url(//picsum.photos/640/560)'
+      orders: []
     }
   },
   methods: {
@@ -86,12 +67,8 @@ export default {
           const attachment = order.attachments[i]
           if (attachment.fileType === 'jpg' || attachment.fileType === 'jpeg' || attachment.fileType === 'png') {
             return 'background-image: url(' + attachment.url + ')'
-          } else {
-            return this.defaultImage
           }
         }
-      } else {
-        return this.defaultImage
       }
     }
   },
