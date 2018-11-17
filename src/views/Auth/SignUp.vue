@@ -1,5 +1,6 @@
 <template>
   <section id="signup">
+    <img src="/logo.png" alt="Eu Síndico" style="margin: 0 auto; display:block;">
     <v-form @submit.prevent="onSubmit">
       <v-container>
         <v-layout row wrap>
