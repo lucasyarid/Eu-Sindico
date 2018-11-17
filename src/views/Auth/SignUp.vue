@@ -1,6 +1,6 @@
 <template>
   <section id="signup">
-    <img src="/logo.png" alt="Eu Síndico" style="margin: 0 auto; display:block;">
+    <img :src="logo" alt="Eu Síndico" style="margin: 0 auto; display:block;">
     <v-form @submit.prevent="onSubmit">
       <v-container>
         <v-layout row wrap>
@@ -64,6 +64,7 @@
 </template>
 
 <script>
+import logo from '@/assets/logo.png'
 import { mapMutations } from 'vuex'
 import { required, email, minLength, sameAs } from 'vuelidate/lib/validators'
 
@@ -77,7 +78,8 @@ export default {
       password: '',
       confirmPassword: '',
       terms: '',
-      showPassword: false
+      showPassword: false,
+      logo: logo
     }
   },
   validations: {
