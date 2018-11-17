@@ -11,6 +11,7 @@ export function ifAuthenticated (to, from, next) {
   if (store.getters.isAuthenticated) {
     next()
   } else {
+    next('/signin')
   }
 }
 
