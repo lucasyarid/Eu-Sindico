@@ -7,6 +7,7 @@ const state = {
   apiToken: null,
   userName: null,
   userCompany: null,
+  userRole: null,
   user: null
 }
 
@@ -16,6 +17,9 @@ const getters = {
   },
   isAuthenticated (state) {
     return state.apiToken !== null
+  },
+  userRole (state) {
+    return state.userRole
   },
   errorMessage (state) {
     return state.httpErrorMessage
@@ -27,6 +31,7 @@ const mutations = {
     state.apiToken = userData.apiToken
     state.userName = userData.userName
     state.userCompany = userData.userCompany
+    state.userRole = userData.userRole
   },
   storeUser (state, user) {
     state.user = user
@@ -35,6 +40,7 @@ const mutations = {
     state.apiToken = null
     state.userName = null
     state.userCompany = null
+    state.userRole = null
   },
   setHttpErrorMessage (state, errorMessage) {
     state.httpErrorMessage = errorMessage
@@ -78,15 +84,18 @@ const actions = {
         const now = new Date()
         const day = 86400000
         const expirationDate = new Date(now.getTime() + day)
+        console.log(res.data)
         localStorage.setItem('apiToken', res.data.token)
         localStorage.setItem('userName', res.data.name)
         localStorage.setItem('userCompany', res.data.company.name)
+        localStorage.setItem('userRole', res.data.type)
         localStorage.setItem('expirationDate', expirationDate)
         commit('setHttpErrorMessage', '')
         commit('authUser', {
           apiToken: res.data.token,
           userName: res.data.name,
-          userCompany: res.data.company.name
+          userCompany: res.data.company.name,
+          userRole: res.data.type
         })
         dispatch('setLogoutTimer', day)
         router.push('/')
@@ -98,7 +107,6 @@ const actions = {
         } else {
           console.log('Error', error.message)
         }
-        console.log(error.config)
       })
   },
   tryAutoLogin ({ commit }) {
@@ -113,10 +121,12 @@ const actions = {
     }
     const userName = localStorage.getItem('userName')
     const userCompany = localStorage.getItem('userCompany')
+    const userRole = localStorage.getItem('userRole')
     commit('authUser', {
       apiToken: apiToken,
       userName: userName,
-      userCompany: userCompany
+      userCompany: userCompany,
+      userRole: userRole
     })
   },
   logout ({ commit }) {
@@ -124,6 +134,7 @@ const actions = {
     localStorage.removeItem('apiToken')
     localStorage.removeItem('userName')
     localStorage.removeItem('userCompany')
+    localStorage.removeItem('userRole')
     localStorage.removeItem('expirationDate')
     router.replace('/signin')
   },

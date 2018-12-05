@@ -46,6 +46,7 @@
           color="white"><v-icon color="accent">check</v-icon> Voto enviado!</v-btn>
         <v-btn round large dark depressed block
           v-else
+          :disabled="userRole !== 'Morador'"
           tag="button"
           class="text-xs-center my-3"
           color="accent"
@@ -57,6 +58,7 @@
 
 <script>
 import axios from '@/axios-auth'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'QuoteItem',
@@ -98,18 +100,13 @@ export default {
       required: true
     }
   },
+  computed: mapGetters([
+    'userRole'
+  ]),
   methods: {
     voteOnQuote () {
       axios
-        .post('/orders/' + this.orderId + '/options/' + this.quoteId + '/vote', (data) => {
-          console.log(data)
-        })
-        .then(res => {
-          console.log(res)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+        .post('/orders/' + this.orderId + '/options/' + this.quoteId + '/vote', () => {})
     }
   }
 }

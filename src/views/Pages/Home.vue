@@ -68,14 +68,14 @@
               <div>Concluidos</div>
             </router-link>
           </v-flex>
-          <v-flex xs4>
+          <!-- <v-flex xs4>
             <router-link to="/settings">
               <v-avatar size="50" class="mb-3 outline" color="light-blue lighten-2">
                 <v-icon dark>settings</v-icon>
               </v-avatar>
               <div>Ajustes</div>
             </router-link>
-          </v-flex>
+          </v-flex> -->
           <v-flex xs4>
             <router-link to="/order/create">
               <span slot="badge" class="black--text">3</span>

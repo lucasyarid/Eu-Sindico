@@ -150,7 +150,6 @@ export default {
       axios
         .get('/orders/' + this.$route.params.orderId)
         .then(res => {
-          console.log(res.data)
           this.order = res.data
         })
         .catch(err => {
@@ -163,7 +162,6 @@ export default {
           stars: this.ratingVote
         })
         .then(res => {
-          console.log(res)
           this.order.rated = true
         })
         .catch(err => {

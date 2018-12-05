@@ -79,6 +79,7 @@
               <v-layout justify-center class="footer-button">
                 <v-flex xs8>
                   <v-btn round large dark depressed block
+                    :disabled="userRole === 'Morador'"
                     class="text-sm-left"
                     color="accent"
                     @click="orderApprove">
@@ -98,7 +99,7 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapGetters } from 'vuex'
 import axios from '@/axios-auth'
 import Gallery from '@/components/Gallery.vue'
 import FooterButton from '@/components/FooterButton.vue'
@@ -127,6 +128,9 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'userRole'
+    ]),
     step () {
       return this.$store.state.step
     },
@@ -159,7 +163,6 @@ export default {
       axios
         .get('/orders/' + this.$route.params.orderId)
         .then(res => {
-          console.log(res.data)
           this.order = res.data
         })
         .catch(error => {
@@ -168,9 +171,7 @@ export default {
     },
     orderApprove () {
       axios
-        .post('/orders/' + this.order.id + '/approve', (data) => {
-          console.log(data)
-        })
+        .post('/orders/' + this.order.id + '/approve', () => {})
         .then(res => {
           this.$router.push({ path: '/order' })
         })
